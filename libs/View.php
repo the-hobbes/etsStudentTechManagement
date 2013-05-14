@@ -5,15 +5,11 @@ class View{
 	public $data = array();
 	
 	
-	function __construct(){
-	
-	}
-	
-	public function render($name, $data = false, $noInclude = false){
+	public function render($name, $data = false, $includeHeader = true){
 		
 			$this->data = $data;
 			
-			if($noInclude == false){
+			if($includeHeader == true){
 				require 'views/header.php';
 				require 'views/'.$name.'.php';
 				require 'views/footer.php';

@@ -5,10 +5,13 @@ class Bootstrap{
 	function __construct($config){
 		
 		//Grab the URL and split it by the '/' delimiters
-		$url = $_GET['url'];
-		$url = rtrim($url, '/');
-		$url = explode('/', $url);
-				
+		if(isset($_GET['url'])){
+			$url = $_GET['url'];
+			$url = rtrim($url, '/');
+			$url = explode('/', $url);			
+		}else{
+			$url[0] = "";
+		}
 		//Set the path of the controller file based off of the first portion of the URL	
 		$controller_file = 'controllers/'.$url[0].'.php';	
 		
@@ -68,7 +71,10 @@ class Bootstrap{
 				
 			}//end: else
 		 }else{
-		 	$controller->index();
+		 	if($class!='error'){
+		 		//No methods called, call the default index()
+		 		$controller->index();
+		 	}
 		 }
 
 		 //end: if
