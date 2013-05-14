@@ -11,6 +11,7 @@ By the gentlemens with the name Phelan and Michael
 	-Creating a new page
 	-Method usage and form submissions
 	-Helper functions
+	-Query the database
 	-TO DO
 ###
 #Setup:
@@ -26,7 +27,8 @@ By the gentlemens with the name Phelan and Michael
 		b. edit controllers/about.php and paste the following code
 			<?php
 				class About extends Controller{
-					
+
+					//required constructor
 					function __construct($app){
 						parent::__construct($app);
 					}
@@ -81,6 +83,17 @@ By the gentlemens with the name Phelan and Michael
 			returns "http://localhost/ETS/public/css/mainstyle.css"
 
 ###
+#Connecting and Querying the database
+#	
+	Connection:	Edit the database strings in libs/config.php
+
+	Querying: From within a view, a model, or a controller, you may query the database like so:
+		$results = $this->db->query("SELECT*FROM test");
+
+		You must use "$this", key word.
+	
+
+###
 #TODO
 	1. Setup models
-	2. set up database wrapper
+	

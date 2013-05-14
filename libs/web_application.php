@@ -23,7 +23,6 @@ class web_application{
 
 		if($config['dbEnabled'] == true){
 			$this->db = new Database($this);
-			//$this->db->connect();
 		}
 		
 		$this->view = new View($this);
