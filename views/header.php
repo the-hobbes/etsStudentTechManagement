@@ -4,13 +4,12 @@
 	<title>ETS</title>
 	<link rel="stylesheet" href="<?php echo URL ?>public/css/reset.css" />
 	<link rel="stylesheet" href="<?php echo URL ?>public/css/mainstyle.css" />
-	<!--<link rel="stylesheet" href="<?php echo URL ?>public/js/fancyBox/source/jquery.fancybox.css?v=2.1.0" />-->
 	
 	<meta name="description" content="Derp" />
-	<meta name="author" content="Michael Toth" />
+	<meta name="author" content="Michael Toth and Phelan Vendeville" />
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	
 </head>
 <body>
