@@ -2,6 +2,10 @@
 
 class Main extends Controller{
 	
+	function __construct($app){
+		parent::__construct($app);
+	}
+
 	//index(): Default method. Called when you access controller with no method calls
 	function index(){
 		$data['test']="lol";
@@ -14,7 +18,7 @@ class Main extends Controller{
 
 	//derp(): called from localhost/ETS/main/derp
 	function derp(){
-		echo 'derp';
+		//$this->app->db->connect();
 	}
 
 	function formSubmit(){

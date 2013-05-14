@@ -2,7 +2,7 @@
 
 class Bootstrap{
 	
-	function __construct($config){
+	function __construct($config, $app){
 		
 		//Grab the URL and split it by the '/' delimiters
 		if(isset($_GET['url'])){
@@ -44,7 +44,7 @@ class Bootstrap{
 		}//end: else
 		
 		//Instantiate
-		$controller = new $class;
+		$controller = new $class($app);
 		
 		/*
 		 * Handle Methods and arguments

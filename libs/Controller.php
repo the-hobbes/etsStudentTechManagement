@@ -1,8 +1,16 @@
 <?php
 class Controller{
-		
-	function __construct(){
-		$this->view = new View();
+	
+	public $app;
+	public $db;
+	public $view;
+
+	function __construct($app){
+		$this->app=$app;
+
+		$this->db = $this->app->db;
+		$this->view = $this->app->view;
+
 	}
 }
 
