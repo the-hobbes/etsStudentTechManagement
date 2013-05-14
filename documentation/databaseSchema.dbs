@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="ETS Student Tech Management System" database="MySql" >
+	<schema name="ets student tech management system" schemaname="ets student tech management system" defo="y" >
+		<table name="tbl_application" >
+			<comment>Contains application-centric information about a user.</comment>
+			<column name="pk_id" type="INT" jt="4" mandatory="y" />
+			<column name="fk_netid" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="fld_prevworked" type="BOOL" jt="-7" >
+				<comment> <![CDATA[Have you previously worked for uvm?]]> </comment>
+			</column>
+			<column name="fld_wrkeligible" type="BOOL" jt="-7" >
+				<comment> <![CDATA[Are you eligible to work in the united states?]]> </comment>
+			</column>
+			<column name="fld_undergrad" type="BOOL" jt="-7" >
+				<comment> <![CDATA[Are you currently an undergraduate]]> </comment>
+			</column>
+			<column name="fld_graduatestudent" type="BOOL" jt="-7" >
+				<comment> <![CDATA[Are you currently a graduate student?]]> </comment>
+			</column>
+			<column name="fld_credits" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[If you are a UVM student, in how many credits are you enrolled?]]> </comment>
+			</column>
+			<column name="fld_workstudy" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[If you are a UVM student, in how many credits are you enrolled?]]> </comment>
+			</column>
+			<column name="fld_employername" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_employeraddress" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_employerphone" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_prevpayrate" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[your pay rate at that previous job]]> </comment>
+			</column>
+			<column name="fld_hrsworked" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[hours worked for the previous employer]]> </comment>
+			</column>
+			<column name="fld_jobduties" type="VARCHAR" length="500" jt="12" />
+			<column name="fld_maywecontact" type="BOOL" jt="-7" >
+				<comment> <![CDATA[may we contact that employer?]]> </comment>
+			</column>
+			<column name="fld_refname" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[reference name]]> </comment>
+			</column>
+			<column name="fld_refphone" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_refrelationship" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_goodcandidate" type="VARCHAR" length="500" jt="12" >
+				<comment> <![CDATA[Tell us what makes you a good candidate for this job:]]> </comment>
+			</column>
+			<column name="fld_prevcustexperience" type="VARCHAR" length="500" jt="12" >
+				<comment> <![CDATA[describe previous customer experience]]> </comment>
+			</column>
+			<column name="fld_prevcts" type="VARCHAR" length="500" jt="12" >
+				<comment> <![CDATA[previous computer troubleshooting experience]]> </comment>
+			</column>
+			<index name="pk_tlb_application" unique="PRIMARY_KEY" >
+				<column name="pk_id" />
+			</index>
+			<index name="pk_tbl_application" unique="UNIQUE" >
+				<column name="fk_netid" />
+			</index>
+		</table>
+		<table name="tbl_people" >
+			<comment>Contains information specific to an individual person</comment>
+			<column name="pk_netid" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="fld_firstname" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="fld_lastname" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="fld_middleinitial" type="VARCHAR" length="1" jt="12" />
+			<column name="fld_streetaddress" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_zipcode" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_email" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="fld_major" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_graddate" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_phone" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_schedulecode" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_tbl_people" unique="PRIMARY_KEY" >
+				<column name="pk_netid" />
+			</index>
+			<fk name="fk_tbl_people" to_schema="ets student tech management system" to_table="tbl_application" >
+				<fk_column name="pk_netid" pk="fk_netid" />
+			</fk>
+			<fk name="fk_tbl_people_0" to_schema="ets student tech management system" to_table="tbl_payroll" >
+				<fk_column name="pk_netid" pk="fk_netid" />
+			</fk>
+		</table>
+		<table name="tbl_payroll" >
+			<comment>Contains payroll specific information, including start and end dates.</comment>
+			<column name="pk_id" type="INT" jt="4" mandatory="y" />
+			<column name="fk_netid" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="fld_startdate" type="DATE" jt="91" />
+			<column name="fld_enddate" type="DATE" jt="91" />
+			<column name="fld_employeeid" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[peoplesoft employee id]]> </comment>
+			</column>
+			<column name="fld_budgetcode" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[budget code for employee]]> </comment>
+			</column>
+			<column name="fld_employeerecnum" type="VARCHAR" length="100" jt="12" >
+				<comment> <![CDATA[employee record number]]> </comment>
+			</column>
+			<column name="fld_currentrate" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_newrate" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_hrsperweek" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_costperweek" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_hlhours" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_cdchours" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_hlcost" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_cdccost" type="VARCHAR" length="100" jt="12" />
+			<column name="fld_confagreement" type="BOOL" jt="-7" >
+				<comment> <![CDATA[confidentiality agreement]]> </comment>
+			</column>
+			<column name="fld_quizzesdone" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_tbl_payroll" unique="PRIMARY_KEY" >
+				<column name="pk_id" />
+			</index>
+			<index name="pk_tbl_payroll_0" unique="UNIQUE" >
+				<column name="fk_netid" />
+			</index>
+		</table>
+	</schema>
+	<layout name="ETS Student Tech Management System" >
+		<entity schema="ets student tech management system" name="tbl_people" x="42" y="126" />
+		<entity schema="ets student tech management system" name="tbl_payroll" x="602" y="42" />
+		<entity schema="ets student tech management system" name="tbl_application" x="322" y="210" />
+	</layout>
+</project>
