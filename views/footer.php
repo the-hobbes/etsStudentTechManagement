@@ -4,14 +4,8 @@
 	
 	</div><!--end container-->
 		
-	<footer class="media_config">
+	<footer>
 		
-		
-		
-		<ul>
-		</ul>
-		
-		<p id="signature">Website created by Michael Toth</p>
 	
 	</footer>	
 

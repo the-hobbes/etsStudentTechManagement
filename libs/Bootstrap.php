@@ -42,7 +42,6 @@ class Bootstrap{
 		
 		//Instantiate
 		$controller = new $class;
-		echo $controller;
 		
 		/*
 		 * Handle Methods and arguments
@@ -68,7 +67,11 @@ class Bootstrap{
 				$controller->{$url[1]}();
 				
 			}//end: else
-		 }//end: if
+		 }else{
+		 	$controller->index();
+		 }
+
+		 //end: if
 	}//end: __construct
 	
 }
