@@ -1,0 +1,197 @@
+
+
+html{
+	height:100%;
+}
+body{
+	width:100%;
+	height:100%;
+	background:url('http://www.uvm.edu/~mftoth/cs148/assign1/public/images/bots.jpg');
+	background-repeat:repeat;
+}
+h3{
+	font-size:1.5em;
+	font-family: 'Roboto';
+	color:#6a870b;	
+	margin-bottom: 0.5em;
+}
+h4{
+	font-size: 1.3em;
+	font-family: 'Roboto';
+	color:#6a870b;
+	margin-bottom: 0.5em;
+}
+h5{
+	font-size: 1.2em;
+	font-family: 'Roboto';
+	color:#2D9FC9;
+	margin-bottom: 0.4em;
+}
+
+ul li{
+	padding-left: 1em;
+	margin-bottom:0.5em;
+	font-family: 'Roboto';
+}
+p{
+	font-size: 1.1em;
+	margin-bottom: 0.5em;
+	font-family: 'Roboto';
+}
+em{
+	font-style:italic;
+}
+hr{
+	border:none;
+	height:2px;
+	width:90%;
+	background:#6a870b;
+	margin:5px auto 5px auto;
+}
+
+.indent{
+	text-indent:2em;
+}
+/*Header
+ ===========================*/
+header{
+	height: 4em;
+	background: #303030;
+	position:relative;
+}
+header h1{
+	position:absolute;
+	bottom:0;
+	padding-bottom: 0.5%;
+	color: #2D9FC9;
+	font-size: 2em;
+	font-family: 'Roboto';
+}
+
+/*Nav
+ ===========================*/
+nav{
+
+	height: 1.6em;
+	background:#4C4C4C;
+	line-height:1.6em;
+	
+}
+nav ul{
+
+}
+nav li{
+	height:1.6em;
+	display: inline;
+	float:left;
+	padding: 0 0.5em 0 0.5em;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	margin-left:-1px;
+}
+nav li:hover{
+	background:#33B5E5;
+}
+nav li a{
+	font-family: 'roboto';
+	font-size: 1.1em;
+	text-decoration:none;
+	color:white;
+}
+
+/*Footer
+ ===========================*/
+footer{
+	position:relative;
+	width: 100%;
+	height: 1.75em;
+	background: #303030;
+}
+footer ul{
+	position: absolute;
+	bottom:0.35em;
+	width: 35%;
+	left: 5%;
+	text-align:center;
+}
+footer li{
+	width: 25%; /* for some reason, 4 items each 25% width cannot fit in parent*/
+	padding:0;
+	float:left;
+	margin:0;
+}
+footer li a{
+	font-size: 0.75em;
+	color: white;
+	text-decoration:none;
+}
+#signature{
+	position: absolute;
+	right: 5%;
+	bottom: 0.5em;
+	color: white;
+	display:block;
+	font-size: 0.75em;
+	margin:0;
+}
+#date{
+	position: absolute;
+	bottom: 0.5em;
+	left: 50%;
+	font-size: 0.75em;
+	color:white;
+	margin:0;
+}
+
+/*Main Page
+ ===========================*/
+#imgDroid{
+	float:left;
+}
+
+/*Roms
+ ===========================*/
+#imgCyanogen{
+	float:right;
+	margin: 0 0 0.5em 0.5em; 
+}
+
+/*Template
+ ===========================*/
+
+#content{
+	background:url('http://www.uvm.edu/~mftoth/cs148/assign1/public/images/whiteTransparent.png');
+	position: relative;
+	top: 0.75em;
+	margin:0 0.75em 0 0.75em;
+	box-shadow: 0 0 5px #888;
+	padding: 1em;
+	height:auto;
+}
+
+#container{
+	background:url('http://www.uvm.edu/~mftoth/cs148/assign1/public/images/grayTransparent.png');
+	width:90%;
+	margin: 0 auto 0 auto;
+	/*background: #d5d5d5;*/
+	padding: 0 0 0 0;
+}
+
+.media_config{
+	width:90%;
+	padding: 0 5% 0 5%;	
+}
+
+/*
+ * Media Resolutions
+ */
+
+/* Mobile Phones (Screen size about 3.9-4.2 inches)[320px-640px]*/
+/*
+@media all and (max-width:720px) and (min-width:300px){
+	.media_config{
+		width: 95%;
+		padding: 0 2.5% 0 2.5%;
+	}
+}
+*/
