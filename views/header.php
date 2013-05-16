@@ -24,7 +24,7 @@
 				<div class='navbar-inner nav-collapse' style="height: auto;">
 					<ul class="nav">
 						<li class="active"><a href="<?php echo siteURL()?>">Home</a></li>
-						<li><a href="<?php echo siteURL("about")?>">About</a></li>
+						<li><a href="<?php echo siteURL("people")?>">People</a></li>
 						<li><a href="#">Page Two</a></li>
 					</ul>
 				</div> <!-- end navbar-collapse -->
