@@ -4,7 +4,7 @@
 		<h2>ETS Employees</h2>
 
 		<!-- results from query go here -->
-		<table class="table">
+		<table class="table table-striped">
 			<tr>
 				<th>Netid</th>
 				<th>First Name</th>
