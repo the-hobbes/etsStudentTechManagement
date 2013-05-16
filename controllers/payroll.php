@@ -14,6 +14,10 @@ class Payroll extends Controller{
 
 		$this->view->render("view_payroll", $data);
 	}//end: index()
+
+	function update(){
+		
+	}
 }
 
 

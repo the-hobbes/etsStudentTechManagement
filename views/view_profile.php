@@ -65,7 +65,7 @@
 
 		<tr>
 			<td>End Date</td>
-			<td><?php echo $payroll['fld_enddate'] ?></td>
+			<td class="edit"><?php echo $payroll['fld_enddate'] ?></td>
 		</tr>
 
 		<tr>
@@ -85,17 +85,17 @@
 
 		<tr>
 			<td>Current Rate</td>
-			<td>&#36;<?php echo $payroll['fld_currentrate'] ?></td>
+			<td class="edit">&#36;<?php echo $payroll['fld_currentrate'] ?></td>
 		</tr>
 
 		<tr>
 			<td>New Rate</td>
-			<td>&#36;<?php echo $payroll['fld_newrate'] ?></td>
+			<td class="edit">&#36;<?php echo $payroll['fld_newrate'] ?></td>
 		</tr>
 
 		<tr>
 			<td>Hours per week</td>
-			<td><?php echo $payroll['fld_hrsperweek'] ?></td>
+			<td class="edit"><?php echo $payroll['fld_hrsperweek'] ?></td>
 		</tr>
 
 		<tr>
@@ -105,12 +105,12 @@
 
 		<tr>
 			<td>Helpline Hours</td>
-			<td><?php echo $payroll['fld_hlhours'] ?></td>
+			<td class="edit"><?php echo $payroll['fld_hlhours'] ?></td>
 		</tr>
 		
 		<tr>
 			<td>CDC Hours</td>
-			<td><?php echo $payroll['fld_cdchours'] ?></td>
+			<td class="edit"><?php echo $payroll['fld_cdchours'] ?></td>
 		</tr>
 		
 		<tr>
@@ -125,12 +125,12 @@
 
 		<tr>
 			<td>Confidentiality Agreement</td>
-			<td><?php echo $payroll['fld_confagreement'] ?></td>
+			<td class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
 		</tr>
 
 		<tr>
 			<td>Quizes Done</td>
-			<td><?php echo $payroll['fld_quizzesdone'] ?></td>
+			<td class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td>
 		</tr>
 
 

@@ -10,7 +10,9 @@
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="<?php echo siteURL("public/js/jquery.jeditable.mini.js") ?>"></script>
 		<script src="<?php echo siteURL("public/js/bootstrap.min.js") ?>"></script>
+		<script src="<?php echo siteURL("public/js/payroll.js") ?>"></script>
 		
 	</head>
 	<body>
