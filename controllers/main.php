@@ -1,21 +1,29 @@
 <?php
 
 class Main extends Controller{
-	
-	function __construct(){
-		parent::__construct();
 		
+	function __construct($app){
+		parent::__construct($app);
 	}
 
+	//index(): Default method. Called when you access controller with no method calls
 	function index(){
-		$this->view->render('view_main', "", false);
+		$data['test']="lol";
+		$data['tblfield'] = 'woop';
+
+		//Load the view. params = viewfile, optional data, optional flag. Data becomes accessible in view.
+		//false flag indicates not to load header and footer
+		$this->view->render('view_main', $data, true);
 	}
 
-
+	//derp(): called from localhost/ETS/main/derp
 	function derp(){
-		echo 'derp';
-	}	
-}
+		$this->test_model->doSomething();
+	}
 
+	function formSubmit(){
+		echo $_POST['txtName'];
+	}
+}
 
 ?>

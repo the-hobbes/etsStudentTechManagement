@@ -9,6 +9,12 @@ class View{
 	function __construct($app){
 		$this->db = $app->db;
 		$this->view = $app->view;
+		$this->conf = $app->conf;
+
+		//Grab the models from the app so they can be used in view
+		foreach($this->conf['models'] as $model){
+			$this->$model=$app->$model;
+		}
 	}
 	
 	public function render($name, $data = false, $includeHeader = true){

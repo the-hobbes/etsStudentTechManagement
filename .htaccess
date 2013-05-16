@@ -1,6 +1,5 @@
 RewriteEngine On
-RewriteBase /etsStudentTechManagement/
-
+# RewriteBase /etsStudentTechManagement/
 RewriteCond $1 !^(index\.php|public|images)
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
