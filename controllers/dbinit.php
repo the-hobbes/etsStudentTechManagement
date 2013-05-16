@@ -148,7 +148,7 @@ class dbinit extends Controller{
 
 		$this->db->execute("INSERT INTO tbl_payroll VALUES(
 					null, 'mkeyes', '2011-2-17', '', '1001101', '045523', '39901', '10.00', 
-					'10.50', '10', '100', '3', '7', '30', '70', 1, 'ets_quiz1,cdc_quiz1'
+					'10.40', '10', '100', '3', '7', '30', '70', 1, 'ets_quiz1,cdc_quiz1'
 				)");
 		
 
