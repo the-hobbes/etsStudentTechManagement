@@ -33,7 +33,6 @@ class Bootstrap{
 					break;
 				
 				default:
-					
 					//File does not exists, require error controller
 					require 'controllers/error.php';
 					$class = 'error';
@@ -44,7 +43,8 @@ class Bootstrap{
 		}//end: else
 		
 		//Instantiate
-		$controller = new $class($app);
+		$controller = new $class;
+		$controller->load($app);
 		
 		/*
 		 * Handle Methods and arguments
@@ -54,15 +54,25 @@ class Bootstrap{
 			//Every URL piece after the 2nd is a parameter to the method. Check if it is set and split into array
 			if(isset($url[2])){
 				$parameters = array_slice($url, 2);	
+				$numParams = sizeof($parameters);
 				
-				//Piece together a string for the method parameter
-				foreach($parameters as $parameter){
-		 			$param_string = $param_string.$parameter.',';  
-		 		}
-					$param_string = rtrim($param_string, ',');		
-				
+				switch($numParams){
+					case 1:
+						$controller->{$url[1]}($parameters[0]);
+						break;
+					case 2:
+						$controller->{$url[1]}($parameters[0], $parameters[1]);
+						break;
+					case 3:
+						$controller->{$url[1]}($parameters[0], $parameters[1], $parameters[2]);
+						break;
+					case 4:
+						$controller->{$url[1]}($parameters[0], $parameters[1], $parameters[2], $parameters[3]);
+						break;
+				}
+
 				//Call method with parameters
-				$controller->{$url[1]}($param_string);
+				
 				
 			}else{
 				
@@ -71,10 +81,9 @@ class Bootstrap{
 				
 			}//end: else
 		 }else{
-		 	if($class!='error'){
-		 		//No methods called, call the default index()
-		 		$controller->index();
-		 	}
+	 		//No methods called, call the default index()
+	 		$controller->index();
+		 	
 		 }
 
 		 //end: if

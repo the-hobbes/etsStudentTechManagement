@@ -23,14 +23,19 @@ class web_application{
 		global $config;
 		$this->conf = $config;
 
-		//load the models
-		$this->loadModels();
-
 		if($config['dbEnabled'] == true){
 			$this->db = new Database($this);
 		}
 		
-		$this->view = new View($this);
+		//Create the view object
+		$this->view = new View();
+
+		//load the models
+		$this->loadModels();
+
+		//Load data into View object
+		$this->view->load($this);
+
 		$this->bootstrap = new Bootstrap($config, $this);
 	}
 
@@ -39,8 +44,13 @@ class web_application{
 	
 		foreach($this->conf['models'] as $model){
 			require ABS_PATH.'models/'.$model.'.php';
-			$this->$model = new $model($this);
+			$this->$model = new $model;
 		}//end foreach
+
+		foreach($this->conf['models'] as $model){
+			//Load the app data into the models
+			$this->$model->load($this);
+		}
 
 	}//end: loadModels()
 }//end: web_application

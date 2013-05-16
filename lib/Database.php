@@ -22,7 +22,7 @@ class Database{
 		}
 	}
 
-	function query($string, $return=true){
+	function query($string){
 		$this->connect();
 
 		$result=mysql_query($string);
@@ -35,9 +35,33 @@ class Database{
 
 		mysql_close($this->con);
 
-		if($return){
-			return mysql_fetch_assoc($result);	
+		//Fetch all rows and place in return val
+		$returnVal = array();
+		$i=0;
+		while($row = mysql_fetch_assoc($result)){
+			$returnVal[$i]=$row;
+			$i++;
 		}
+		if($i==1){
+			$returnVal = $returnVal[0];
+		}
+
+		return ($returnVal);	
+	}
+
+	//execute(): same as query except does not return results
+	function execute($string){
+		$this->connect();
+
+		$result=mysql_query($string);
+
+		if (!$result) {
+		    $message  = 'Invalid query: ' . mysql_error() . "\n";
+		    $message .= 'Whole query: ' . $string;
+		    die($message);
+		}
+
+		mysql_close($this->con);
 	}
 
 }

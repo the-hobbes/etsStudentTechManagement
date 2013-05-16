@@ -6,7 +6,8 @@ class View{
 	public $db;
 	public $view;
 	
-	function __construct($app){
+	function load($app){
+
 		$this->db = $app->db;
 		$this->view = $app->view;
 		$this->conf = $app->conf;
@@ -16,7 +17,7 @@ class View{
 			$this->$model=$app->$model;
 		}
 	}
-	
+
 	public function render($name, $data = null, $includeHeader = true){
 		
 			$this->data = $data;

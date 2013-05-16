@@ -1,11 +1,11 @@
 <?php
 
 class Error extends Controller{
+
+	function index(){
+			echo "Error, page does not exist";
+	}	
 	
-	function __construct(){
-		parent::__construct();
-		echo "Error, page does not exist";
-	}
 	
 }
 
