@@ -1,16 +1,7 @@
-		<script> 
-			// testing data
-			testData = { "row1": {"info": "some info"},
-							"row2": {"info": "meee!"},
-							"row3": {"info": "some info"},
-							"row4": {"info": "some info"},
-							"row5": {"info": "some info"}
-			};
-			// console.log(testData['row2']);
-		</script>
+
 		<div id='content' class='row-fluid'>
 			<div class='span10 main'>
-				<h2>Main Content Section</h2>
+				<h2>ETS Employees</h2>
 
 				<!-- results from query go here -->
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.<p> 
