@@ -11,7 +11,7 @@ $config['dbEnabled'] = true;
 $config['hostname'] = "localhost";
 $config['dbUser'] = "root";
 $config['dbPass'] = "root";
-$config['database'] = "HELPLINE_studentTechManagementSystem";
+$config['database'] = "ETS";
 
 //>>>Models<<<
 //Models used for handling business logic and communicating with database.

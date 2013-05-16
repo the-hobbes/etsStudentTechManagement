@@ -22,7 +22,7 @@ class Database{
 		}
 	}
 
-	function query($string){
+	function query($string, $return=true){
 		$this->connect();
 
 		$result=mysql_query($string);
@@ -35,7 +35,9 @@ class Database{
 
 		mysql_close($this->con);
 
-		return mysql_fetch_assoc($result);	
+		if($return){
+			return mysql_fetch_assoc($result);	
+		}
 	}
 
 }
