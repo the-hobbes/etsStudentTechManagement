@@ -11,6 +11,7 @@
 				<th>Last Name</th>
 				<th>Middle Initial</th>
 				<th>Email</th>
+				<th>Sched. Code</th>
 				<th>Major</th>
 				<th>Grad Date</th>
 				<th>Phone</th>
@@ -24,6 +25,7 @@
 						<td>".$person['fld_lastname']."</td>
 						<td>".$person['fld_middleinitial']."</td>
 						<td>".$person['fld_email']."</td>
+						<td>".$person['fld_schedulecode']."</td>
 						<td>".$person['fld_major']."</td>
 						<td>".$person['fld_graddate']."</td>
 						<td>".$person['fld_phone']."</td>

@@ -1,5 +1,8 @@
 <?php
-	
+	//only one result at index 0. lets reassign so we don't have to keep specifying index
+	$data['person'] = $data['person'][0];
+	$data['application'] = $data['application'][0];
+
 	echo "<h1>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']."</h1><br />";
 
 ?>

@@ -130,6 +130,28 @@ class dbinit extends Controller{
 				   'I serve dozens of people every day I serve. Not too toot my own horn, but the customers love me',
 				   'One time my computer wouldnt turn on. I tried everything imaginable. I googled the issue.. nothing. Finally I realized my computer was unplugged')");
 
+		//Payroll table queries
+		$this->db->execute("INSERT INTO tbl_payroll VALUES(
+					null, 'mftoth', '2012-10-15', '', '1010101', '045121', '39102', '9.50', 
+					'10.00', '12', '120', '4', '8', '40', '80', 1, 'ets_quiz1,cdc_quiz1,helpline_quiz1'
+				)");
+
+		$this->db->execute("INSERT INTO tbl_payroll VALUES(
+					null, 'ccaldwell', '2000-3-28', '', '0000101', '045001', '38190', '100.50', 
+					'105.0', '40', '4020', '20', '20', '2010', '2010', 1, 'ets_quiz1,cdc_quiz1,helpline_quiz1,ets_quiz2,ets_quiz3'
+				)");
+
+		$this->db->execute("INSERT INTO tbl_payroll VALUES(
+					null, 'jman', '2010-9-21', '', '1011101', '045500', '39222', '11.00', 
+					'11.50', '20', '220', '10', '10', '110', '110', 1, 'ets_quiz1,cdc_quiz1,helpline_quiz1,copyright_quiz1'
+				)");
+
+		$this->db->execute("INSERT INTO tbl_payroll VALUES(
+					null, 'mkeyes', '2011-2-17', '', '1001101', '045523', '39901', '10.00', 
+					'10.50', '10', '100', '3', '7', '30', '70', 1, 'ets_quiz1,cdc_quiz1'
+				)");
+		
+
 		header('Location: '.siteURL('dbinit'));
 	}
 

@@ -42,9 +42,9 @@ class Database{
 			$returnVal[$i]=$row;
 			$i++;
 		}
-		if($i==1){
-			$returnVal = $returnVal[0];
-		}
+		//if($i==1){
+		//	$returnVal = $returnVal[0];
+		//}
 
 		return ($returnVal);	
 	}
