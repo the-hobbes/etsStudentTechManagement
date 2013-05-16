@@ -2,7 +2,6 @@
 	
 	echo "<h1>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']."</h1><br />";
 
-	
 ?>
 
 	<h2 style="font-weight:bold">Application</h2>

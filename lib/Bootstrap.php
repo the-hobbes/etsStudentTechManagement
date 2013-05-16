@@ -33,7 +33,6 @@ class Bootstrap{
 					break;
 				
 				default:
-					
 					//File does not exists, require error controller
 					require 'controllers/error.php';
 					$class = 'error';
@@ -82,10 +81,9 @@ class Bootstrap{
 				
 			}//end: else
 		 }else{
-		 	if($class!='error'){
-		 		//No methods called, call the default index()
-		 		$controller->index();
-		 	}
+	 		//No methods called, call the default index()
+	 		$controller->index();
+		 	
 		 }
 
 		 //end: if

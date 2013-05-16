@@ -2,10 +2,6 @@
 
 class dbinit extends Controller{
 		
-	function __construct($app){
-		parent::__construct($app);
-	}
-
 	function index(){
 		$this->view->render('view_dbinit');
 	}
@@ -128,7 +124,7 @@ class dbinit extends Controller{
 				   'One time my printer broke. Upon kicking it as hard as I could, it appeared to fix itself')");
 
 		$this->db->execute("INSERT INTO tbl_application
-			VALUES(null, 'mekeyes', '1', '1', '1', '0', '90', '', 'Stockon Inn', '102 Main street, Stockton NJ', '609-555-5535',
+			VALUES(null, 'mkeyes', '1', '1', '1', '0', '90', '', 'Stockon Inn', '102 Main street, Stockton NJ', '609-555-5535',
 				   '$40/hr', '28 hours', 'I serve as a highly regarded server at a fancy shmancy restaurant', '1', 'Michael Toth', '609-468-2946', 
 				   'My best bud for life <3','I will do whatever it takes to make my bosses happy. Whatever it takes.',
 				   'I serve dozens of people every day I serve. Not too toot my own horn, but the customers love me',
