@@ -12,6 +12,7 @@ class People extends Controller{
 	function profile($netid){
 		$data['person'] = $this->people_model->getPersonByNetid($netid);
 		$data['application'] = $this->application_model->getApplicationByNetid($netid);
+		$data['payroll'] = $this->payroll_model->getPayrollByNetId($netid);
 		$this->view->render("view_profile", $data);
 	}
 }

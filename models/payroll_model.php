@@ -10,6 +10,13 @@ class payroll_model extends Model{
 		return $results;
 	}
 
+	function getPayrollByNetid($netid){
+		$query = "SELECT * FROM tbl_payroll WHERE fk_netid = '".$netid."'";
+		$results = $this->db->query($query);
+
+		return $results[0];
+	}
+
 	//colTotal(): return the total of the specified field
 	function colTotal($column){
 		$query = "SELECT ".$column." FROM tbl_payroll";

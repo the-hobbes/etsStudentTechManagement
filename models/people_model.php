@@ -10,7 +10,7 @@ class people_model extends Model{
 
 	function getPersonByNetid($netid){
 		$results = $this->db->query("SELECT * FROM tbl_people where pk_netid = '".$netid."'");
-		return $results;
+		return $results[0];
 	}
 
 }
