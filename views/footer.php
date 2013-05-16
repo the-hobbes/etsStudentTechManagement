@@ -1,8 +1,4 @@
-						
-			<div style="clear:both"></div>
-		</div><!--end content-->
-	
-	</div><!--end container-->
+	</div> <!-- end container -->
 		
 	<footer>
 		
