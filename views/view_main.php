@@ -7,6 +7,7 @@
 
 <?php
 	echo $data['test'];
-	$results = $this->db->query("SELECT*FROM test");
-	print_r($results);
+	//$results = $this->db->query("SELECT*FROM test");
+	$this->test_model->doSomething();
+	//print_r($results);
 ?>

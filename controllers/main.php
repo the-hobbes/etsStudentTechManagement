@@ -1,7 +1,7 @@
 <?php
 
 class Main extends Controller{
-	
+		
 	function __construct($app){
 		parent::__construct($app);
 	}
@@ -18,7 +18,7 @@ class Main extends Controller{
 
 	//derp(): called from localhost/ETS/main/derp
 	function derp(){
-		//$this->app->db->connect();
+		$this->test_model->doSomething();
 	}
 
 	function formSubmit(){

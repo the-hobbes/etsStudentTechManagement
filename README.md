@@ -91,7 +91,7 @@ By the gentlemens with the name Phelan and Michael
 		$results = $this->db->query("SELECT*FROM test");
 
 		You must use "$this", key word.
-	
+
 
 ###
 #TODO
