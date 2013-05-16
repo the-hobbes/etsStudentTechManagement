@@ -1,0 +1,3 @@
+#ignore these files
+.htaccess
+*.DS_Store
