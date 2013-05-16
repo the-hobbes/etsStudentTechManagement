@@ -6,7 +6,7 @@
 </form>
 
 <?php
-	//cho $data['test'];
+	//echo $data['test'];
 	//$results = $this->db->query("SELECT*FROM test");
 	//$this->test_model->doSomething();
 ?>
