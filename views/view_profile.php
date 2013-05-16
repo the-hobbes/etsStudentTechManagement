@@ -50,6 +50,7 @@
 		</tr>
 	</table>
 
+
 	<h3>Payroll</h3>
 	<table class="table table-striped">
 		<tr>
