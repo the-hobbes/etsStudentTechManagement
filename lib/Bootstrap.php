@@ -44,7 +44,8 @@ class Bootstrap{
 		}//end: else
 		
 		//Instantiate
-		$controller = new $class($app);
+		$controller = new $class;
+		$controller->load($app);
 		
 		/*
 		 * Handle Methods and arguments

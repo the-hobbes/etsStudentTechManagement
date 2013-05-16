@@ -39,8 +39,12 @@ class web_application{
 	
 		foreach($this->conf['models'] as $model){
 			require ABS_PATH.'models/'.$model.'.php';
-			$this->$model = new $model($this);
+			$this->$model = new $model;
 		}//end foreach
+
+		foreach($this->conf['models'] as $model){
+			$this->$model->load($this);
+		}
 
 	}//end: loadModels()
 }//end: web_application

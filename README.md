@@ -28,11 +28,6 @@ By the gentlemens with the name Phelan and Michael
 			<?php
 				class About extends Controller{
 
-					//required constructor
-					function __construct($app){
-						parent::__construct($app);
-					}
-
 					//index(): Default method. Called when you access controller with no method calls
 					function index(){
 						$this->view->render('view_main');

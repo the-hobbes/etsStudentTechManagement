@@ -5,7 +5,8 @@ class Controller{
 	public $db;
 	public $view;
 
-	function __construct($app){
+	//Load the application for use
+	function load($app){
 		$this->app=$app;
 		$this->conf=$app->conf;
 
@@ -16,7 +17,6 @@ class Controller{
 		foreach($this->conf['models'] as $model){
 			$this->$model=$app->$model;
 		}
-
 	}
 }
 
