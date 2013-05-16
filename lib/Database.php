@@ -35,7 +35,18 @@ class Database{
 
 		mysql_close($this->con);
 
-		return mysql_fetch_assoc($result);	
+		//Fetch all rows and place in return val
+		$returnVal = array();
+		$i=0;
+		while($row = mysql_fetch_assoc($result)){
+			$returnVal[$i]=$row;
+			$i++;
+		}
+		if($i==1){
+			$returnVal = $returnVal[0];
+		}
+
+		return ($returnVal);	
 	}
 
 	//execute(): same as query except does not return results

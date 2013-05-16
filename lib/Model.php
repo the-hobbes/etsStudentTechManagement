@@ -15,7 +15,6 @@ class Model{
 		foreach($this->conf['models'] as $model){
 
 			if($model != get_called_class()){
-				echo "called from: ".get_called_class()." target: ".$model."<br />";
 				$this->$model=$app->$model;
 			}
 		}

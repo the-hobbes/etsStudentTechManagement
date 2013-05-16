@@ -19,7 +19,8 @@ $config['database'] = "ETS";
 //Add the models you want used in this application by adding the file name to this array
 $config['models'] = array(
 	'test_model',
-	'people_model'
+	'people_model',
+	'application_model'
 
 	);
 ?>

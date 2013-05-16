@@ -1,4 +1,4 @@
--
+
 
 html{
 	height:100%;
@@ -47,6 +47,26 @@ hr{
 	width:90%;
 	background:#6a870b;
 	margin:5px auto 5px auto;
+}
+
+table{
+	border: 1px solid black;
+}
+table tr:not(last-child){
+	border-bottom:1px solid black;
+}
+table td:not(last-child){
+	border-right:1px solid black;
+}
+table th:not(last-child){
+	border-right:1px solid black;
+}
+table th{
+	font-weight:bold;
+	padding:1px 5px 1px 5px;
+}
+table td{
+	padding:1px 3px 1px 3px;
 }
 
 .indent{
