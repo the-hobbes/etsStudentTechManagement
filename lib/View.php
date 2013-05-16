@@ -17,7 +17,7 @@ class View{
 		}
 	}
 	
-	public function render($name, $data = false, $includeHeader = true){
+	public function render($name, $data = null, $includeHeader = true){
 		
 			$this->data = $data;
 			
