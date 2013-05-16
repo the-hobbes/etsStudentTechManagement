@@ -89,6 +89,10 @@ class dbinit extends Controller{
 		header('Location: '.siteURL('dbinit'));
 	}
 
+	function createData(){
+		
+	}
+
 	function herp(){
 		echo 'derp';
 	}

@@ -22,7 +22,7 @@
 	<nav class="media_config">
 		<ul>
 			<li><a href="<?php echo siteURL()?>">Home</a></li>
-			<li><a href="<?php echo siteURL("about")?>">About</a></li>
+			<li><a href="<?php echo siteURL("dbinit")?>">DBINIT</a></li>
 		</ul>
 	</nav>
 	
