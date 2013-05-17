@@ -11,7 +11,7 @@ class People extends Controller{
 
 	function profile($netid = null){
 		$data['tabPeople'] = "active";
-		
+
 		if($netid){
 			$data['person'] = $this->people_model->getPersonByNetid($netid);
 			$data['application'] = $this->application_model->getApplicationByNetid($netid);
@@ -28,10 +28,13 @@ class People extends Controller{
 
 	function update(){
 		$data = explode('.', $_POST['elementid']);
-		$netid = $data[0];
+		$hashkey = $data[0];
 		$fld = $data[1];
 		$table = $data[2];
 		$newval = $_POST['newval'];
+
+		$person = $this->people_model->getPersonByHashkey($hashkey);
+		$netid = $person['pk_netid'];
 
 		switch($table){
 			case 'tbl_people':

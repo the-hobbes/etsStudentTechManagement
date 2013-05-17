@@ -14,16 +14,15 @@
          callback : function(value, settings){
             data = this.id;
             pieces = data.split(".");
-            netid = pieces[0];
+            hashkey = pieces[0];
             fld = pieces[1];
             table = pieces[2];
-
             //Update calculatable fields in the view (they are already up to date in the DB)
             if(table == "tbl_payroll"){
                 $.ajax({
                     type: "POST",
                     url: siteURL + "payroll/getUpdatedPayroll",
-                    data: {netid: netid}
+                    data: {hashkey: hashkey}
                 }).done(function(data){
                     payroll = JSON.parse(data);
                 

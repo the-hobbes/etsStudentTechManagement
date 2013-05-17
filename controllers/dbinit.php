@@ -73,10 +73,11 @@ class dbinit extends Controller{
 				fld_graddate         VARCHAR( 100 ),
 				fld_phone            VARCHAR( 100 ),
 				fld_schedulecode     VARCHAR( 100 ),
+				fld_hashkey		     VARCHAR(70),
 				CONSTRAINT pk_tbl_people PRIMARY KEY ( pk_netid )
 			 );";
 		
-		$this->db->query($query, false);
+		$this->db->execute($query);
 		header('Location: '.siteURL('dbinit'));
 	}
 
@@ -89,16 +90,16 @@ class dbinit extends Controller{
 
 		//tbl_people data
 		$this->db->execute("INSERT INTO tbl_people VALUES('mftoth', 'Michael', 'Toth', 'F', '163 North Union St.', 
-			'08530', 'mftoth@uvm.edu', 'BSCS', 'Spring 2014', '609-468-2946', 'MFT')");
+			'08530', 'mftoth@uvm.edu', 'BSCS', 'Spring 2014', '609-468-2946', 'MFT', '".$this->people_model->hash2fields('mftoth','609-468-2946')."')");
 
 		$this->db->execute("INSERT INTO tbl_people VALUES('ccaldwell', 'Carol', 'Caldwell', 'C', '123 fake st.', 
-			'05401', 'ccaldwel@uvm.edu', 'BSCS', 'Spring 2000', '555-555-5555', 'CCE')");
+			'05401', 'ccaldwel@uvm.edu', 'BSCS', 'Spring 2000', '555-555-5555', 'CCE', '".$this->people_model->hash2fields('ccaldwell','555-555-5555')."')");
 
 		$this->db->execute("INSERT INTO tbl_people VALUES('jman', 'Joe', 'Man', 'D', '132 Evergreen Terrace', 
-			'97475', 'jman@uvm.edu', 'English', 'Spring 2013', '541-267-1313', 'JDM')");
+			'97475', 'jman@uvm.edu', 'English', 'Spring 2013', '541-267-1313', 'JDM', '".$this->people_model->hash2fields('jman','541-267-1313')."')");
 
 		$this->db->execute("INSERT INTO tbl_people VALUES('mkeyes', 'Mauro', 'Keyes', 'A', '21 Main street', 
-			'08559', 'mkeyes@uvm.edu', 'Business', 'Spring 2013', '609-111-1111', 'MAK')");
+			'08559', 'mkeyes@uvm.edu', 'Business', 'Spring 2013', '609-111-1111', 'MAK', '".$this->people_model->hash2fields('mkeyes','609-111-1111')."')");
 
 		//tbl_application data
 		$this->db->execute("INSERT INTO tbl_application

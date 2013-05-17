@@ -66,27 +66,27 @@
 				</tr>
 				<tr>
 					<td>Street Address</td>
-					<td id="<?php echo $person['pk_netid'].".fld_streetaddress.tbl_people" ?>" class="edit"><?php echo $person['fld_streetaddress'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_streetaddress.tbl_people" ?>" class="edit"><?php echo $person['fld_streetaddress'] ?></td>
 				</tr>
 				<tr>
 					<td>Zip Code</td>
-					<td id="<?php echo $person['pk_netid'].".fld_zipcode.tbl_people" ?>" class="edit"><?php echo $person['fld_zipcode'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_zipcode.tbl_people" ?>" class="edit"><?php echo $person['fld_zipcode'] ?></td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td id="<?php echo $person['pk_netid'].".fld_email.tbl_people" ?>" class="edit"><?php echo $person['fld_email'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_email.tbl_people" ?>" class="edit"><?php echo $person['fld_email'] ?></td>
 				</tr>
 				<tr>
 					<td>Graduation Date</td>
-					<td id="<?php echo $person['pk_netid'].".fld_graddate.tbl_people" ?>" class="edit"><?php echo $person['fld_graddate'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_graddate.tbl_people" ?>" class="edit"><?php echo $person['fld_graddate'] ?></td>
 				</tr>
 				<tr>
 					<td>Phone</td>
-					<td id="<?php echo $person['pk_netid'].".fld_phone.tbl_people" ?>" class="edit"><?php echo $person['fld_phone'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_phone.tbl_people" ?>" class="edit"><?php echo $person['fld_phone'] ?></td>
 				</tr>
 				<tr>
 					<td>Schedule Code</td>
-					<td id="<?php echo $person['pk_netid'].".fld_schedulecode.tbl_people" ?>" class="edit"><?php echo $person['fld_schedulecode'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_schedulecode.tbl_people" ?>" class="edit"><?php echo $person['fld_schedulecode'] ?></td>
 				</tr>
 			</table>
 			<!-- end general tab -->
@@ -103,12 +103,12 @@
 
 				<tr>
 					<td>Start Date</td>
-					<td id="<?php echo $person['pk_netid'].".fld_startdate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_startdate'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_startdate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_startdate'] ?></td>
 				</tr>
 
 				<tr>
 					<td>End Date</td>
-					<td id="<?php echo $person['pk_netid'].".fld_enddate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_enddate'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_enddate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_enddate'] ?></td>
 				</tr>
 
 				<tr>
@@ -128,12 +128,12 @@
 
 				<tr>
 					<td>Current Rate</td>
-					<td id="<?php echo $person['pk_netid'].".fld_currentrate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_currentrate'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_currentrate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_currentrate'] ?></td>
 				</tr>
 
 				<tr>
 					<td>New Rate</td>
-					<td id="<?php echo $person['pk_netid'].".fld_newrate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_newrate'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_newrate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_newrate'] ?></td>
 				</tr>
 
 				<tr>
@@ -148,12 +148,12 @@
 
 				<tr>
 					<td>Helpline Hours</td>
-					<td id="<?php echo $person['pk_netid'].".fld_hlhours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_hlhours'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_hlhours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_hlhours'] ?></td>
 				</tr>
 				
 				<tr>
 					<td>CDC Hours</td>
-					<td id="<?php echo $person['pk_netid'].".fld_cdchours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_cdchours'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_cdchours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_cdchours'] ?></td>
 				</tr>
 				
 				<tr>
@@ -168,12 +168,12 @@
 
 				<tr>
 					<td>Confidentiality Agreement</td>
-					<td id="<?php echo $person['pk_netid'].".fld_confragreement.tbl_payroll" ?>" name= "derp" class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_confragreement.tbl_payroll" ?>" name= "derp" class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Quizes Done</td>
-					<td id="<?php echo $person['pk_netid'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td>
 				</tr>
 			</table>
 			<!-- end payroll tab -->

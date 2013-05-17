@@ -17,7 +17,11 @@ class Payroll extends Controller{
 	}//end: index()
 
 	function getUpdatedPayroll(){
-		$netid = $_POST['netid'];
+		$hashkey = $_POST['hashkey'];
+
+		$person = $this->people_model->getPersonByHashkey($hashkey);
+		$netid = $person['pk_netid'];
+		
 		$payroll = $this->payroll_model->getPayrollByNetid($netid);
 
 		$payroll = json_encode($payroll);

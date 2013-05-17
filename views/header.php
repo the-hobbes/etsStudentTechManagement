@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<?php
-//for tab highlighting
-if(!isset($data['tabHome'])){
-	$data['tabHome'] = "inactive";
-}
-if(!isset($data['tabPeople'])){
-	$data['tabPeople'] = "inactive";
-}
-if(!isset($data['tabPayroll'])){
-	$data['tabPayroll'] = "inactive";
-}
-?>
-
 <html>
 	<head>
 		<title>ETS Student Technician Managment</title>
@@ -34,7 +21,18 @@ if(!isset($data['tabPayroll'])){
 			<header class="media_config">
 				<h1>ETS Student Technician Managment System</h1>
 			</header>
-			
+				<?php
+					//for tab highlighting
+					if(!isset($data['tabHome'])){
+						$data['tabHome'] = "inactive";
+					}
+					if(!isset($data['tabPeople'])){
+						$data['tabPeople'] = "inactive";
+					}
+					if(!isset($data['tabPayroll'])){
+						$data['tabPayroll'] = "inactive";
+					}
+				?>
 			<div class='navbar navbar-inverse'>
 				<div class='navbar-inner nav-collapse' style="height: auto;">
 					<ul class="nav">
