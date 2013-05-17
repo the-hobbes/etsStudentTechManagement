@@ -1,6 +1,6 @@
  $(document).ready(function() {
 
-     $('.edit').editable('http://localhost/ETS/people/update', {
+     $('.edit').editable('http://localhost/etsStudentTechManagement/people/update', {
          indicator : 'Saving...',
          tooltip   : 'Click to edit...',
          id	   	   : 'elementid',

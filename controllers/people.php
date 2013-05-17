@@ -9,11 +9,18 @@ class People extends Controller{
 		$this->view->render("view_people", $data);	
 	}
 
-	function profile($netid){
-		$data['person'] = $this->people_model->getPersonByNetid($netid);
-		$data['application'] = $this->application_model->getApplicationByNetid($netid);
-		$data['payroll'] = $this->payroll_model->getPayrollByNetId($netid);
-		$this->view->render("view_profile", $data);
+	function profile($netid = null){
+		if($netid){
+			$data['person'] = $this->people_model->getPersonByNetid($netid);
+			$data['application'] = $this->application_model->getApplicationByNetid($netid);
+			$data['payroll'] = $this->payroll_model->getPayrollByNetId($netid);
+			$this->view->render("view_profile", $data);
+		}
+		else{
+			// handle direct requests for /profile gracefully
+			$this->view->render("view_main", $data = null);
+		}
+		
 	}
 
 

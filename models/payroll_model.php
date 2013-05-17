@@ -14,7 +14,8 @@ class payroll_model extends Model{
 		$query = "SELECT * FROM tbl_payroll WHERE fk_netid = '".$netid."'";
 		$results = $this->db->query($query);
 
-		return $results[0];
+		if ($results)
+			return $results[0];
 	}
 
 	function update($netid, $fld, $newval){
