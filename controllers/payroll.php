@@ -5,6 +5,7 @@ class Payroll extends Controller{
 
 	//index()
 	function index(){
+		$data['tabPayroll'] = "active";
 
 		$data['payroll'] = $this->payroll_model->getAll();
 		$data['total_hrsperweek']=$this->payroll_model->colTotal("fld_hrsperweek");

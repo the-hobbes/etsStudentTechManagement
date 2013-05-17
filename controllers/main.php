@@ -4,6 +4,8 @@ class Main extends Controller{
 
 	//index(): Default method. Called when you access controller with no method calls
 	function index(){
+		$data['tabHome'] = "active";
+
 		$data['test']="lol";
 		$data['tblfield'] = 'woop';
 

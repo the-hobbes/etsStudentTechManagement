@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<?php
+//for tab highlighting
+if(!isset($data['tabHome'])){
+	$data['tabHome'] = "inactive";
+}
+if(!isset($data['tabPeople'])){
+	$data['tabPeople'] = "inactive";
+}
+if(!isset($data['tabPayroll'])){
+	$data['tabPayroll'] = "inactive";
+}
+?>
+
 <html>
 	<head>
 		<title>ETS Student Technician Managment</title>
@@ -25,9 +38,9 @@
 			<div class='navbar navbar-inverse'>
 				<div class='navbar-inner nav-collapse' style="height: auto;">
 					<ul class="nav">
-						<li class="active"><a href="<?php echo siteURL()?>">Home</a></li>
-						<li><a href="<?php echo siteURL("people")?>">People</a></li>
-						<li><a href="<?php echo siteURL("payroll")?>">Payroll</a></li>
+						<li class="<?php echo $data['tabHome'] ?>"><a href="<?php echo siteURL()?>">Home</a></li>
+						<li class="<?php echo $data['tabPeople'] ?>"><a href="<?php echo siteURL("people")?>">People</a></li>
+						<li class="<?php echo $data['tabPayroll'] ?>"><a href="<?php echo siteURL("payroll")?>">Payroll</a></li>
 					</ul>
 				</div> <!-- end navbar-collapse -->
 			</div> <!-- end navbar -->
