@@ -6,6 +6,29 @@
 	echo "<h1>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h1><br />";
 
 ?>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		  
+			// Handle tab clicks
+			$('.tab').click(function () {
+				// Remove the 'active' class from the active tab.
+				$('#tabs_container > .nav-tabs > li.active').removeClass('active');
+
+				// Add the 'active' class to the clicked tab.
+				$(this).addClass('active');
+
+				// Remove the 'tab_contents_active' class from the visible tab contents.
+				$('.tab_contents_container > div.tab_contents_active').removeClass('tab_contents_active');
+
+				// Add the 'tab_contents_active' class to the associated tab contents.
+				var whichTab = $(this).attr('rel');
+				$('.tab_contents_container > ' + whichTab).addClass('tab_contents_active');
+				
+			});
+		});
+
+	</script>
+
 	<p>*NOTE: I don't like my tables, I simply just wanted to get the data on the screen quickly. What would be better? tabs?</p>
 	<p>FOR EDITABLE TO WORK: edit your editable.js file and make sure the file path is correct. For future will make this dynamic.</p>
 	<p>Made some of the payroll and general fields editable. click on them, update the data, hit enter. It actually updates the DB and prompts for confirmation</p>
