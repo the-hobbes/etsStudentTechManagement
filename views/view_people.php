@@ -20,7 +20,7 @@
 			foreach($data['people'] as $person){
 				$html="
 					<tr>
-						<td><a href=\"".siteURL('people/profile/'.$person['pk_netid'])."\">".$person['pk_netid']."</td>
+						<td><a href=\"".siteURL('people/profile/'.$person['pk_netid'])."#general\">".$person['pk_netid']."</td>
 						<td>".$person['fld_firstname']."</td>
 						<td>".$person['fld_lastname']."</td>
 						<td>".$person['fld_middleinitial']."</td>

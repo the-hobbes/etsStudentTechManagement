@@ -8,7 +8,10 @@
 ?>	
 	<script type="text/javascript">
 		$(document).ready(function() {
-		  
+		  	
+			tab = document.URL.split("#");
+			tab = tab[1];
+
 			// Handle tab clicks
 			$('.tab').click(function () {
 				// Remove the 'active' class from the active tab.
@@ -23,10 +26,43 @@
 				// Add the 'tab_contents_active' class to the associated tab contents.
 				var whichTab = $(this).attr('rel');
 				$('.tab_contents_container > ' + whichTab).addClass('tab_contents_active');
-				
+
+
 				// this prevents the click from being followed and thus jumping to the top of the page because of '#'
 				return false;
 			});
+
+			//updates the tab when it gets switch programatically
+			$('.tab').on('show', function(e){
+				$('#tabs_container > .nav-tabs > li.active').removeClass('active');
+
+				// Add the 'active' class to the clicked tab.
+				$(this).addClass('active');
+
+				// Remove the 'tab_contents_active' class from the visible tab contents.
+				$('.tab_contents_container > div.tab_contents_active').removeClass('tab_contents_active');
+
+				// Add the 'tab_contents_active' class to the associated tab contents.
+				var whichTab = $(this).attr('rel');
+				$('.tab_contents_container > ' + whichTab).addClass('tab_contents_active');
+
+
+				// this prevents the click from being followed and thus jumping to the top of the page because of '#'
+				return false;
+
+			});
+
+			//switch tab based on url;
+			if(tab == "payroll"){
+				$('#tabs_container li:eq(1) a').tab('show');
+			}
+			if(tab == "application"){
+				$('#tabs_container li:eq(2) a').tab('show');	
+			}
+			if(tab == "general"){
+				$('#tabs_container li:eq(0) a').tab('show');	
+			}
+
 		});
 
 	</script>
@@ -34,9 +70,9 @@
 	
 	<div id="tabs_container" class="span11">
 		<ul class="nav nav-tabs">
-			<li class="active tab" rel="#tab_1_contents"><a href="#"><h3>General</h3></a></li> 
-			<li class="tab" rel="#tab_2_contents"><a href="#"><h3>Payroll</h3></a></li>
-			<li class="tab" rel="#tab_3_contents"><a href="#"><h3>Application</h3></a></li> 
+			<li class="active tab" rel="#tab_1_contents"><a href="#general"><h3>General</h3></a></li> 
+			<li class="tab" rel="#tab_2_contents"><a href="#payroll"><h3>Payroll</h3></a></li>
+			<li class="tab" rel="#tab_3_contents"><a href="#application"><h3>Application</h3></a></li> 
 			<div class="clear"></div>
 		</ul> <!-- nav tabs -->
 

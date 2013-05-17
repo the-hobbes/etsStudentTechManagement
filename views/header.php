@@ -23,15 +23,15 @@
 			</header>
 				<?php
 					//for tab highlighting
-					if(!isset($data['tabHome'])){
+					if(!isset($data['tabHome']))
 						$data['tabHome'] = "inactive";
-					}
-					if(!isset($data['tabPeople'])){
+					if(!isset($data['tabPeople']))
 						$data['tabPeople'] = "inactive";
-					}
-					if(!isset($data['tabPayroll'])){
+					if(!isset($data['tabPayroll']))
 						$data['tabPayroll'] = "inactive";
-					}
+					if(!isset($data['tabApplication']))
+						$data['tabApplication'] = "inactive";
+					
 				?>
 			<div class='navbar navbar-inverse'>
 				<div class='navbar-inner nav-collapse' style="height: auto;">
@@ -39,6 +39,7 @@
 						<li class="<?php echo $data['tabHome'] ?>"><a href="<?php echo siteURL()?>">Home</a></li>
 						<li class="<?php echo $data['tabPeople'] ?>"><a href="<?php echo siteURL("people")?>">People</a></li>
 						<li class="<?php echo $data['tabPayroll'] ?>"><a href="<?php echo siteURL("payroll")?>">Payroll</a></li>
+						<li class="<?php echo $data['tabApplication'] ?>"><a href="<?php echo siteURL("applications")?>">Applications</a></li>
 					</ul>
 				</div> <!-- end navbar-collapse -->
 			</div> <!-- end navbar -->

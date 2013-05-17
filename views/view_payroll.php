@@ -19,7 +19,7 @@
 			foreach($data['payroll'] as $payroll){
 				$html="
 					<tr>
-						<td><a href=\"".siteURL('people/profile/'.$payroll['fk_netid'])."\">".$payroll['fk_netid']."</td>
+						<td><a href=\"".siteURL('people/profile/'.$payroll['fk_netid'])."#payroll\">".$payroll['fk_netid']."</td>
 						<td>".$payroll['fld_startdate']."</td>
 						<td>&#36;".$payroll['fld_currentrate']."</td>
 						<td>&#36;".$payroll['fld_newrate']."</td>

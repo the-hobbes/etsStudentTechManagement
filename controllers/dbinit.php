@@ -35,6 +35,7 @@ class dbinit extends Controller{
 	 CREATE TABLE tbl_application ( 
 		pk_id                INT NOT NULL auto_increment, 
 		fk_netid             VARCHAR( 100 ) NOT NULL,
+		fld_submissiondate   DATE,
 		fld_prevworked       BOOL,
 		fld_wrkeligible      BOOL,
 		fld_undergrad        BOOL,
@@ -103,21 +104,21 @@ class dbinit extends Controller{
 
 		//tbl_application data
 		$this->db->execute("INSERT INTO tbl_application
-				VALUES(null, 'mftoth', '1', '1', '1', '0', '86', '$100', 'Eileen Flynn', '123 main st. New Hope, PA', '215-555-5455',
+				VALUES(null, 'mftoth', '2012-09-20', '1', '1', '1', '0', '86', '$100', 'Eileen Flynn', '123 main st. New Hope, PA', '215-555-5455',
 					   '$12.50/hr', '20 hours', 'wholly designed and created her website', '1', 'Kathleen Flynn', '609-903-1855', 
 					   'Mommy','I think the fact that I am making this website makes me a good candidate. just sayin',
 					   'I have had previous customer experience from working in IT and restaurants',
 					   'I have much experience troubleshooting computers. You could say I am an Ace shooter of sorts')");
 
 		$this->db->execute("INSERT INTO tbl_application
-			VALUES(null, 'ccaldwell', '1', '1', '0', '0', '120', '', 'UVM', '1 Main street, Burlington VT', '802-555-5355',
+			VALUES(null, 'ccaldwell', '2000-01-15', '1', '1', '0', '0', '120', '', 'UVM', '1 Main street, Burlington VT', '802-555-5355',
 				   '$100/hr', '40 hours', 'Manage team of under performing students who help with tech support', '1', 'Gary Derr', '802-903-1855', 
 				   'Some random guy at UVM','I am the boss of this job, I am pretty darn qualified',
 				   'Ive been working here for so long, I cant remember',
 				   'I deal with kids asking me how to solve problems they cant figure out everyday')");
 
 		$this->db->execute("INSERT INTO tbl_application
-			VALUES(null, 'jman', '1', '1', '0', '1', '120', '', 'Vandeley Industries', '15st and 3rd Ave, NY, NY', '917-555-5515',
+			VALUES(null, 'jman', '2010-08-15', '1', '1', '0', '1', '120', '', 'Vandeley Industries', '15st and 3rd Ave, NY, NY', '917-555-5515',
 				   '$90/hr', '40 hours', 'Exporter and importer of fine linen goods', '1', 'Jerry Seinfeld', '212-231-1855', 
 				   'Longtime bud of mine','I like computers and have good management skills',
 				   'Dealing with fine linen goods is not as easy as you may think. The world is a dog-eat-dog place. Everyday I deal with customers 
@@ -125,7 +126,7 @@ class dbinit extends Controller{
 				   'One time my printer broke. Upon kicking it as hard as I could, it appeared to fix itself')");
 
 		$this->db->execute("INSERT INTO tbl_application
-			VALUES(null, 'mkeyes', '1', '1', '1', '0', '90', '', 'Stockon Inn', '102 Main street, Stockton NJ', '609-555-5535',
+			VALUES(null, 'mkeyes', '2011-02-01', '1', '1', '1', '0', '90', '', 'Stockon Inn', '102 Main street, Stockton NJ', '609-555-5535',
 				   '$40/hr', '28 hours', 'I serve as a highly regarded server at a fancy shmancy restaurant', '1', 'Michael Toth', '609-468-2946', 
 				   'My best bud for life <3','I will do whatever it takes to make my bosses happy. Whatever it takes.',
 				   'I serve dozens of people every day I serve. Not too toot my own horn, but the customers love me',
