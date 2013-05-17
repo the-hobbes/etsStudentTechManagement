@@ -3,7 +3,7 @@
 	$application = $data['application'];
 	$payroll = $data['payroll'];
 
-	echo "<h1>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h1><br />";
+	echo "<h4>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h4>";
 
 ?>	
 	<script type="text/javascript">
@@ -31,8 +31,7 @@
 
 	</script>
 	<input id = "siteURL" type="hidden" value="<?php echo siteURL() ?>" />
-	<p>FOR EDITABLE TO WORK: edit your editable.js file and make sure the file path is correct. For future will make this dynamic.</p>
-	<p>Made some of the payroll and general fields editable. click on them, update the data, hit enter. It actually updates the DB and prompts for confirmation</p>
+	
 	<div id="tabs_container" class="span11">
 		<ul class="nav nav-tabs">
 			<li class="active tab" rel="#tab_1_contents"><a href="#"><h3>General</h3></a></li> 
