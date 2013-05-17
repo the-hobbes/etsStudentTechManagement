@@ -10,7 +10,7 @@ $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $url = explode(basename(__DIR__), $url);
 $url = $url[0].basename(__DIR__).'/';
 
-define("ROOT_FOLDER",basename(__DIR)__);
+define("ROOT_FOLDER",basename(__DIR__));
 
 define("BASE_URL", $url);
 

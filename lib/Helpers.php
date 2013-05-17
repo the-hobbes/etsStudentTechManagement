@@ -12,13 +12,26 @@ function siteURL($string = ""){
 }
 
 function getBreadcrumbs(){
-	//$URI = $_SERVER['REQUEST_URI'];
-//	$BASE = siteURL();
+	$URI = $_SERVER['REQUEST_URI'];
 
-//	$crumbs = explode($URI, ROOT_FOLDER);
+	//Get the url after the rootfolder path
+	$crumbs = explode(ROOT_FOLDER, $URI);
+	$crumbs = explode('/', $crumbs[1]);
 
+	$breadcrumbs = array();
 
-	//print_r($crumbs);
+	//add each breadcrumb to an array. e.g [0] => people, [1] => people/profile, [2] =>people/profile/mftoth
+	$i=0;
+	$size= sizeof($crumbs);
+	while($i < $size -1){
+		if($i!=0){
+			$breadcrumbs[$i] = $breadcrumbs[$i-1].'/'.$crumbs[$i+1];
+		}else{
+			$breadcrumbs[$i] = $crumbs[$i+1];
+		}
+		$i++;
+	}
+	return $breadcrumbs;
 }
 
 

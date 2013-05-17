@@ -32,7 +32,30 @@
 				</div> <!-- end navbar-collapse -->
 			</div> <!-- end navbar -->
 
-			<?php getBreadcrumbs(); ?>
+			<?php 
+				//Breadcrumbs below	
+
+				//Display the Home link
+				echo "<a href =\"".siteURL()."\">Home</a>";
+
+				//get the breakcrumbs, loop through and add link
+				$breadcrumbs = getBreadcrumbs(); 
+				$size = sizeof($breadcrumbs);
+
+				if($breadcrumbs[0]!=""){
+					foreach($breadcrumbs as $crumb){
+					
+						$crumbs = explode("/", $crumb);
+						$lastcrumb = $crumbs[sizeof($crumbs) -1];
+						if($lastcrumb != "profile"){ //We don't want to link directly to /profile/
+							echo " > <a href =\"".siteURL($crumb)."\">".$lastcrumb."</a>";
+						}
+
+					}//foreach
+				}//if
+				
+				//end breadcrumbs
+			?>
 		
 <!-- begin page specific content -->
 
