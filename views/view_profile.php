@@ -5,7 +5,7 @@
 
 	echo "<h1>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h1><br />";
 
-?>
+?>	
 	<script type="text/javascript">
 		$(document).ready(function() {
 		  
@@ -30,7 +30,7 @@
 		});
 
 	</script>
-
+	<input id = "siteURL" type="hidden" value="<?php echo siteURL() ?>" />
 	<p>FOR EDITABLE TO WORK: edit your editable.js file and make sure the file path is correct. For future will make this dynamic.</p>
 	<p>Made some of the payroll and general fields editable. click on them, update the data, hit enter. It actually updates the DB and prompts for confirmation</p>
 	<div id="tabs_container" class="span11">

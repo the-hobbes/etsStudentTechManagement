@@ -1,6 +1,8 @@
  $(document).ready(function() {
 
-     $('.edit').editable('http://localhost/ETS/people/update', {
+    siteURL = $("#siteURL").attr('value');
+
+     $('.edit').editable(siteURL + 'people/update', {
          indicator : 'Saving...',
          tooltip   : 'Click to edit...',
          id	   	   : 'elementid',
@@ -20,7 +22,7 @@
             if(table == "tbl_payroll"){
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost/ETS/payroll/getUpdatedPayroll",
+                    url: siteURL + "payroll/getUpdatedPayroll",
                     data: {netid: netid}
                 }).done(function(data){
                     payroll = JSON.parse(data);
