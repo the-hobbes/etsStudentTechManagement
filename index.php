@@ -1,5 +1,7 @@
 <?php
 
+require 'lib/config.php';
+
 //Display errors
 error_reporting(32767);
 ini_set('display_errors', '1');
@@ -20,7 +22,7 @@ define("ABS_PATH", getcwd().'/');
 require 'lib/web_application.php';
 
 //The main application
-$app = new web_application();
+$app = new web_application($config);
 
 
 

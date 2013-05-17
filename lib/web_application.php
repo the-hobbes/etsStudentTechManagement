@@ -1,6 +1,5 @@
 <?php
 
-require 'config.php';
 require 'Database.php';
 require 'Helpers.php';
 require 'Bootstrap.php';
@@ -18,9 +17,8 @@ class web_application{
 	public $test;
 
 	//constructor()
-	function __construct(){
-	
-		global $config;
+	function __construct($config){
+
 		$this->conf = $config;
 
 		if($config['dbEnabled'] == true){
