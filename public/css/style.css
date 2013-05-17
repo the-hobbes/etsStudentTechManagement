@@ -10,3 +10,12 @@ body {
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
 }
+div.tab_contents {
+	display: none;
+}
+div.tab_contents_active {
+	display: block;
+}
+div.clear {
+	clear: both;
+}
