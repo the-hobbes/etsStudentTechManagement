@@ -10,7 +10,9 @@
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="<?php echo siteURL("public/js/jquery.jeditable.mini.js") ?>"></script>
 		<script src="<?php echo siteURL("public/js/bootstrap.min.js") ?>"></script>
+		<script src="<?php echo siteURL("public/js/editable.js") ?>"></script>
 		
 	</head>
 	<body>
@@ -25,10 +27,35 @@
 					<ul class="nav">
 						<li class="active"><a href="<?php echo siteURL()?>">Home</a></li>
 						<li><a href="<?php echo siteURL("people")?>">People</a></li>
-						<li><a href="#">Page Two</a></li>
+						<li><a href="<?php echo siteURL("payroll")?>">Payroll</a></li>
 					</ul>
 				</div> <!-- end navbar-collapse -->
 			</div> <!-- end navbar -->
+
+			<?php 
+				//Breadcrumbs below	
+
+				//Display the Home link
+				echo "<a href =\"".siteURL()."\">Home</a>";
+
+				//get the breakcrumbs, loop through and add link
+				$breadcrumbs = getBreadcrumbs(); 
+				$size = sizeof($breadcrumbs);
+
+				if($breadcrumbs[0]!=""){
+					foreach($breadcrumbs as $crumb){
+					
+						$crumbs = explode("/", $crumb);
+						$lastcrumb = $crumbs[sizeof($crumbs) -1];
+						if($lastcrumb != "profile"){ //We don't want to link directly to /profile/
+							echo " > <a href =\"".siteURL($crumb)."\">".$lastcrumb."</a>";
+						}
+
+					}//foreach
+				}//if
+
+				//end breadcrumbs
+			?>
 		
 <!-- begin page specific content -->
 
