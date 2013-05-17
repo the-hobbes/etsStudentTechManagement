@@ -31,6 +31,8 @@
 					</ul>
 				</div> <!-- end navbar-collapse -->
 			</div> <!-- end navbar -->
+
+			<?php getBreadcrumbs(); ?>
 		
 <!-- begin page specific content -->
 

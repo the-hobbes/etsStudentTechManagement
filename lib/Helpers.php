@@ -11,5 +11,15 @@ function siteURL($string = ""){
 	return $url;
 }
 
+function getBreadcrumbs(){
+	//$URI = $_SERVER['REQUEST_URI'];
+//	$BASE = siteURL();
+
+//	$crumbs = explode($URI, ROOT_FOLDER);
+
+
+	//print_r($crumbs);
+}
+
 
 ?>
