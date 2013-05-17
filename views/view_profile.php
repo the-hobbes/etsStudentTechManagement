@@ -7,7 +7,7 @@
 
 ?>
 	<p>*NOTE: I don't like my tables, I simply just wanted to get the data on the screen quickly. What would be better? tabs?</p>
-	<p>FOR EDITABLE TO WORK: edit your editable.js file and make sure the file path is correct. For future will make this dynamic</p>
+	<p>FOR EDITABLE TO WORK: edit your editable.js file and make sure the file path is correct. For future will make this dynamic.</p>
 	<p>Made some of the payroll and general fields editable. click on them, update the data, hit enter. It actually updates the DB and prompts for confirmation</p>
 	<h3>General</h3>
 	<table class="table table-striped">
