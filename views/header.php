@@ -40,6 +40,7 @@
 						<li class="<?php echo $data['tabPeople'] ?>"><a href="<?php echo siteURL("people")?>">People</a></li>
 						<li class="<?php echo $data['tabPayroll'] ?>"><a href="<?php echo siteURL("payroll")?>">Payroll</a></li>
 						<li class="<?php echo $data['tabApplication'] ?>"><a href="<?php echo siteURL("applications")?>">Applications</a></li>
+						<li class="<?php echo $data['tabApplication'] ?>"><a href="<?php echo siteURL("dbinit")?>">Reset DB</a></li>
 					</ul>
 				</div> <!-- end navbar-collapse -->
 			</div> <!-- end navbar -->
