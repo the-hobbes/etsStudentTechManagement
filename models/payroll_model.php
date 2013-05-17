@@ -18,6 +18,24 @@ class payroll_model extends Model{
 			return $results[0];
 	}
 
+	function recalculateFields($netid){
+		$payroll = $this->getPayrollByNetid($netid);
+
+		//Total hours
+		$hrsperweek = $payroll['fld_hlhours'] + $payroll['fld_cdchours'];
+
+		//Total cost (hrs*rate)
+		$costperweek = $hrsperweek*$payroll['fld_currentrate'];
+
+		$hlcost = $payroll['fld_currentrate']*$payroll['fld_hlhours'];
+		$cdccost = $payroll['fld_currentrate']*$payroll['fld_cdchours'];
+
+		$this->update($netid, "fld_hrsperweek", $hrsperweek);
+		$this->update($netid, "fld_costperweek", $costperweek);
+		$this->update($netid, "fld_hlcost", $hlcost);
+		$this->update($netid, "fld_cdccost", $cdccost);
+	}
+
 	function update($netid, $fld, $newval){
 		$query = "UPDATE tbl_payroll SET ".$fld."='".$newval."' WHERE fk_netid = '".$netid."'";
 		$this->db->execute($query);

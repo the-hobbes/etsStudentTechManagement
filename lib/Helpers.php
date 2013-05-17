@@ -19,15 +19,18 @@ function getBreadcrumbs(){
 	$crumbs = explode('/', $crumbs[1]);
 
 	$breadcrumbs = array();
-
+	//$lastcrumb = $crumbs[sizeof($crumbs) -1];
 	//add each breadcrumb to an array. e.g [0] => people, [1] => people/profile, [2] =>people/profile/mftoth
 	$i=0;
 	$size= sizeof($crumbs);
 	while($i < $size -1){
+		//$crumbs2 = explode("/", $crumb);
 		if($i!=0){
 			$breadcrumbs[$i] = $breadcrumbs[$i-1].'/'.$crumbs[$i+1];
+			//$breadcrumbs[$i][1] = $lastcrumb;
 		}else{
 			$breadcrumbs[$i] = $crumbs[$i+1];
+			//$breadcrumbs[$i][1] = $lastcrumb;
 		}
 		$i++;
 	}

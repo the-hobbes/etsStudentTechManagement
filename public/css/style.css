@@ -19,3 +19,11 @@ div.tab_contents_active {
 div.clear {
 	clear: both;
 }
+.edit{
+	font-weight:bold;
+	cursor:pointer;
+}
+.edit:hover{
+	text-decoration:underline;
+}
+

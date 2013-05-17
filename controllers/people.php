@@ -40,6 +40,7 @@ class People extends Controller{
 				break;
 			case 'tbl_payroll':
 				$this->payroll_model->update($netid, $fld, $newval);
+				$this->payroll_model->recalculateFields($netid);
 				break;
 		}
 		

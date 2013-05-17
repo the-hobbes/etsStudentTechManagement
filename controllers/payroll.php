@@ -14,7 +14,16 @@ class Payroll extends Controller{
 
 		$this->view->render("view_payroll", $data);
 	}//end: index()
+
+	function getUpdatedPayroll(){
+		$netid = $_POST['netid'];
+		$payroll = $this->payroll_model->getPayrollByNetid($netid);
+
+		$payroll = json_encode($payroll);
+		echo $payroll;
+	}
 }
 
+	
 
 ?>

@@ -139,17 +139,17 @@
 
 				<tr>
 					<td>Hours per week</td>
-					<td id="<?php echo $person['pk_netid'].".fld_hrsperweek.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_hrsperweek'] ?></td>
+					<td id="hrsperweek"><?php echo $payroll['fld_hrsperweek'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Cost per week</td>
-					<td><?php echo $payroll['fld_costperweek'] ?></td>
+					<td id="costperweek"><?php echo $payroll['fld_costperweek'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Helpline Hours</td>
-					<td id="<?php echo $person['pk_netid'].".fld_hours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_hlhours'] ?></td>
+					<td id="<?php echo $person['pk_netid'].".fld_hlhours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_hlhours'] ?></td>
 				</tr>
 				
 				<tr>
@@ -159,12 +159,12 @@
 				
 				<tr>
 					<td>Helpline Cost</td>
-					<td><?php echo $payroll['fld_hlcost'] ?></td>
+					<td id="hlcost"><?php echo $payroll['fld_hlcost'] ?></td>
 				</tr>
 				
 				<tr>
 					<td>CDC Cost</td>
-					<td><?php echo $payroll['fld_cdccost'] ?></td>
+					<td id="cdccost"><?php echo $payroll['fld_cdccost'] ?></td>
 				</tr>
 
 				<tr>
