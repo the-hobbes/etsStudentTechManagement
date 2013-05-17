@@ -15,6 +15,31 @@ class People extends Controller{
 		$data['payroll'] = $this->payroll_model->getPayrollByNetId($netid);
 		$this->view->render("view_profile", $data);
 	}
+
+
+	function update(){
+		$data = explode('.', $_POST['elementid']);
+		$netid = $data[0];
+		$fld = $data[1];
+		$table = $data[2];
+		$newval = $_POST['newval'];
+
+		switch($table){
+			case 'tbl_people':
+				$this->people_model->update($netid, $fld, $newval);
+				break;
+			case 'tbl_application':
+				$this->application_model->update($netid, $fld, $newval);
+				break;
+			case 'tbl_payroll':
+				$this->payroll_model->update($netid, $fld, $newval);
+				break;
+		}
+		
+
+		echo $newval;
+		//echo 'update '.$fld.' to value '.$newval.' for user '.$netid;
+	}
 }
 
 ?>

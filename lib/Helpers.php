@@ -34,5 +34,13 @@ function getBreadcrumbs(){
 	return $breadcrumbs;
 }
 
+function getCurrentPage(){
+	$URI = $_SERVER['REQUEST_URI'];
+	$pieces = explode('/', $URI);
+	$last = $pieces[sizeof($pieces)-1];
+
+	return $last;
+}
+
 
 ?>

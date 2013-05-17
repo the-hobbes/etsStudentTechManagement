@@ -7,6 +7,10 @@ class application_model extends Model{
 		return $results[0];
 	}
 
+	function update($netid, $fld, $newval){
+		$query = "UPDATE tbl_application SET ".$fld."='".$newval."' WHERE fk_netid = '".$netid."'";
+		$this->db->execute($query);
+	}
 }
 
 

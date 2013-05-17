@@ -6,6 +6,8 @@
 	echo "<h1>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h1><br />";
 
 ?>
+	<p>*NOTE: I don't like my tables, I simply just wanted to get the data on the screen quickly. What would be better? tabs?</p>
+	<p>Made some of the payroll and general fields editable. click on them, update the data, hit enter. It actually updates the DB and prompts for confirmation</p>
 	<h3>General</h3>
 	<table class="table table-striped">
 		<tr>
@@ -26,27 +28,27 @@
 		</tr>
 		<tr>
 			<td>Street Address</td>
-			<td><?php echo $person['fld_streetaddress'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_streetaddress.tbl_people" ?>" class="edit"><?php echo $person['fld_streetaddress'] ?></td>
 		</tr>
 		<tr>
 			<td>Zip Code</td>
-			<td><?php echo $person['fld_zipcode'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_zipcode.tbl_people" ?>" class="edit"><?php echo $person['fld_zipcode'] ?></td>
 		</tr>
 		<tr>
 			<td>Email</td>
-			<td><?php echo $person['fld_email'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_email.tbl_people" ?>" class="edit"><?php echo $person['fld_email'] ?></td>
 		</tr>
 		<tr>
 			<td>Graduation Date</td>
-			<td><?php echo $person['fld_graddate'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_graddate.tbl_people" ?>" class="edit"><?php echo $person['fld_graddate'] ?></td>
 		</tr>
 		<tr>
 			<td>Phone</td>
-			<td><?php echo $person['fld_phone'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_phone.tbl_people" ?>" class="edit"><?php echo $person['fld_phone'] ?></td>
 		</tr>
 		<tr>
 			<td>Schedule Code</td>
-			<td><?php echo $person['fld_schedulecode'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_schedulecode.tbl_people" ?>" class="edit"><?php echo $person['fld_schedulecode'] ?></td>
 		</tr>
 	</table>
 
@@ -60,12 +62,12 @@
 
 		<tr>
 			<td>Start Date</td>
-			<td><?php echo $payroll['fld_startdate'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_startdate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_startdate'] ?></td>
 		</tr>
 
 		<tr>
 			<td>End Date</td>
-			<td class="edit"><?php echo $payroll['fld_enddate'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_enddate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_enddate'] ?></td>
 		</tr>
 
 		<tr>
@@ -85,52 +87,52 @@
 
 		<tr>
 			<td>Current Rate</td>
-			<td class="edit">&#36;<?php echo $payroll['fld_currentrate'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_currentrate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_currentrate'] ?></td>
 		</tr>
 
 		<tr>
 			<td>New Rate</td>
-			<td class="edit">&#36;<?php echo $payroll['fld_newrate'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_newrate.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_newrate'] ?></td>
 		</tr>
 
 		<tr>
 			<td>Hours per week</td>
-			<td class="edit"><?php echo $payroll['fld_hrsperweek'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_hrsperweek.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_hrsperweek'] ?></td>
 		</tr>
 
 		<tr>
 			<td>Cost per week</td>
-			<td>&#36;<?php echo $payroll['fld_costperweek'] ?></td>
+			<td><?php echo $payroll['fld_costperweek'] ?></td>
 		</tr>
 
 		<tr>
 			<td>Helpline Hours</td>
-			<td class="edit"><?php echo $payroll['fld_hlhours'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_hours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_hlhours'] ?></td>
 		</tr>
 		
 		<tr>
 			<td>CDC Hours</td>
-			<td class="edit"><?php echo $payroll['fld_cdchours'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_cdchours.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_cdchours'] ?></td>
 		</tr>
 		
 		<tr>
 			<td>Helpline Cost</td>
-			<td>&#36;<?php echo $payroll['fld_hlcost'] ?></td>
+			<td><?php echo $payroll['fld_hlcost'] ?></td>
 		</tr>
 		
 		<tr>
 			<td>CDC Cost</td>
-			<td>&#36;<?php echo $payroll['fld_cdccost'] ?></td>
+			<td><?php echo $payroll['fld_cdccost'] ?></td>
 		</tr>
 
 		<tr>
 			<td>Confidentiality Agreement</td>
-			<td class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_confragreement.tbl_payroll" ?>" name= "derp" class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
 		</tr>
 
 		<tr>
 			<td>Quizes Done</td>
-			<td class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td>
+			<td id="<?php echo $person['pk_netid'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td>
 		</tr>
 
 

@@ -12,7 +12,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 		<script src="<?php echo siteURL("public/js/jquery.jeditable.mini.js") ?>"></script>
 		<script src="<?php echo siteURL("public/js/bootstrap.min.js") ?>"></script>
-		<script src="<?php echo siteURL("public/js/payroll.js") ?>"></script>
+		<script src="<?php echo siteURL("public/js/editable.js") ?>"></script>
 		
 	</head>
 	<body>
@@ -53,7 +53,7 @@
 
 					}//foreach
 				}//if
-				
+
 				//end breadcrumbs
 			?>
 		
