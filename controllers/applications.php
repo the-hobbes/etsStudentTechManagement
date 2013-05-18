@@ -8,5 +8,9 @@ class applications extends Controller{
 		$this->view->render("view_application", $data);
 	}
 
+	function submit(){
+		echo 'derp';
+	}
+
 }
 ?>
