@@ -10,8 +10,8 @@ $config['default_controller'] = 'main';
 $config['dbEnabled'] = true;
 $config['hostname'] = "localhost";
 $config['dbUser'] = "root";
-$config['dbPass'] = "root";
-$config['database'] = "ETS";
+$config['dbPass'] = "";
+$config['database'] = "ets";
 
 //>>>Models<<<
 //Models used for handling business logic and communicating with database.
