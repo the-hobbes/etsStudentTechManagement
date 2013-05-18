@@ -1,7 +1,7 @@
 RewriteEngine On
 # this is for when we deploy it live to the uvm servers
 # RewriteBase /~helpline/whatever we call the folder on the helpline server
-RewriteCond $1 !^(index\.php|public|images)
+RewriteCond $1 !^(index\.php|public|etsApplication|images)
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 
