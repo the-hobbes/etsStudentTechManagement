@@ -3,6 +3,7 @@
 // include validation functions
 //include ("validationFunctions.php");
 include("DB.php");
+require '../../lib/config.php';
 // pull a json array from what was posted
 $clientInfo = json_decode($_POST['data'], true);
 //print_r($clientInfo);
@@ -209,7 +210,11 @@ function sendEmail(){
 
 function sendToDatabase(){
 		//include 'DB.php';
-		$db = new Database("localhost","root","root","ETS");
+		//include the config where the db settings exits
+		
+
+		global $config;
+		$db = new Database($config['hostname'],$config['dbUser'],$config['dbPass'],$config['database']);
 
 		global $firstName, $middleInitial, $lastName, $streetAddress,$zipCode, $email, $netID, $major, $usEligible, $previouslyWorked, $undergradStudent, $gradStudent, $creditNumber, $graduationDate, $workStudyAmount, $employerName, $employerAddress, $employerPhone, $payRate, $hoursWorked, $jobDuties, $mayWeContact, $referenceName, $referenceRelation, $referencePhone, $goodCandidate, $prevCustExperience, $prevComputerTroubleshooting;
 
