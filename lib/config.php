@@ -6,6 +6,9 @@ The controller to be called by default if there are no URL parameters
 $config['default_controller'] = 'main';
  
 
+//Debugging. If enabled, the site will show php errors
+$config['debug']=true;
+
 //Database
 $config['dbEnabled'] = true;
 $config['hostname'] = "localhost";
