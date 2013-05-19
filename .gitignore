@@ -1,2 +1,3 @@
 #ignore these files
 *.DS_Store
+lib/dbconfig.php
