@@ -77,8 +77,8 @@
 					
 					<label>
 						<div class="required"><span style="color:#FF3030;">**</span>You are eligible to work in the United States:</div>
-						<input id="eUS1" type="radio" name="eligibility" value="true" checked="checked"><label for="eUS1" style="display:inline;">True</label>
-						<input id="eUS2" type="radio" name="eligibility" value="false"> <label for="eUS2" style="display:inline;">False</label>
+						<input id="eUS1" type="radio" name="eligibility" value="yes" checked="checked"><label for="eUS1" style="display:inline;">True</label>
+						<input id="eUS2" type="radio" name="eligibility" value="no"> <label for="eUS2" style="display:inline;">False</label>
 					</label>		
 				</fieldset>
 

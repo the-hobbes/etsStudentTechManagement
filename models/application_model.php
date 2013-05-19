@@ -13,7 +13,7 @@ class application_model extends Model{
 	}
 
 	function getAllJoined(){
-		$results = $this->db->query("SELECT * FROM tbl_people JOIN tbl_application ON tbl_people.pk_netid=tbl_application.fk_netid ORDER BY fld_submissiondate DESC");
+		$results = $this->db->query("SELECT * FROM tbl_people JOIN tbl_application ON tbl_people.pk_netid=tbl_application.fk_netid WHERE fld_ishired='0' ORDER BY fld_submissiondate DESC");
 		return $results;
 	}
 

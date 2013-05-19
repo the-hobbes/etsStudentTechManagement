@@ -13,8 +13,8 @@ $config['debug']=true;
 $config['dbEnabled'] = true;
 $config['hostname'] = "localhost";
 $config['dbUser'] = "root";
-$config['dbPass'] = "";
-$config['database'] = "ets";
+$config['dbPass'] = "root";
+$config['database'] = "ETS";
 
 //>>>Models<<<
 //Models used for handling business logic and communicating with database.

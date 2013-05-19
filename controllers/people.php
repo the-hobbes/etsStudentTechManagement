@@ -3,14 +3,14 @@
 class People extends Controller{
 
 	function index(){
-		$data['tabPeople'] = "active";
-		//Get the list of people from tbl_people and send it to the view
-		$data['people'] = $this->people_model->getPeople();
+		$data['tabEmployees'] = "active";
+		//Get the list of employees from tbl_people and send it to the view
+		$data['people'] = $this->people_model->getEmployees();
 		$this->view->render("view_people", $data);	
 	}
 
 	function profile($netid = null){
-		$data['tabPeople'] = "active";
+		$data['tabEmployees'] = "active";
 
 		if($netid){
 			$data['person'] = $this->people_model->getPersonByNetid($netid);

@@ -218,7 +218,7 @@ function sendToDatabase(){
 
 		global $firstName, $middleInitial, $lastName, $streetAddress,$zipCode, $email, $netID, $major, $usEligible, $previouslyWorked, $undergradStudent, $gradStudent, $creditNumber, $graduationDate, $workStudyAmount, $employerName, $employerAddress, $employerPhone, $payRate, $hoursWorked, $jobDuties, $mayWeContact, $referenceName, $referenceRelation, $referencePhone, $goodCandidate, $prevCustExperience, $prevComputerTroubleshooting;
 
-		$hashkey = hash2fields($netID,"000-000-0000");
+		$hashkey = hash2fields($netID,$email);
 
 		$day = date('d');
 		$month = date('m');
@@ -227,7 +227,7 @@ function sendToDatabase(){
 		$date = $year."-".$month."-".$day;
 
 		$db->execute("INSERT INTO tbl_people VALUES('".$netID."', '".$firstName."', '".$lastName."', '".$middleInitial."', '".$streetAddress."', '".$zipcode."',
-					'".$email."', '".$major."', '".$graduationDate."', '000-000-0000', 'XXX', '".$hashkey."')");
+					'".$email."', '".$major."', '".$graduationDate."', '000-000-0000', 'XXX', '".$hashkey."', '0')");
 
 		$db->execute("INSERT INTO tbl_application VALUES(null,'".$netID."', '".$date."', '".$previouslyWorked."', '".$usEligible."', '".$undergradStudent."','".$gradStudent."' ,'".$creditNumber."',
 					'".$workStudyAmount."', '".$employerName."', '".$employerAddress."', '".$employerPhone."', '".$payRate."', '".$hoursWorked."',

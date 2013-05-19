@@ -61,7 +61,8 @@ function validateForm(){
 		  }
 		  else{
 		  	//form validated, redirect
-		  	window.location.replace("http://www.uvm.edu/~helpline/etsApplication/thanks.php");
+		  	//window.location.replace("http://www.uvm.edu/~helpline/etsApplication/thanks.php");
+		  	window.location.replace("../");
 		  }
 		});
 	}

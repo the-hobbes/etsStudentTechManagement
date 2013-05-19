@@ -15,18 +15,22 @@ $applications = $data['applications'];
 		</tr>
 
 		<?php
-		foreach($applications as $application){
-			$html = "<tr>
-							<td><a href=\"".siteURL('people/profile/'.$application['pk_netid'])."#application\">".$application['pk_netid']."</a></td>
-							<td>".$application['fld_firstname']."</td>
-							<td>".$application['fld_lastname']."</td>
-							<td>".$application['fld_submissiondate']."</td>
-							<td>".$application['fld_graddate']."</td>
-					</tr>";
-			echo $html;
+		if(sizeof($applications)==0){
+			echo "<p>There are currently no new applications</p>";
+		}else{
 
+			foreach($applications as $application){
+				$html = "<tr>
+								<td><a href=\"".siteURL('people/profile/'.$application['pk_netid'])."#application\">".$application['pk_netid']."</a></td>
+								<td>".$application['fld_firstname']."</td>
+								<td>".$application['fld_lastname']."</td>
+								<td>".$application['fld_submissiondate']."</td>
+								<td>".$application['fld_graddate']."</td>
+						</tr>";
+				echo $html;
+
+			}
 		}
-
 		?>
 
 

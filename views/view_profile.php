@@ -71,7 +71,11 @@
 	<div id="tabs_container" class="span11">
 		<ul class="nav nav-tabs">
 			<li class="active tab" rel="#tab_1_contents"><a href="#general"><h3>General</h3></a></li> 
+
+			<?php if($person['fld_ishired']==1){ //only show payroll tab if person is hired ?>
 			<li class="tab" rel="#tab_2_contents"><a href="#payroll"><h3>Payroll</h3></a></li>
+			<?php } ?>
+
 			<li class="tab" rel="#tab_3_contents"><a href="#application"><h3>Application</h3></a></li> 
 			<div class="clear"></div>
 		</ul> <!-- nav tabs -->
@@ -128,6 +132,7 @@
 			<!-- end general tab -->
         </div> <!-- end tab 1 contents -->
 
+        <?php if($person['fld_ishired']==1){ //only show payroll tab if person is hired ?>
         <!-- Tab 2 Contents -->
         <div id="tab_2_contents" class="tab_contents">
 			<!-- payroll tab -->
@@ -214,6 +219,8 @@
 			</table>
 			<!-- end payroll tab -->
 		</div> <!-- end tab 2 contents -->
+		<?php } ?>
+
 			<br />
 
         <!-- Tab 3 Contents -->
