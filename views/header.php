@@ -26,6 +26,8 @@
 					//for tab highlighting 
 					if(!isset($data['tabHome'])) 
 					$data['tabHome'] = "inactive"; 
+					if(!isset($data['tabPeople'])) 
+					$data['tabPeople'] = "inactive";
 					if(!isset($data['tabEmployees'])) 
 					$data['tabEmployees'] = "inactive"; 
 					if(!isset($data['tabPayroll'])) 
