@@ -21,7 +21,7 @@ class View{
 	public function render($name, $data = null, $includeHeader = true){
 		
 			$this->data = $data;
-			print_r($data);
+			//print_r($data);
 			if($includeHeader == true){
 				require 'views/header.php';
 				require 'views/'.$name.'.php';
