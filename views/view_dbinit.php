@@ -6,3 +6,7 @@
 <br />
 
 <a href="<?php echo siteURL("dbinit/deleteTables") ?>">Delete Tables</a><br />
+
+<br />
+
+<a href="<?php echo siteURL("etsApplication") ?>">Application Form (Linked to db)</a>

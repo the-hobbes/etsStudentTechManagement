@@ -28,11 +28,10 @@ $applications = $data['applications'];
 				echo $html;
 
 			}
-
 			?>
 		</tbody>
 	</table>
-
+	<p>dev note: presumably there should be a hire or deny button next to the application</p>
 </div><!--end content-->
 <script type="text/javascript">
 	// sortable tables

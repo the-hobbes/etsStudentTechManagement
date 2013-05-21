@@ -37,10 +37,10 @@
 				<div class='navbar-inner nav-collapse' style="height: auto;">
 					<ul class="nav">
 						<li class="<?php echo $data['tabHome'] ?>"><a href="<?php echo siteURL()?>">Home</a></li>
-						<li class="<?php echo $data['tabPeople'] ?>"><a href="<?php echo siteURL("people")?>">People</a></li>
+						<li class="<?php echo $data['tabPeople'] ?>"><a href="<?php echo siteURL("people")?>">Employees</a></li>
 						<li class="<?php echo $data['tabPayroll'] ?>"><a href="<?php echo siteURL("payroll")?>">Payroll</a></li>
 						<li class="<?php echo $data['tabApplication'] ?>"><a href="<?php echo siteURL("applications")?>">Applications</a></li>
-						<li class="<?php echo $data['tabApplication'] ?>"><a href="<?php echo siteURL("dbinit")?>">Reset DB</a></li>
+						<li class="<?php echo $data['tabApplication'] ?>"><a href="<?php echo siteURL("dbinit")?>">DBINIT and Appl. Form</a></li>
 					</ul>
 				</div> <!-- end navbar-collapse -->
 			</div> <!-- end navbar -->
@@ -69,6 +69,5 @@
 
 				//end breadcrumbs
 			?>
-		<p>added new rows. reset your tables...this is line 72 header.php</p>
 <!-- begin page specific content -->
 

@@ -8,6 +8,18 @@ class people_model extends Model{
 		return $results;
 	}
 
+	//getEmployees(): gets people who have fld_ishired = 1
+	function getEmployees(){
+		$results = $this->db->query("SELECT * FROM tbl_people WHERE fld_ishired ='1'");
+		return $results;
+	}
+
+	//getApplications(): returns people who have fld_ishired = 0
+	function getApplicants(){
+		$results = $this->db->query("SELECT * FROM tbl_people WHERE fld_ishired ='0'");
+		return $results;
+	}
+
 	function getPersonByNetid($netid){
 		$results = $this->db->query("SELECT * FROM tbl_people WHERE pk_netid = '".$netid."'");
 		return $results[0];

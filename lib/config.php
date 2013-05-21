@@ -1,17 +1,17 @@
 <?php
-
+require 'dbconfig.php';
 /*Default Controller
 The controller to be called by default if there are no URL parameters
 */
 $config['default_controller'] = 'main';
  
 
+//Debugging. If enabled, the site will show php errors
+$config['debug']=true;
+
 //Database
 $config['dbEnabled'] = true;
-$config['hostname'] = "localhost";
-$config['dbUser'] = "root";
-$config['dbPass'] = "root";
-$config['database'] = "ETS";
+
 
 //>>>Models<<<
 //Models used for handling business logic and communicating with database.
