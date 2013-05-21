@@ -106,9 +106,9 @@ validateEmail($email);
 	// do something, sending the errors back to the view so they can be displayed.
 //	return null;
 //}
-//else{
+else{
 	sendToDatabase();
-//}
+}
 /**
  * validateRequiredField
  * Used to validate required fields (make sure they have something in them).
