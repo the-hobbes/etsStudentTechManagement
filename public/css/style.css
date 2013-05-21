@@ -26,3 +26,11 @@ div.clear {
 .edit:hover{
 	text-decoration:underline;
 }
+thead{
+	background-color: black;
+	color:white;
+	cursor: pointer;
+}
+th{
+	border-right:1px solid white;
+}
