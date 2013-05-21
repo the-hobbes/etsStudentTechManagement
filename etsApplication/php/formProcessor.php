@@ -1,6 +1,7 @@
 <?php
 
 // include validation functions
+
 include ("validationFunctions.php");
 include("DB.php");
 require '../../lib/config.php';
