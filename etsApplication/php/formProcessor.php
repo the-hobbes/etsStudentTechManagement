@@ -1,7 +1,7 @@
 <?php
 
 // include validation functions
-//include ("validationFunctions.php");
+include ("validationFunctions.php");
 include("DB.php");
 require '../../lib/config.php';
 // pull a json array from what was posted
@@ -81,7 +81,7 @@ $goodCandidate = htmlentities($goodCandidate, ENT_QUOTES);
 $prevCustExperience = htmlentities($prevCustExperience, ENT_QUOTES);
 $prevComputerTroubleshooting = htmlentities($prevComputerTroubleshooting, ENT_QUOTES);
 
-/*
+
 // perform validation
 $errorMsg=array();
 
@@ -101,7 +101,7 @@ validateNumericField($zipCode);
 validateEmail($email);
 
 // print_r($errorMsg);
-*/
+
 //f($errorMsg){
 	// do something, sending the errors back to the view so they can be displayed.
 //	return null;
