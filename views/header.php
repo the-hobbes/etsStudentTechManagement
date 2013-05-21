@@ -69,6 +69,5 @@
 
 				//end breadcrumbs
 			?>
-		<p>added new rows. reset your tables...this is line 72 header.php</p>
 <!-- begin page specific content -->
 

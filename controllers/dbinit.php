@@ -103,6 +103,9 @@ class dbinit extends Controller{
 		$this->db->execute("INSERT INTO tbl_people VALUES('mkeyes', 'Mauro', 'Keyes', 'A', '21 Main street', 
 			'08559', 'mkeyes@uvm.edu', 'Business', 'Spring 2013', '609-111-1111', 'MAK', '".$this->people_model->hash2fields('mkeyes','mkeyes@uvm.edu')."','1')");
 
+		$this->db->execute("INSERT INTO tbl_people VALUES('ldavinc', 'Leonardo', 'Davinci', 'A', '1000 industrial ave', 
+			'10001', 'ldavinc@uvm.edu', 'Art', 'Spring 2015', '217-223-3132', 'LAD', '".$this->people_model->hash2fields('ldavinc','ldavinc@uvm.edu')."','0')");
+
 		//tbl_application data
 		$this->db->execute("INSERT INTO tbl_application
 				VALUES(null, 'mftoth', '2012-09-20', 'yes', 'yes', 'yes', 'no', '86', '$100', 'Eileen Flynn', '123 main st. New Hope, PA', '215-555-5455',
@@ -132,6 +135,13 @@ class dbinit extends Controller{
 				   'My best bud for life <3','I will do whatever it takes to make my bosses happy. Whatever it takes.',
 				   'I serve dozens of people every day I serve. Not too toot my own horn, but the customers love me',
 				   'One time my computer wouldnt turn on. I tried everything imaginable. I googled the issue.. nothing. Finally I realized my computer was unplugged')");
+
+		$this->db->execute("INSERT INTO tbl_application
+			VALUES(null, 'ldavinc', '2013-05-21', 'yes', 'yes', 'yes', 'no', '50', '', 'Louvre', '100 main street, Paris Fr.', '111-221-2312',
+				   '$100/hr', '20 hours', 'I am a smart man by trade', 'yes', 'Medici', '321-111-2946', 
+				   'Some italian dude','I have much experience doing many things. I can work with all types of people. Its cool',
+				   'I dont really like people all that much',
+				   'What kind of troubleshooting?')");
 
 		//Payroll table queries
 		$this->db->execute("INSERT INTO tbl_payroll VALUES(

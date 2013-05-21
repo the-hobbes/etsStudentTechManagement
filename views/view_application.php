@@ -35,7 +35,7 @@ $applications = $data['applications'];
 
 
 	</table>
-
+	<p>dev note: presumably there should be a hire or deny button next to the application</p>
 </div><!--end content-->
 
 <?php

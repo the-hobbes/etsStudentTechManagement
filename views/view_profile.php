@@ -128,6 +128,10 @@
 					<td>Schedule Code</td>
 					<td id="<?php echo $person['fld_hashkey'].".fld_schedulecode.tbl_people" ?>" class="edit"><?php echo $person['fld_schedulecode'] ?></td>
 				</tr>
+				<tr>
+					<td>Employee Status</td>
+					<td><?php if($person['fld_ishired']==1){echo "Hired"; }else{echo "Not Hired";} ?></td>
+				</tr>
 			</table>
 			<!-- end general tab -->
         </div> <!-- end tab 1 contents -->
