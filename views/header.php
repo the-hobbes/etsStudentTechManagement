@@ -22,18 +22,17 @@
 			<header class="media_config">
 				<h1>ETS Student Technician Managment System</h1>
 			</header>
-				<?php
-					//for tab highlighting
-					if(!isset($data['tabHome']))
-						$data['tabHome'] = "inactive";
-					if(!isset($data['tabPeople']))
-						$data['tabPeople'] = "inactive";
-					if(!isset($data['tabPayroll']))
-						$data['tabPayroll'] = "inactive";
-					if(!isset($data['tabApplication']))
-						$data['tabApplication'] = "inactive";
-					
-				?>
+				<?php 
+					//for tab highlighting 
+					if(!isset($data['tabHome'])) 
+					$data['tabHome'] = "inactive"; 
+					if(!isset($data['tabEmployees'])) 
+					$data['tabEmployees'] = "inactive"; 
+					if(!isset($data['tabPayroll'])) 
+					$data['tabPayroll'] = "inactive"; 
+					if(!isset($data['tabApplication'])) 
+					$data['tabApplication'] = "inactive"; 
+				?> 
 			<div class='navbar navbar-inverse'>
 				<div class='navbar-inner nav-collapse' style="height: auto;">
 					<ul class="nav">
