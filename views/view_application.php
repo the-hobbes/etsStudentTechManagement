@@ -5,20 +5,18 @@ $applications = $data['applications'];
 <h2>ETS Applications</h2>
 
 <div id='content' class='row-fluid'>
-	<table class="table table-striped">
-		<tr>
-			<th>Netid</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Submission Date</th>
-			<th>Graduation Date</th>
-		</tr>
-
-		<?php
-		if(sizeof($applications)==0){
-			echo "<p>There are currently no new applications</p>";
-		}else{
-
+	<table id="applicationsTable" class="table table-striped">
+		<thead>
+			<tr>
+				<th>Netid</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Submission Date</th>
+				<th>Graduation Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
 			foreach($applications as $application){
 				$html = "<tr>
 								<td><a href=\"".siteURL('people/profile/'.$application['pk_netid'])."#application\">".$application['pk_netid']."</a></td>
@@ -30,14 +28,20 @@ $applications = $data['applications'];
 				echo $html;
 
 			}
-		}
-		?>
-
-
+			?>
+		</tbody>
 	</table>
 	<p>dev note: presumably there should be a hire or deny button next to the application</p>
 </div><!--end content-->
+<script type="text/javascript">
+	// sortable tables
+	$(document).ready(function() 
+	    { 
+	        $("#applicationsTable").tablesorter(); 
+	    } 
+	); 
 
+</script>
 <?php
 
 	

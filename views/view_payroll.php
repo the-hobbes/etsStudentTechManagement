@@ -3,36 +3,40 @@
 		<h2>ETS Payroll</h2>
 
 		<!-- results from query go here -->
-		<table class="table table-striped">
-			<tr>
-				<th>Netid</th>
-				<th>Start Date</th>
-				<th>Current Rate</th>
-				<th>New Rate</th>
-				<th>Hours/Week</th>
-				<th>Cost/Week</th>
-				<th>HL Hours</th>
-				<th>CDC Hours</th>
-			</tr>
-		<?php
-		
-			foreach($data['payroll'] as $payroll){
-				$html="
-					<tr>
-						<td><a href=\"".siteURL('people/profile/'.$payroll['fk_netid'])."#payroll\">".$payroll['fk_netid']."</td>
-						<td>".$payroll['fld_startdate']."</td>
-						<td>&#36;".$payroll['fld_currentrate']."</td>
-						<td>&#36;".$payroll['fld_newrate']."</td>
-						<td>".$payroll['fld_hrsperweek']."</td>
-						<td>&#36;".$payroll['fld_costperweek']."</td>
-						<td>".$payroll['fld_hlhours']."</td>
-						<td>".$payroll['fld_cdchours']."</td>
-					</tr>
-				";
-				echo $html;
-			}
-			
-		?>
+		<table id="payrollTable"class="table table-striped">
+			<thead>
+				<tr>
+					<th>Netid</th>
+					<th>Start Date</th>
+					<th>Current Rate</th>
+					<th>New Rate</th>
+					<th>Hours/Week</th>
+					<th>Cost/Week</th>
+					<th>HL Hours</th>
+					<th>CDC Hours</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				
+					foreach($data['payroll'] as $payroll){
+						$html="
+							<tr>
+								<td><a href=\"".siteURL('people/profile/'.$payroll['fk_netid'])."#payroll\">".$payroll['fk_netid']."</td>
+								<td>".$payroll['fld_startdate']."</td>
+								<td>&#36;".$payroll['fld_currentrate']."</td>
+								<td>&#36;".$payroll['fld_newrate']."</td>
+								<td>".$payroll['fld_hrsperweek']."</td>
+								<td>&#36;".$payroll['fld_costperweek']."</td>
+								<td>".$payroll['fld_hlhours']."</td>
+								<td>".$payroll['fld_cdchours']."</td>
+							</tr>
+						";
+						echo $html;
+					}
+					
+				?>
+			</tbody>
 		</table>
 
 		<h3>Totals</h3>
@@ -58,3 +62,13 @@
 
 		</table>
 </div> <!-- end content -->
+
+<script type="text/javascript">
+	// sortable tables
+	$(document).ready(function() 
+	    { 
+	        $("#payrollTable").tablesorter(); 
+	    } 
+	); 
+
+</script>

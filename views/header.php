@@ -13,7 +13,8 @@
 		<script src="<?php echo siteURL("public/js/jquery.jeditable.mini.js") ?>"></script>
 		<script src="<?php echo siteURL("public/js/bootstrap.min.js") ?>"></script>
 		<script src="<?php echo siteURL("public/js/editable.js") ?>"></script>
-		
+		<script src="<?php echo siteURL("public/js/jquery.tablesorter.min.js") ?>"></script>
+
 	</head>
 	<body>
 		<div class="container">
