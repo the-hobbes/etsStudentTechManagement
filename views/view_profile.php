@@ -225,8 +225,6 @@
 		</div> <!-- end tab 2 contents -->
 		<?php } ?>
 
-			<br />
-
         <!-- Tab 3 Contents -->
         <div id="tab_3_contents" class="tab_contents">
 			<!-- application tab -->
