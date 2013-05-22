@@ -41,26 +41,30 @@ class People extends Controller{
 		$error = validateInput($fld, $newval);
 		if($error){
 			echo $error;
-		}
 
-		$person = $this->people_model->getPersonByHashkey($hashkey);
-		$netid = $person['pk_netid'];
+		//If no error, actually modify values
+		}else{
 
-		switch($table){
-			case 'tbl_people':
-				$this->people_model->update($netid, $fld, $newval);
-				break;
-			case 'tbl_application':
-				$this->application_model->update($netid, $fld, $newval);
-				break;
-			case 'tbl_payroll':
-				$this->payroll_model->update($netid, $fld, $newval);
-				$this->payroll_model->recalculateFields($netid);
-				break;
+			$person = $this->people_model->getPersonByHashkey($hashkey);
+			$netid = $person['pk_netid'];
+
+			switch($table){
+				case 'tbl_people':
+					$this->people_model->update($netid, $fld, $newval);
+					break;
+				case 'tbl_application':
+					$this->application_model->update($netid, $fld, $newval);
+					break;
+				case 'tbl_payroll':
+					$this->payroll_model->update($netid, $fld, $newval);
+					$this->payroll_model->recalculateFields($netid);
+					break;
+			}
+			echo $newval;
 		}
 		
 
-		echo $newval;
+		
 		//echo 'update '.$fld.' to value '.$newval.' for user '.$netid;
 	}
 }
