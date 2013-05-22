@@ -58,13 +58,79 @@ function validateInput($fld, $newVal){
 	$error = null;
 
 	switch($fld){
-		case 'fld_':
-		//do something, calling one of the validation functions;
-		break;
+		case 'fld_streetaddress':
+		case 'fld_graddate':
+		case 'fld_schedulecode':
+		case 'fld_currentrate':
+		case 'fld_quizzesdone':
+			// validate alphanumeric data
+			if (!verifyAlphaNum($newVal)){ 
+			    $error = "** Must be Alphanumeric Characters **";
+			}
+			break;
+
+		case 'fld_zipcode':
+			// validate zip codes
+			if (!verifyZip($newVal)){ 
+			    $error = "** Must be a valid Zip Code **";
+			}			
+			break;
+
+		case 'fld_email':
+			// validate emails
+			if (!verifyEmail($newVal)){ 
+			    $error = "** Must be a valid Email Address **";
+			}
+			break;
+
+		case 'fld_phone':
+			// validate phone numbers
+			if (!verifyPhone($newVal)){ 
+			    $error = "** Must be a valid Phone Number **";
+			}
+			break;
+
+		case 'fld_startdate':
+		case 'fld_enddate':
+			// make sure these are dates
+			if (!verifyIsDate($newVal)){ 
+			    $error = "** Must be a valid Date **";
+			}
+			break;
+
+		case 'fld_hlhours':
+		case 'fld_cdchours':
+			// make sure these are just numbers
+			if (!verifyNum($newVal)){ 
+			    $error = "** Must be a valid Number **";
+			}
+			break;
+
+		case 'fld_confagreement':
+			// make sure the value of this is either 'yes' or 'no'
+			if (!yesOrNo($newVal)){ 
+			    $error = "** Must be a either Yes or No **";
+			}
+			break;
 	}
 
 
 	return $error;
+}
+
+function verifyNum($testString){
+	// is the string a number?
+	return is_numeric($testString);
+}
+
+function verifyZip($testString){
+	// is this a zip code? (check both the 5 and 9 digit versions)
+	if ( (preg_match ('/^[0-9]{5}$/', $testString)) || (preg_match ('/^([0-9]{5})-([0-9]{4})$/', $testString)) ){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 
 function verifyAlphaNum ($testString) {
@@ -87,15 +153,6 @@ function verifyPhone ($testString) {
     return (preg_match('/^([[:digit:]]| |-)+$/', $testString));
 }
 
-function verifyDateFormat ($testString) {
-	// Date m/d/y and mm/dd/yyyy
-	// 1/1/99 through 12/31/99 and 01/01/1900 through 12/31/2099
-	// Matches invalid dates such as February 31st
-	// Accepts dashes, spaces, forward slashes and dots as date separators
-	// return (preg_match('/^(\d\d?)-(\d\d?)-(\d\d\d\d)$/', $testString));
-	return true;
-}
-
 function verifyIsDate ($testDate) {
 	// The month is between 1 and 12 inclusive.
 	// The day is within the allowed number of days for the given month . Leap year s are taken into consideration.
@@ -108,6 +165,16 @@ function verifyIsDate ($testDate) {
        return true;
   	}
 	return false; 
+}
+
+function yesOrNo($testString){
+	// checks to see if the value is either 'yes' or 'no'
+	$testMe = strtolower($testString);
+
+	if(($testMe == 'yes') || ($testMe == 'no')){
+		return true;
+	}
+	return false;
 }
 
 ?>

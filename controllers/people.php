@@ -39,6 +39,9 @@ class People extends Controller{
 
 		// call to validate the input, based on what the $fld is
 		$error = validateInput($fld, $newval);
+		if($error){
+			echo $error;
+		}
 
 		$person = $this->people_model->getPersonByHashkey($hashkey);
 		$netid = $person['pk_netid'];
