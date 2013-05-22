@@ -45,9 +45,10 @@ function getCurrentPage(){
 	return $last;
 }
 
-function validateInput(){
-	// used to validate input to the database
-	
+function sanitizeInput($dirty){
+	// used to render input safe so it can be added to the database
+	$clean = htmlentities($dirty, ENT_QUOTES);
+	return $clean;
 }
 
 

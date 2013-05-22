@@ -34,6 +34,9 @@ class People extends Controller{
 		$table = $data[2];
 		$newval = $_POST['newval'];
 
+		// call to sanitize the new information
+		$newval = sanitizeInput($newval);
+
 		$person = $this->people_model->getPersonByHashkey($hashkey);
 		$netid = $person['pk_netid'];
 
