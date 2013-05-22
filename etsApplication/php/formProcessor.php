@@ -1,7 +1,8 @@
 <?php
 
 // include validation functions
-//include ("validationFunctions.php");
+
+include ("validationFunctions.php");
 include("DB.php");
 require '../../lib/config.php';
 // pull a json array from what was posted
