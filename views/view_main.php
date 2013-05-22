@@ -13,9 +13,9 @@
 				<h2>Sidebar</h2>
 
 				 <ul class="nav nav-tabs nav-stacked">
-				    <li><a href='#'>Another Link 1</a></li>
-				    <li><a href='#'>Another Link 2</a></li>
-				    <li><a href='#'>Another Link 3</a></li>
+				    <li><a href='https://www.uvm.edu/~helpline/limeaid/'>Blog Manager</a></li>
+				    <li><a href='https://www.uvm.edu/~helpline/etsApplication/'>Application Form</a></li>
+				    <li><a href='#'>Footprints Form</a></li>
 				</ul> <!-- end sidebar nav -->
 
 			</div> <!-- end sidebar -->
