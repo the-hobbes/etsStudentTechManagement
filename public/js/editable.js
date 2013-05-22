@@ -4,8 +4,7 @@
 
      $('.edit').editable(siteURL + 'people/update', {
          indicator : 'Saving...',
-         // width:($("span#edit").width() + 200) + "px",
-         width:100 + "%",
+         width: 100 + "%",
          tooltip   : 'Click to edit...',
          id	   	   : 'elementid',
          name      : 'newval',

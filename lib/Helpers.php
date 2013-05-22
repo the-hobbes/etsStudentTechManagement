@@ -45,5 +45,10 @@ function getCurrentPage(){
 	return $last;
 }
 
+function validateInput(){
+	// used to validate input to the database
+	
+}
+
 
 ?>

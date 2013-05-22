@@ -27,6 +27,7 @@ class People extends Controller{
 
 
 	function update(){
+		// used to update the database from the in-place editing functions
 		$data = explode('.', $_POST['elementid']);
 		$hashkey = $data[0];
 		$fld = $data[1];
