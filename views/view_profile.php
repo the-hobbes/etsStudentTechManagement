@@ -213,7 +213,7 @@
 
 				<tr>
 					<td>Confidentiality Agreement</td>
-					<td id="<?php echo $person['fld_hashkey'].".fld_confagreement.tbl_payroll" ?>" name= "derp" class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_confagreement.tbl_payroll" ?>" name= "derp" class="editDD"><?php echo $payroll['fld_confagreement'] ?></td>
 				</tr>
 
 				<tr>
