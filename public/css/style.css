@@ -34,3 +34,6 @@ thead{
 th{
 	border-right:1px solid white;
 }
+.error{
+	background-color: red !important;
+}

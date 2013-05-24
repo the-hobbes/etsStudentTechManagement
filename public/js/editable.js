@@ -18,6 +18,28 @@
             hashkey = pieces[0];
             fld = pieces[1];
             table = pieces[2];
+
+            // has an error been returned by validation?
+            var v = value.split(" ");
+            isErr = v[0].toString();
+            isErr = isErr.trim(v);
+
+            if(isErr == '**'){
+                // if error has been returned
+                console.log("YES error found by php");
+                var t = value.split("|");
+                error = t[0];
+                newValue = t[1];
+                $(this).addClass("error");
+                $(this).text(newValue);
+                $(this).append(error);
+            }
+            else{
+                // no error has been returned
+                console.log("NO error found by php");
+                $(this).removeClass("error");
+            }
+
             //Update calculatable fields in the view (they are already up to date in the DB)
             if(table == "tbl_payroll"){
                 $.ajax({
