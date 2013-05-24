@@ -32,7 +32,6 @@
                 newValue = t[1];
                 $(this).addClass("error");
                 $(this).text(newValue);
-                $(this).append(error);
             }
             else{
                 // no error has been returned
