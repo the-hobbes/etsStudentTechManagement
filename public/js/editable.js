@@ -26,7 +26,7 @@
 
             if(isErr == '**'){
                 // if error has been returned
-                console.log("YES error found by php");
+                // console.log("YES error found by php");
                 var t = value.split("|");
                 error = t[0];
                 newValue = t[1];
@@ -36,7 +36,7 @@
             }
             else{
                 // no error has been returned
-                console.log("NO error found by php");
+                // console.log("NO error found by php");
                 $(this).removeClass("error");
             }
 
@@ -61,11 +61,11 @@
 
     //editable for selectables
      $('.editDD').editable(siteURL + 'people/update', {
-        // indicator : 'Saving...',
-         //width: 100 + "%",
-         data       : "{'yes':'yes', 'no':'no'}",
+         data      : "{'yes':'yes', 'no':'no'}",
          type      : 'select',
          id        : 'elementid',
+         height    : 75 + '%',
+         width     : 75 + 'px',
          name      : 'newval',
          submit    : 'ok',
          onsubmit  : function(settings, td){

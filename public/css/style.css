@@ -19,7 +19,7 @@ div.tab_contents_active {
 div.clear {
 	clear: both;
 }
-.edit{
+.edit, .editDD{
 	font-weight:bold;
 	cursor:pointer;
 }
@@ -36,4 +36,14 @@ th{
 }
 .error{
 	background-color: red !important;
+}
+.editDD select{
+   background: black;
+   width: 75px;
+   margin-right: 25px;
+   color:white;
+}
+.editDD button{
+	height:25px;
+	margin-bottom: 10px;
 }
