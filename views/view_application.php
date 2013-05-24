@@ -1,6 +1,44 @@
 <?php
 $applications = $data['applications'];
 ?>
+<input type="hidden" id="siteURL" value="<?php echo siteURL() ?>" />
+
+<script>
+	$(document).ready(function(){
+
+		$('.btnHire').click(function(){
+			choice = confirm("Are you sure you would like to hire this applicant?");
+
+			hashkey = $(this).attr('id');
+			//'Okay' selected
+			if(choice){
+
+			 	$.ajax({
+                    type: "POST",
+                    url: siteURL + "applications/hire",
+                    data: {hashkey: hashkey}
+                }).done(function(data){
+   					location.reload();
+                });//end ajax  
+			}
+			
+
+		});
+
+
+		$('.btnDeny').click(function(){
+			choice = confirm("Deny application?");
+
+			//'okay' selected
+			if(choice){
+
+			}
+
+		});
+
+	});
+
+</script>
 
 <h2>ETS Applications</h2>
 
@@ -13,6 +51,7 @@ $applications = $data['applications'];
 				<th>Last Name</th>
 				<th>Submission Date</th>
 				<th>Graduation Date</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,6 +63,7 @@ $applications = $data['applications'];
 								<td>".$application['fld_lastname']."</td>
 								<td>".$application['fld_submissiondate']."</td>
 								<td>".$application['fld_graddate']."</td>
+								<td><a id=\"".$application['fld_hashkey']."\" class=\"btnHire\" href=\"#\">Hire</a> | <a id=\"".$application['fld_hashkey']."\" class=\"btnDeny\" href=\"#\">Deny</a></td>
 						</tr>";
 				echo $html;
 

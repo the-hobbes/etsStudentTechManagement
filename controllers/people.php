@@ -41,16 +41,15 @@ class People extends Controller{
 		$error = validateInput($fld, $newval);
 
 		if($error){
-			// validation error exists
+			// validation error exists, so echo it as well as the new, incorrect value
 			echo $error . "|" . $newval;
 		}
 		else{
-			// no error
+			//If no error, actually modify values
 			$person = $this->people_model->getPersonByHashkey($hashkey);
 			$netid = $person['pk_netid'];
 
 			switch($table){
-				// update the right table
 				case 'tbl_people':
 					$this->people_model->update($netid, $fld, $newval);
 					break;
@@ -66,7 +65,6 @@ class People extends Controller{
 			echo $newval;
 		}
 	}// end update
-
 } // end people
 
 ?>

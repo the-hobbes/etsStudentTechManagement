@@ -158,17 +158,17 @@
 
 				<tr>
 					<td>Employee ID</td>
-					<td><?php echo $payroll['fld_employeeid'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_employeeid.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_employeeid'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Budget Code</td>
-					<td><?php echo $payroll['fld_budgetcode'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_budgetcode.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_budgetcode'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Employee rec num</td>
-					<td><?php echo $payroll['fld_employeerecnum'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_employeerecnum.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_employeerecnum'] ?></td>
 				</tr>
 
 				<tr>
@@ -213,7 +213,7 @@
 
 				<tr>
 					<td>Confidentiality Agreement</td>
-					<td id="<?php echo $person['fld_hashkey'].".fld_confragreement.tbl_payroll" ?>" name= "derp" class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_confagreement.tbl_payroll" ?>" name= "derp" class="editDD"><?php echo $payroll['fld_confagreement'] ?></td>
 				</tr>
 
 				<tr>
