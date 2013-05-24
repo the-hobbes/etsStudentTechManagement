@@ -218,7 +218,23 @@
 
 				<tr>
 					<td>Quizes Done</td>
-					<td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td>
+					<!-- one td to display the current quizzes -->
+					<td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="">
+						<?php 
+							// retrieve and segment all quizzes
+							$quizzes = explode(",", $payroll['fld_quizzesdone']);
+							echo "<select>";
+							foreach($quizzes as $quiz){
+								echo "<option value=". $quiz .">". $quiz ."</option>";
+							}
+							echo "</select>";
+							
+						?>
+					</td>
+					<!-- one td to add a quiz -->
+					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
+					<!-- one td to remove a quiz -->
+					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
 				</tr>
 			</table>
 			<!-- end payroll tab -->
