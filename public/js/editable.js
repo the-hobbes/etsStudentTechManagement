@@ -96,4 +96,43 @@
             }
          }//end callback
      });//End editable
+
+     //editable for quizzes
+     $('.editQuiz').editable(siteURL + 'people/update', {
+        // pull 'data' from the database
+         data      : "{'ets_quiz1':'ets_quiz1', 'cdc_quiz1':'cdc_quiz1', 'helpline_quiz1':'helpline_quiz1', 'copyright_quiz1':'copyright_quiz1'}",
+         type      : 'select',
+         id        : 'elementid',
+         height    : 75 + '%',
+         width     : 75 + 'px',
+         name      : 'newval',
+         submit    : 'ok',
+         onsubmit  : function(settings, td){
+            option = confirm("Are you sure you want to update value?");
+            return option;
+         },
+         callback : function(value, settings){
+            data = this.id;
+            pieces = data.split(".");
+            hashkey = pieces[0];
+            fld = pieces[1];
+            table = pieces[2];
+            //Update calculatable fields in the view (they are already up to date in the DB)
+            if(table == "tbl_payroll"){
+                $.ajax({
+                    type: "POST",
+                    url: siteURL + "payroll/getUpdatedPayroll",
+                    data: {hashkey: hashkey}
+                }).done(function(data){
+                    payroll = JSON.parse(data);
+                
+                   $("#costperweek").text(payroll.fld_costperweek);
+                   $("#hrsperweek").text(payroll.fld_hrsperweek);
+                   $("#hlcost").text(payroll.fld_hlcost);
+                   $("#cdccost").text(payroll.fld_cdccost);
+                });//end ajax  
+
+            }
+         }//end callback
+     });//End editable
  });
