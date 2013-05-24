@@ -19,13 +19,14 @@ div.tab_contents_active {
 div.clear {
 	clear: both;
 }
-.edit, .editDD{
+.edit, .editDD, .editQuiz{
 	font-weight:bold;
 	cursor:pointer;
 }
 .edit:hover{
 	text-decoration:underline;
 }
+table { table-layout: fixed; }
 thead{
 	background-color: black;
 	color:white;
