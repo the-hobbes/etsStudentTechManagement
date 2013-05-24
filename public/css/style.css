@@ -37,6 +37,3 @@ th{
 .error{
 	background-color: red !important;
 }
-.error:after{
-	content: "Invalid Characters";
-}
