@@ -65,6 +65,11 @@ class People extends Controller{
 			echo $newval;
 		}
 	}// end update
+
+	function removeQuiz(){
+		// return the response
+		echo "derp";
+	}
 } // end people
 
 ?>
