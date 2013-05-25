@@ -48,3 +48,7 @@ th{
 	height:25px;
 	margin-bottom: 10px;
 }
+
+#lnk_dashboard{
+	float:right;
+}

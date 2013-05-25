@@ -23,6 +23,7 @@
 			<!--Echo the siteurl so javascript can pick it up-->
 			<input type="hidden" id="siteURL" value="<?php echo siteURL() ?>" />
 			<header class="media_config">
+				<a id="lnk_dashboard" href="<?php echo siteURL('dashboard') ?>">Dashboard</a>
 				<h1>ETS Student Technician Managment System</h1>
 			</header>
 				<?php 
