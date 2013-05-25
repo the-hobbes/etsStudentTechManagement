@@ -11,7 +11,7 @@ class People extends Controller{
 			$data['people'] = $this->people_model->getEmployees();
 			$this->view->render("view_people", $data);	
 		}else{
-			$this->view->render("notauthorized");
+			$this->view->render("notauthorized","",false);
 		}
 	}
 
@@ -32,7 +32,7 @@ class People extends Controller{
 			}
 
 		}else{
-			$this->view->render("notauthorized");
+			$this->view->render("notauthorized","",false);
 		}//if authorized
 	}
 
@@ -78,7 +78,7 @@ class People extends Controller{
 			}
 
 		}else{
-			$this->view->render("notauthorized");
+			$this->view->render("notauthorized","",false);
 		}//if authorized
 	}// end update
 } // end people

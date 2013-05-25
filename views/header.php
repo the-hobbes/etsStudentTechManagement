@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<title>ETS Student Technician Managment</title>
-		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+		<!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">-->
+		<link href="<?php echo siteURL('public/css/bootstrap.min.css') ?>" rel="stylesheet">
 		<link rel="stylesheet" href="<?php echo siteURL("public/css/style.css") ?>" />
 		
 		<meta name="description" content="Derp" />

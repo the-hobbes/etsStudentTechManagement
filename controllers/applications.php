@@ -12,7 +12,7 @@ class applications extends Controller{
 			$this->view->render("view_application", $data);
 
 		}else{
-			$this->view->render("notauthorized");
+			$this->view->render("notauthorized","",false);
 		}
 	}
 
@@ -49,7 +49,7 @@ class applications extends Controller{
 			$this->db->execute($query);
 
 		}else{
-			$this->view->render("notauthorized");
+			$this->view->render("notauthorized","",false);
 		}
 	}
 }

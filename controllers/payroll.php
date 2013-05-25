@@ -19,7 +19,7 @@ class Payroll extends Controller{
 			$this->view->render("view_payroll", $data);
 
 		}else{
-			$this->view->render("notauthorized");
+			$this->view->render("notauthorized","",false);
 		}
 	}//end: index()
 
