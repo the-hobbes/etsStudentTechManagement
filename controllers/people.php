@@ -67,7 +67,9 @@ class People extends Controller{
 	}// end update
 
 	function removeQuiz(){
-		// return the response
+		// what must be removed?
+
+		// return the response, the updated list of quizzes
 		echo "derp";
 	}
 } // end people
