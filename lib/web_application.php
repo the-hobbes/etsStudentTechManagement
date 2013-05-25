@@ -1,6 +1,8 @@
 <?php
 
+require 'AppLoader.php';
 require 'Database.php';
+require 'Session.php';
 require 'Helpers.php';
 require 'Bootstrap.php';
 require 'Controller.php';
@@ -14,7 +16,6 @@ class web_application{
 	public $bootstrap;
 	public $view;
 	public $conf;
-	public $test;
 
 	//constructor()
 	function __construct($config){
@@ -25,15 +26,22 @@ class web_application{
 			$this->db = new Database($this);
 		}
 		
+		//Create the session object
+		$this->session = new Session();
+
 		//Create the view object
 		$this->view = new View();
 
 		//load the models
 		$this->loadModels();
 
-		//Load data into View object
-		$this->view->load($this);
+	
 
+		//Load app into objects
+		$this->view->load($this);
+		$this->session->loadApp($this);
+
+		//Start the bootstrap, which handles url forwarding to controllers and methods
 		$this->bootstrap = new Bootstrap($config, $this);
 	}
 

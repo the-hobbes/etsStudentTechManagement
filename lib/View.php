@@ -11,6 +11,7 @@ class View{
 		$this->db = $app->db;
 		$this->view = $app->view;
 		$this->conf = $app->conf;
+		$this->session = $app->session;
 
 		//Grab the models from the app so they can be used in view
 		foreach($this->conf['models'] as $model){
