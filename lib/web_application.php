@@ -35,12 +35,12 @@ class web_application{
 		//load the models
 		$this->loadModels();
 
-	
-
 		//Load app into objects
-		$this->view->load($this);
 		$this->session->loadApp($this);
+		$this->setUser();
 
+		$this->view->load($this);
+		
 		//Start the bootstrap, which handles url forwarding to controllers and methods
 		$this->bootstrap = new Bootstrap($config, $this);
 	}
@@ -59,6 +59,16 @@ class web_application{
 		}
 
 	}//end: loadModels()
+
+	//setUser(): get the user and set session (either from ldap or wherever else)
+	function setUser(){
+
+		//hard set the user for development
+		$this->session->setUser("devuser");
+
+		//check if the user if valid and set valid flag
+		$this->userValid = $this->session->isAuthorized();
+	}
 }//end: web_application
 
 ?>

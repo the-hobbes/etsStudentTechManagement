@@ -10,6 +10,11 @@ class Session extends AppLoader{
 		return $_SESSION['user'];
 	}//end: getUser();
 
+	//setUser(): set the current user
+	function setUser($user){
+		$_SESSION['user']= $user;
+	}
+
 	//getData(): return data with the inputted key
 	function getData($key){
 		return $_SESSION[$key];
@@ -26,5 +31,17 @@ class Session extends AppLoader{
 			$_SESSION[$key] = $value;
 		}//foreach
 	}//end: loadData()
+
+	//isAuthorized(): return true if the user is on the authorized list, false if not.
+	function isAuthorized(){
+		$query="SELECT * FROM tbl_authorizedusers WHERE pk_netid='".$this->getUser()."'"; 
+		$results = $this->db->query($query);
+		
+		if(sizeof($results)==0){//no return results for current user, disallow
+			return false;
+		}else{
+			return true;
+		}
+	}
 }
 ?>

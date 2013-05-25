@@ -55,7 +55,7 @@ class dbinit extends Controller{
 		fld_goodcandidate    VARCHAR( 500 ),
 		fld_prevcustexperience VARCHAR( 500 ),
 		fld_prevcts          VARCHAR( 500 ),
-		CONSTRAINT pk_tlb_application PRIMARY KEY ( pk_id ),
+		CONSTRAINT pk_tbl_application PRIMARY KEY ( pk_id ),
 		CONSTRAINT pk_tbl_application UNIQUE ( fk_netid )
 	 );";
 
@@ -80,11 +80,20 @@ class dbinit extends Controller{
 			 );";
 		
 		$this->db->execute($query);
+		
+		$query = "
+			CREATE TABLE tbl_authorizedusers (
+				pk_netid		VARCHAR( 100 ) NOT NULL,
+				CONSTRAINT pk_tbl_authorizedusers PRIMARY KEY ( pk_netid )
+				);
+			";
+		
+		$this->db->execute($query);
 		header('Location: '.siteURL('dbinit'));
 	}
 
 	function deleteTables(){
-		$this->db->execute("DROP TABLE tbl_payroll, tbl_application, tbl_people");
+		$this->db->execute("DROP TABLE tbl_payroll, tbl_application, tbl_people, tbl_authorizedusers");
 		header('Location: '.siteURL('dbinit'));
 	}
 
@@ -164,6 +173,9 @@ class dbinit extends Controller{
 					'10.40', '10', '100', '3', '7', '30', '70', 'yes', 'ets_quiz1,cdc_quiz1'
 				)");
 		
+
+		//Insert authorized user
+		$this->db->execute("INSERT INTO tbl_authorizedusers VALUES('devuser')");
 
 		header('Location: '.siteURL('dbinit'));
 	}
