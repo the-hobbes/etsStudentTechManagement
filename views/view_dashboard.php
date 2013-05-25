@@ -10,7 +10,10 @@
       <p>General settings here: where application sends email to, more if I can think of them</p>
     </div>
     <div class="tab-pane" id="tab2">
-      <p>Quiz settings. Add new available quizzes, view all</p>
+      <p>Quiz settings. Add new available quizzes, view all </p>
+   
+      <?php print_r($data['quizzes']); ?>
+
     </div>
   </div>
 </div>

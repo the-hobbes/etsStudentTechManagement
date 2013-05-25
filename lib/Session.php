@@ -33,7 +33,15 @@ class Session extends AppLoader{
 	}//end: loadData()
 
 	//isAuthorized(): return true if the user is on the authorized list, false if not.
-	function isAuthorized(){
+	function isAuthorized(){	
+		$query = "
+			CREATE TABLE if not exists tbl_authorizedusers (
+				pk_netid		VARCHAR( 100 ) NOT NULL,
+				CONSTRAINT pk_tbl_authorizedusers PRIMARY KEY ( pk_netid )
+				);
+		";
+		$this->db->execute($query);
+
 		$query="SELECT * FROM tbl_authorizedusers WHERE pk_netid='".$this->getUser()."'"; 
 		$results = $this->db->query($query);
 		

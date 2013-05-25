@@ -2,9 +2,9 @@
 	$person = $data['person'];
 	$application = $data['application'];
 	$payroll = $data['payroll'];
+	$quizzes = $data['quizzes'];
 
 	echo "<h4>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h4>";
-
 ?>	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -215,19 +215,29 @@
 					<td id="<?php echo $person['fld_hashkey'].".fld_confagreement.tbl_payroll" ?>" name= "derp" class="editDD"><?php echo $payroll['fld_confagreement'] ?></td>
 				</tr>
 
+				
 				<tr>
 					<td>Quizes Done</td>
 					<!-- one td to display the current quizzes -->
-					<td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="">
+					<td class="">
 						<?php 
 							// retrieve and segment all quizzes
-							$quizzes = explode(",", $payroll['fld_quizzesdone']);
-							echo "<select>";
+							//$quizzes = explode(",", $payroll['fld_quizzesdone']);
+							//echo "<select>";
+							$i=0;
 							foreach($quizzes as $quiz){
-								echo "<option value=". $quiz .">". $quiz ."</option>";
-							}
-							echo "</select>";
+								echo $quiz['fk_quiz'];
+
+								if(!($i==sizeof($quizzes)-1)){
+									echo ", ";
+								}
+								$i++;
+
 							
+								//echo "<option value=". $quiz .">". $quiz ."</option>";
+							}
+							//echo "</select>";
+								echo " <span id=\"".$person['fld_hashkey']."\" class=\"editQuiz\"></span>";
 						?>
 					</td>
 					<!-- one td to add a quiz -->
@@ -235,6 +245,7 @@
 					<!-- one td to remove a quiz -->
 					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
 				</tr>
+			
 			</table>
 			<!-- end payroll tab -->
 		</div> <!-- end tab 2 contents -->

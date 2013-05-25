@@ -24,7 +24,6 @@ class dbinit extends Controller{
 		fld_hlcost           VARCHAR( 100 ),
 		fld_cdccost          VARCHAR( 100 ),
 		fld_confagreement    VARCHAR(3)	,
-		fld_quizzesdone      VARCHAR( 100 ),
 		CONSTRAINT pk_tbl_payroll PRIMARY KEY ( pk_id ),
 		CONSTRAINT pk_tbl_payroll_0 UNIQUE ( fk_netid )
 	 );";
@@ -82,18 +81,37 @@ class dbinit extends Controller{
 		$this->db->execute($query);
 		
 		$query = "
-			CREATE TABLE tbl_authorizedusers (
+			CREATE TABLE if not exists tbl_authorizedusers (
 				pk_netid		VARCHAR( 100 ) NOT NULL,
 				CONSTRAINT pk_tbl_authorizedusers PRIMARY KEY ( pk_netid )
 				);
 			";
 		
 		$this->db->execute($query);
+
+		$query = "
+			CREATE TABLE tbl_quizzes (
+				pk_quiz VARCHAR( 100 ) NOT NULL,
+				CONSTRAINT pk_tbl_quizzes PRIMARY KEY ( pk_quiz )
+				);
+			";
+
+		$this->db->execute($query);
+
+		$query = "
+		CREATE TABLE tbl_peoplequiz (
+			fk_netid VARCHAR( 100 ) NOT NULL,
+			fk_quiz VARCHAR( 100 ) NOT NULL,
+			CONSTRAINT pk_tbl_quizzes PRIMARY KEY ( fk_netid, fk_quiz )
+			);
+		";
+		
+		$this->db->execute($query);
 		header('Location: '.siteURL('dbinit'));
 	}
 
 	function deleteTables(){
-		$this->db->execute("DROP TABLE tbl_payroll, tbl_application, tbl_people, tbl_authorizedusers");
+		$this->db->execute("DROP TABLE tbl_payroll, tbl_application, tbl_people, tbl_authorizedusers, tbl_quizzes, tbl_peoplequiz");
 		header('Location: '.siteURL('dbinit'));
 	}
 
@@ -155,27 +173,46 @@ class dbinit extends Controller{
 		//Payroll table queries
 		$this->db->execute("INSERT INTO tbl_payroll VALUES(
 					null, 'mftoth', '2012-10-15', '', '1010101', '045121', '39102', '9.50', 
-					'10.00', '12', '120', '4', '8', '40', '80', 'yes', 'ets_quiz1,cdc_quiz1,helpline_quiz1'
+					'10.00', '12', '120', '4', '8', '40', '80', 'yes'
 				)");
 
 		$this->db->execute("INSERT INTO tbl_payroll VALUES(
 					null, 'ccaldwell', '2000-3-28', '', '0000101', '045001', '38190', '100.50', 
-					'105.0', '40', '4020', '20', '20', '2010', '2010','yes', 'ets_quiz1,cdc_quiz1,helpline_quiz1,ets_quiz2,ets_quiz3'
+					'105.0', '40', '4020', '20', '20', '2010', '2010','yes'
 				)");
 
 		$this->db->execute("INSERT INTO tbl_payroll VALUES(
 					null, 'jman', '2010-9-21', '', '1011101', '045500', '39222', '11.00', 
-					'11.50', '20', '220', '10', '10', '110', '110', 'yes', 'ets_quiz1,cdc_quiz1,helpline_quiz1,copyright_quiz1'
+					'11.50', '20', '220', '10', '10', '110', '110', 'yes'
 				)");
 
 		$this->db->execute("INSERT INTO tbl_payroll VALUES(
 					null, 'mkeyes', '2011-2-17', '', '1001101', '045523', '39901', '10.00', 
-					'10.40', '10', '100', '3', '7', '30', '70', 'yes', 'ets_quiz1,cdc_quiz1'
+					'10.40', '10', '100', '3', '7', '30', '70', 'yes'
 				)");
 		
 
 		//Insert authorized user
 		$this->db->execute("INSERT INTO tbl_authorizedusers VALUES('devuser')");
+
+		//insert quizzes
+		$this->db->execute("INSERT INTO tbl_quizzes VALUES('ets_quiz1')");
+		$this->db->execute("INSERT INTO tbl_quizzes VALUES('ets_quiz2')");
+		$this->db->execute("INSERT INTO tbl_quizzes VALUES('helpline_quiz1')");
+		$this->db->execute("INSERT INTO tbl_quizzes VALUES('cdc_quiz1')");
+
+		//insert people quizes
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('mftoth', 'ets_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('ccaldwell', 'ets_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('jman', 'ets_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('mkeyes', 'ets_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('mftoth', 'ets_quiz2')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('ccaldwell', 'ets_quiz2')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('mftoth', 'helpline_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('ccaldwell', 'helpline_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('mftoth', 'cdc_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('ccaldwell', 'cdc_quiz1')");
+		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('jman', 'ets_quiz2')");
 
 		header('Location: '.siteURL('dbinit'));
 	}

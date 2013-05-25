@@ -20,7 +20,8 @@ $config['dbEnabled'] = true;
 $config['models'] = array(
 	'people_model',
 	'application_model',
-	'payroll_model'
+	'payroll_model',
+	'quiz_model'
 
 	);
 ?>

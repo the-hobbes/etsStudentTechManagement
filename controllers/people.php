@@ -24,6 +24,7 @@ class People extends Controller{
 				$data['person'] = $this->people_model->getPersonByNetid($netid);
 				$data['application'] = $this->application_model->getApplicationByNetid($netid);
 				$data['payroll'] = $this->payroll_model->getPayrollByNetId($netid);
+				$data['quizzes'] = $this->quiz_model->getQuizzesByNetid($netid);
 				$this->view->render("view_profile", $data);
 			}
 			else{
@@ -81,6 +82,29 @@ class People extends Controller{
 			$this->view->render("notauthorized","",false);
 		}//if authorized
 	}// end update
+
+	//add a quiz that the employee has taken
+	function addQuiz(){
+		$hashkey = $_POST['elementid'];
+		$newval = $_POST['newval'];
+
+		$person = $this->people_model->getPersonByHashkey($hashkey);
+		$netid = $person['pk_netid'];
+
+		$this->quiz_model->addQuizToEmployee($netid, $newval);
+	}
+
+	//return quizzes this person has yet to take
+	function getAvailableQuizzes($elementid){
+		$data = explode('.', $elementid);
+		$hashkey = $data[0];
+
+		$person = $this->people_model->getPersonByHashkey($hashkey);
+		$netid = $person['pk_netid'];
+		$remaining = $this->quiz_model->getRemainingQuizzes($netid);
+
+		echo json_encode($remaining);
+	}
 } // end people
 
 ?>
