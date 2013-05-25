@@ -66,7 +66,6 @@
 		});
 
 	</script>
-	<input id = "siteURL" type="hidden" value="<?php echo siteURL() ?>" />
 	
 	<div id="tabs_container" class="span11">
 		<ul class="nav nav-tabs">

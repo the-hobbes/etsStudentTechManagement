@@ -1,8 +1,13 @@
 <?php
+/*
+/view_application.php
+/
+/-Main view located at: <url>/application
+/-List applicants
+/
+*/
 $applications = $data['applications'];
 ?>
-<input type="hidden" id="siteURL" value="<?php echo siteURL() ?>" />
-
 <script>
 	$(document).ready(function(){
 

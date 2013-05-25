@@ -20,6 +20,8 @@
 	<body>
 		<div class="container">
 
+			<!--Echo the siteurl so javascript can pick it up-->
+			<input type="hidden" id="siteURL" value="<?php echo siteURL() ?>" />
 			<header class="media_config">
 				<h1>ETS Student Technician Managment System</h1>
 			</header>
