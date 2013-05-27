@@ -67,7 +67,7 @@
          height    : 75 + '%',
          width     : 75 + 'px',
          name      : 'newval',
-         submit    : 'add quiz',
+         submit    : 'ok',
          onsubmit  : function(settings, td){
             option = confirm("Are you sure you want to update value?");
             return option;
@@ -107,7 +107,8 @@
          height    : 75 + '%',
          width     : 75 + 'px',
          name      : 'newval',
-         submit    : 'ok',
+         tooltip   : 'click to add quiz',
+         submit    : 'add quiz',
          onsubmit  : function(settings, td){
             option = confirm("Are you sure you want to update value?");
             return option;

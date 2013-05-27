@@ -11,8 +11,34 @@
     </div>
     <div class="tab-pane" id="tab2">
       <p>Quiz settings. Add new available quizzes, view all </p>
-   
-      <?php print_r($data['quizzes']); ?>
+   		
+   		<table class="table table-striped">
+   			<tr>
+   				<th>Available Quizzes</th>
+   			</tr>
+
+   			<?php
+   			foreach($data['quizzes'] as $quiz){
+   				$html="
+   					<tr>
+   						<td>".$quiz['pk_quiz']."</td>
+   					</tr>
+   				";
+
+   				echo $html;
+   			}
+
+
+   			?>
+   			
+
+   		</table>
+
+   		<form action="" method="post">
+   			<input type="text" name="txtQuiz" />
+
+   			<input type="submit" value="Add Quiz" />
+   		</form>
 
     </div>
   </div>
