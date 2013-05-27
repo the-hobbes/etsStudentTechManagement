@@ -8,5 +8,10 @@ class dashboard extends Controller{
 		$this->view->render('view_dashboard', $data);
 	}
 
+	function addquiz(){
+		$newquiz=$_POST['txtQuiz'];
+		$this->db->execute("INSERT INTO tbl_quizzes VALUES('".$newquiz."')");
+	}
+
 }
 ?>

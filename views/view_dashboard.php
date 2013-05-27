@@ -34,7 +34,7 @@
 
    		</table>
 
-   		<form action="" method="post">
+   		<form action="<?php echo siteURL('dashboard/addquiz') ?>" method="post">
    			<input type="text" name="txtQuiz" />
 
    			<input type="submit" value="Add Quiz" />
