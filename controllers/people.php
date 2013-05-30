@@ -86,11 +86,20 @@ class People extends Controller{
 	// remove a quiz that the employee has taken
 	function removeQuiz(){
 		echo "got to server side remove quiz";
+		print_r($_POST);
+		
+		$hashkey = $_POST['elementid'];
+		$newval = $_POST['newval'];
+
+		$person = $this->people_model->getPersonByHashkey($hashkey);
+		$netid = $person['pk_netid'];
+
+		$this->quiz_model->removeQuizFromEmployee($netid, $newval);
 	}
 
 	//add a quiz that the employee has taken
 	function addQuiz(){
-		echo "got to server side add quiz";
+		// echo "got to server side add quiz";
 		$hashkey = $_POST['elementid'];
 		$newval = $_POST['newval'];
 

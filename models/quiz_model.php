@@ -19,6 +19,11 @@ class quiz_model extends Model{
 		$this->db->execute($query);
 	}
 
+	function removeQuizFromEmployee($netid,$quiz){
+		$query = "DELETE FROM tbl_peoplequiz WHERE fk_netid='" . $netid . "'AND fk_quiz='". $quiz . "' "; 
+		$this->db->execute($query);
+	}
+
 	//return the quizzes this person has yet to complete
 	function getRemainingQuizzes($netid){
 		$allquizzes = $this->getQuizzes();

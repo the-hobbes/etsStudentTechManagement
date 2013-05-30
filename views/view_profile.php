@@ -70,14 +70,16 @@
 	        // function to remove quizzes from the database
 
 	        siteURL = $("#siteURL").attr('value');
-	        var removeThis = $('#quizzes').find(":selected").text();
-	       	console.log(removeThis);
+	        var removeThis = $('#quizzes').find(":selected").text();	       	
+	       	sendData = {'elementid': '<?php echo $hashkkey; ?>', 'newval': removeThis};
+
+	       	console.log('got to remove quiz client side');
 
 	        // make ajax post to server (removeQuiz function in people.php)
 	        var request = $.ajax({
 		        url: siteURL + "people/removeQuiz",
 		        type: 'POST',
-				data: removeThis,
+				data: sendData,
 				dataType: 'text'
 		    });
 	        // success callback
