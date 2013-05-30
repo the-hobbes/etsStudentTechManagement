@@ -62,8 +62,37 @@
 			if(tab == "general"){
 				$('#tabs_container li:eq(0) a').tab('show');	
 			}
-
 		});
+
+	    function removeVal(){
+	        // function to remove quizzes from the database
+
+	        siteURL = $("#siteURL").attr('value');
+	        var yourSelect = document.getElementById('quizForm');
+	        removeThis = yourSelect.options[yourSelect.selectedIndex].value;
+	        
+	        // make ajax post to server
+	        var request = $.ajax({
+		        url: siteURL + "people/removeQuiz",
+		        type: 'POST',
+				data: removeThis,
+				dataType: 'text'
+		    });
+	        // success callback
+		    request.done(function (response, textStatus, jqXHR){
+		        // update the form
+		        console.log(response);
+		    });
+
+		    // callback handler that will be called on failure
+		    request.fail(function (jqXHR, textStatus, errorThrown){
+		        // log the error to the console
+		        console.error(
+		            "The following error occured: "+
+		            textStatus, errorThrown
+		        );
+		    });
+	    }	
 
 	</script>
 	<input id = "siteURL" type="hidden" value="<?php echo siteURL() ?>" />
@@ -158,17 +187,17 @@
 
 				<tr>
 					<td>Employee ID</td>
-					<td><?php echo $payroll['fld_employeeid'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_employeeid.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_employeeid'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Budget Code</td>
-					<td><?php echo $payroll['fld_budgetcode'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_budgetcode.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_budgetcode'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Employee rec num</td>
-					<td><?php echo $payroll['fld_employeerecnum'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_employeerecnum.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_employeerecnum'] ?></td>
 				</tr>
 
 				<tr>
@@ -213,12 +242,31 @@
 
 				<tr>
 					<td>Confidentiality Agreement</td>
-					<td id="<?php echo $person['fld_hashkey'].".fld_confragreement.tbl_payroll" ?>" name= "derp" class="edit"><?php echo $payroll['fld_confagreement'] ?></td>
+					<td id="<?php echo $person['fld_hashkey'].".fld_confagreement.tbl_payroll" ?>" name= "derp" class="editDD"><?php echo $payroll['fld_confagreement'] ?></td>
 				</tr>
 
 				<tr>
 					<td>Quizes Done</td>
-					<td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td>
+					<!-- one td to display the current quizzes -->
+					<td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="">
+						<?php 
+							// retrieve and segment all quizzes
+							$quizzes = explode(",", $payroll['fld_quizzesdone']);
+							echo "<select id='quizForm' form='quizForm'>";
+							foreach($quizzes as $quiz){
+								echo "<option value=". $quiz .">". $quiz ."</option>";
+							}
+							echo "</select>";
+							
+						?>
+						<form id="quizForm">
+						  <input type="button" onclick="removeVal()" value="Remove">
+						</form>
+					</td>
+					<!-- one td to add a quiz -->
+					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
+					<!-- one td to remove a quiz -->
+					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
 				</tr>
 			</table>
 			<!-- end payroll tab -->

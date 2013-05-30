@@ -19,13 +19,14 @@ div.tab_contents_active {
 div.clear {
 	clear: both;
 }
-.edit{
+.edit, .editDD, .editQuiz{
 	font-weight:bold;
 	cursor:pointer;
 }
 .edit:hover{
 	text-decoration:underline;
 }
+table { table-layout: fixed; }
 thead{
 	background-color: black;
 	color:white;
@@ -33,4 +34,17 @@ thead{
 }
 th{
 	border-right:1px solid white;
+}
+.error{
+	background-color: red !important;
+}
+.editDD select{
+   background: black;
+   width: 75px;
+   margin-right: 25px;
+   color:white;
+}
+.editDD button{
+	height:25px;
+	margin-bottom: 10px;
 }

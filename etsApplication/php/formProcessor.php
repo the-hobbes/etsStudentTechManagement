@@ -103,10 +103,10 @@ validateEmail($email);
 
 // print_r($errorMsg);
 
-//f($errorMsg){
+if($errorMsg){
 	// do something, sending the errors back to the view so they can be displayed.
-//	return null;
-//}
+	return null;
+}
 else{
 	sendToDatabase();
 }
