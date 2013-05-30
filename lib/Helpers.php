@@ -7,6 +7,7 @@
 
 //Return base site url with optional string attached
 function siteURL($string = ""){
+	//$url = "https://".BASE_URL.$string; It will be this once we switch to zoo
 	$url = "http://".BASE_URL.$string; 
 	return $url;
 }
