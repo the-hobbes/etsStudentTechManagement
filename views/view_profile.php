@@ -86,6 +86,8 @@
 		    request.done(function (response, textStatus, jqXHR){
 		        // update the form
 		        console.log(response);
+		        alert(removeThis + " has been Removed.");
+		        location.reload();
 		    });
 
 		    // failure callback
@@ -117,6 +119,8 @@
 		    request.done(function (response, textStatus, jqXHR){
 		        // update the form
 		        console.log(response);
+		        alert(addThis + " has been Added.");
+		        location.reload();
 		    });
 
 		    // failure callback
