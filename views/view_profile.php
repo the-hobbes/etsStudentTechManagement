@@ -2,9 +2,9 @@
 	$person = $data['person'];
 	$application = $data['application'];
 	$payroll = $data['payroll'];
+	$quizzes = $data['quizzes'];
 
 	echo "<h4>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h4>";
-
 ?>	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -62,16 +62,19 @@
 			if(tab == "general"){
 				$('#tabs_container li:eq(0) a').tab('show');	
 			}
-		});
+		}); // end document ready
 
-	    function removeVal(){
+	    function remove_quiz(){
 	        // function to remove quizzes from the database
 
 	        siteURL = $("#siteURL").attr('value');
-	        var yourSelect = document.getElementById('quizForm');
-	        removeThis = yourSelect.options[yourSelect.selectedIndex].value;
-	        
-	        // make ajax post to server
+	        // var yourSelect = document.getElementById('quizForm');
+	        // removeThis = yourSelect.options[yourSelect.selectedIndex].value;
+	        var removeThis = $('#quizzes').find(":selected").text();
+	       	console.log(removeThis);
+	        // removeThis = "somequiz";
+
+	        // make ajax post to server (removeQuiz function in people.php)
 	        var request = $.ajax({
 		        url: siteURL + "people/removeQuiz",
 		        type: 'POST',
@@ -84,7 +87,7 @@
 		        console.log(response);
 		    });
 
-		    // callback handler that will be called on failure
+		    // failure callback
 		    request.fail(function (jqXHR, textStatus, errorThrown){
 		        // log the error to the console
 		        console.error(
@@ -92,10 +95,38 @@
 		            textStatus, errorThrown
 		        );
 		    });
-	    }	
+	    } // end removeVal
 
+	    function add_quiz(){
+	        // function to add quizzes to the database
+
+	        siteURL = $("#siteURL").attr('value');
+	        
+	        removeThis = "somequiz";
+	        
+	        // make ajax post to server (removeQuiz function in people.php)
+	        var request = $.ajax({
+		        url: siteURL + "people/addQuiz",
+		        type: 'POST',
+				data: removeThis,
+				dataType: 'text'
+		    });
+	        // success callback
+		    request.done(function (response, textStatus, jqXHR){
+		        // update the form
+		        console.log(response);
+		    });
+
+		    // failure callback
+		    request.fail(function (jqXHR, textStatus, errorThrown){
+		        // log the error to the console
+		        console.error(
+		            "The following error occured: "+
+		            textStatus, errorThrown
+		        );
+		    });
+	    } // end removeVal
 	</script>
-	<input id = "siteURL" type="hidden" value="<?php echo siteURL() ?>" />
 	
 	<div id="tabs_container" class="span11">
 		<ul class="nav nav-tabs">
@@ -245,22 +276,27 @@
 					<td id="<?php echo $person['fld_hashkey'].".fld_confagreement.tbl_payroll" ?>" name= "derp" class="editDD"><?php echo $payroll['fld_confagreement'] ?></td>
 				</tr>
 
+				
 				<tr>
 					<td>Quizes Done</td>
 					<!-- one td to display the current quizzes -->
-					<td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="">
-						<?php 
-							// retrieve and segment all quizzes
-							$quizzes = explode(",", $payroll['fld_quizzesdone']);
-							echo "<select id='quizForm' form='quizForm'>";
-							foreach($quizzes as $quiz){
-								echo "<option value=". $quiz .">". $quiz ."</option>";
-							}
-							echo "</select>";
-							
-						?>
+					<td class="">						
 						<form id="quizForm">
-						  <input type="button" onclick="removeVal()" value="Remove">
+							<?php 
+								// retrieve and display all quizzes
+								echo "<select id='quizzes' name='quizzes'>";
+								$i=0;
+								foreach($quizzes as $quiz){			
+									echo "<option value=". $quiz['fk_quiz'] .">". $quiz['fk_quiz'] ."</option>";
+								}
+								echo "</select>";
+								// echo " <span id=\"".$person['fld_hashkey']."\" class=\"editQuiz\"></span>";
+							?>
+							<br>
+							<input type="text" name="newQuizName">
+							<br>
+							<input type="button" onclick="remove_quiz()" value="Remove">
+							<input type="button" onclick="add_quiz()" value="Add">
 						</form>
 					</td>
 					<!-- one td to add a quiz -->
@@ -268,6 +304,7 @@
 					<!-- one td to remove a quiz -->
 					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
 				</tr>
+			
 			</table>
 			<!-- end payroll tab -->
 		</div> <!-- end tab 2 contents -->

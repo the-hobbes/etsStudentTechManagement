@@ -10,6 +10,7 @@ class Model{
 		$this->db = $app->db;
 		$this->view = $app->view;
 		$this->conf = $app->conf;
+		$this->session = $app->session;
 		
 		//Give model access to all other models (so long as it isn't this one)
 		foreach($this->conf['models'] as $model){

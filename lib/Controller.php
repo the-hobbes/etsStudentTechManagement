@@ -9,7 +9,8 @@ class Controller{
 	function load($app){
 		$this->app=$app;
 		$this->conf=$app->conf;
-
+		$this->session=$app->session;
+		$this->userValid = $app->userValid;
 		$this->db = $this->app->db;
 		$this->view = $this->app->view;
 

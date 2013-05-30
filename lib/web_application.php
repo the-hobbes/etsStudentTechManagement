@@ -1,6 +1,8 @@
 <?php
 
+require 'AppLoader.php';
 require 'Database.php';
+require 'Session.php';
 require 'Helpers.php';
 require 'Bootstrap.php';
 require 'Controller.php';
@@ -14,7 +16,6 @@ class web_application{
 	public $bootstrap;
 	public $view;
 	public $conf;
-	public $test;
 
 	//constructor()
 	function __construct($config){
@@ -25,15 +26,22 @@ class web_application{
 			$this->db = new Database($this);
 		}
 		
+		//Create the session object
+		$this->session = new Session();
+
 		//Create the view object
 		$this->view = new View();
 
 		//load the models
 		$this->loadModels();
 
-		//Load data into View object
-		$this->view->load($this);
+		//Load app into objects
+		$this->session->loadApp($this);
+		$this->setUser();
 
+		$this->view->load($this);
+		
+		//Start the bootstrap, which handles url forwarding to controllers and methods
 		$this->bootstrap = new Bootstrap($config, $this);
 	}
 
@@ -51,6 +59,16 @@ class web_application{
 		}
 
 	}//end: loadModels()
+
+	//setUser(): get the user and set session (either from ldap or wherever else)
+	function setUser(){
+
+		//hard set the user for development
+		$this->session->setUser("devuser");
+
+		//check if the user if valid and set valid flag
+		$this->userValid = $this->session->isAuthorized();
+	}
 }//end: web_application
 
 ?>

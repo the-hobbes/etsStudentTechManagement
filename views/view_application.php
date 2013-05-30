@@ -1,8 +1,13 @@
 <?php
+/*
+/view_application.php
+/
+/-Main view located at: <url>/application
+/-List applicants
+/
+*/
 $applications = $data['applications'];
 ?>
-<input type="hidden" id="siteURL" value="<?php echo siteURL() ?>" />
-
 <script>
 	$(document).ready(function(){
 
@@ -71,7 +76,6 @@ $applications = $data['applications'];
 			?>
 		</tbody>
 	</table>
-	<p>dev note: presumably there should be a hire or deny button next to the application</p>
 </div><!--end content-->
 <script type="text/javascript">
 	// sortable tables

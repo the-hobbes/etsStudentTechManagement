@@ -9,15 +9,4 @@
 
 			</div> <!-- end title -->
 
-			<div class='span2 sidebar'>
-				<h2>Sidebar</h2>
-
-				 <ul class="nav nav-tabs nav-stacked">
-				    <li><a href='https://www.uvm.edu/~helpline/limeaid/'>Blog Manager</a></li>
-				    <li><a href='https://www.uvm.edu/~helpline/etsApplication/'>Application Form</a></li>
-				    <li><a href='#'>Footprints Form</a></li>
-				</ul> <!-- end sidebar nav -->
-
-			</div> <!-- end sidebar -->
-
 		</div> <!-- end content -->
