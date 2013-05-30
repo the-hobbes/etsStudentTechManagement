@@ -4,6 +4,8 @@
 	$payroll = $data['payroll'];
 	$quizzes = $data['quizzes'];
 
+	$hashkkey = $person['fld_hashkey']; 
+
 	echo "<h4>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h4>";
 ?>	
 	<script type="text/javascript">
@@ -68,11 +70,8 @@
 	        // function to remove quizzes from the database
 
 	        siteURL = $("#siteURL").attr('value');
-	        // var yourSelect = document.getElementById('quizForm');
-	        // removeThis = yourSelect.options[yourSelect.selectedIndex].value;
 	        var removeThis = $('#quizzes').find(":selected").text();
 	       	console.log(removeThis);
-	        // removeThis = "somequiz";
 
 	        // make ajax post to server (removeQuiz function in people.php)
 	        var request = $.ajax({
@@ -99,16 +98,17 @@
 
 	    function add_quiz(){
 	        // function to add quizzes to the database
-
 	        siteURL = $("#siteURL").attr('value');
-	        
-	        removeThis = "somequiz";
-	        
+	        var addThis = document.getElementById('newQuizName').value;
+	        document.getElementById('newQuizName').value = "";
+
+	        sendData = {'elementid': '<?php echo $hashkkey; ?>', 'newval': addThis};
+
 	        // make ajax post to server (removeQuiz function in people.php)
 	        var request = $.ajax({
 		        url: siteURL + "people/addQuiz",
 		        type: 'POST',
-				data: removeThis,
+				data: sendData,
 				dataType: 'text'
 		    });
 	        // success callback
@@ -293,7 +293,7 @@
 								// echo " <span id=\"".$person['fld_hashkey']."\" class=\"editQuiz\"></span>";
 							?>
 							<br>
-							<input type="text" name="newQuizName">
+							<input type="text" id="newQuizName" name="newQuizName">
 							<br>
 							<input type="button" onclick="remove_quiz()" value="Remove">
 							<input type="button" onclick="add_quiz()" value="Add">

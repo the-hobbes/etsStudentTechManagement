@@ -91,7 +91,6 @@ class People extends Controller{
 	//add a quiz that the employee has taken
 	function addQuiz(){
 		echo "got to server side add quiz";
-		
 		$hashkey = $_POST['elementid'];
 		$newval = $_POST['newval'];
 
