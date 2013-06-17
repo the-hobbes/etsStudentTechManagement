@@ -86,7 +86,7 @@ class People extends Controller{
 	// remove a quiz that the employee has taken
 	function removeQuiz(){
 		echo "got to server side remove quiz";
-		print_r($_POST);
+		// print_r($_POST);
 		
 		$hashkey = $_POST['elementid'];
 		$newval = $_POST['newval'];

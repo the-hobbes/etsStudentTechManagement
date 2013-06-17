@@ -32,8 +32,8 @@ $applications = $data['applications'];
 		$('#denyForm').on("submit", function(e) {
 	        //stop the form from being submitted
 	        e.preventDefault();
-	        var reason = $('textarea#denyArea').val();
-	        hashkey = $(this).attr('id');
+	        var reason = $('textarea').val();
+	        hashkey = $('textarea').attr('id');
 	        sendData = {'hashkey': hashkey, 'reason': reason};
 
 	        $.ajax({
@@ -41,9 +41,9 @@ $applications = $data['applications'];
                     url: siteURL + "applications/deny",
                     data: sendData
                 }).done(function(data){
-                	console.log("returned from the client side with this: " + data);               	
+                	// console.log("returned from the client side with this: " + data);               	
    					// when this is saved, reload the application page
-   					// location.reload();
+   					location.reload();
    					// set the Hire | Deny field to DENIED
             });//end ajax 
 	        
@@ -64,8 +64,6 @@ $applications = $data['applications'];
    					location.reload();
                 });//end ajax  
 			}
-			
-
 		}); // end hire function
 
 
@@ -75,6 +73,7 @@ $applications = $data['applications'];
 			//'okay' selected
 			if(choice){
 				$('#denyForm').show();
+				$('textarea').attr("id",hashkey);
 			}
 		}); // end deny function
 
@@ -115,7 +114,7 @@ $applications = $data['applications'];
 	</table>
 
 	<div id="denyForm">
-		<form id="<?php  echo $application['fld_hashkey']; ?>">
+		<form>
 			<textarea id="denyArea" style="margin:0px auto; width:200px; height: 200px;">Please enter the reason for rejection.</textarea>
 			<br>
 			<input type="submit" value="Submit" style="margin-top:3px;">

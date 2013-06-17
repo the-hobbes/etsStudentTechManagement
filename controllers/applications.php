@@ -56,7 +56,20 @@ class applications extends Controller{
 	function deny(){
 		//also only do this if the user is logged in
 		if($this->session->isAuthorized()){
-			echo "got here";
+			print_r($_POST);
+			$hashkey = $_POST['hashkey'];
+			$newval = $_POST['reason'];
+
+			$person = $this->people_model->getPersonByHashkey($hashkey);
+			$netid = $person['pk_netid'];
+
+			//ensure ishired is 0 (probably not necessary)
+			$this->people_model->update($netid, 'fld_ishired', 0);
+
+			//update people fld_notes
+			$this->people_model->update($netid, 'fld_notes', $newval);
+
+			// print "got to the deny function";
 		}
 	}
 }
