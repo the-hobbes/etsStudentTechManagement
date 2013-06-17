@@ -52,5 +52,12 @@ class applications extends Controller{
 			$this->view->render("notauthorized","",false);
 		}
 	}
+
+	function deny(){
+		//also only do this if the user is logged in
+		if($this->session->isAuthorized()){
+			echo "got here";
+		}
+	}
 }
 ?>

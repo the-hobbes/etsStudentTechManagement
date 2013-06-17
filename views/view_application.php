@@ -8,8 +8,46 @@
 */
 $applications = $data['applications'];
 ?>
+<script type="text/javascript">
+
+</script>
+
+
 <script>
 	$(document).ready(function(){
+
+		// text area show and hide
+		$("#denyArea").focus(function() {
+		    if( $(this).val() == "Please enter the reason for rejection." ) {
+		        $(this).val("");
+		    }
+		});
+		$("#denyArea").blur(function() {
+		    if( $(this).val() == "" ) {
+		        $(this).val("Please enter the reason for rejection.");
+		    }
+		});
+
+		// prevent default form submission, and instead send ajax to server
+		$('#denyForm').on("submit", function(e) {
+	        //stop the form from being submitted
+	        e.preventDefault();
+	        var reason = $('textarea#denyArea').val();
+	        hashkey = $(this).attr('id');
+	        sendData = {'hashkey': hashkey, 'reason': reason};
+
+	        $.ajax({
+                    type: "POST",
+                    url: siteURL + "applications/deny",
+                    data: sendData
+                }).done(function(data){
+                	console.log("returned from the client side with this: " + data);               	
+   					// when this is saved, reload the application page
+   					// location.reload();
+   					// set the Hire | Deny field to DENIED
+            });//end ajax 
+	        
+	    }); // end denyform submit
 
 		$('.btnHire').click(function(){
 			choice = confirm("Are you sure you would like to hire this applicant?");
@@ -28,20 +66,19 @@ $applications = $data['applications'];
 			}
 			
 
-		});
+		}); // end hire function
 
 
 		$('.btnDeny').click(function(){
 			choice = confirm("Deny application?");
-
+			hashkey = $(this).attr('id');
 			//'okay' selected
 			if(choice){
-
+				$('#denyForm').show();
 			}
+		}); // end deny function
 
-		});
-
-	});
+	}); // end document function
 
 </script>
 
@@ -76,6 +113,15 @@ $applications = $data['applications'];
 			?>
 		</tbody>
 	</table>
+
+	<div id="denyForm">
+		<form id="<?php  echo $application['fld_hashkey']; ?>">
+			<textarea id="denyArea" style="margin:0px auto; width:200px; height: 200px;">Please enter the reason for rejection.</textarea>
+			<br>
+			<input type="submit" value="Submit" style="margin-top:3px;">
+		</form> <!-- end denyForm -->
+	</div?
+
 </div><!--end content-->
 <script type="text/javascript">
 	// sortable tables

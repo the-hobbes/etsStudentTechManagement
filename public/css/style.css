@@ -55,3 +55,6 @@ th{
 	background: black;
 	color: white;
 }
+#denyForm{
+	display: none;
+}
