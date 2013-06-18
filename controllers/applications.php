@@ -63,8 +63,8 @@ class applications extends Controller{
 			$person = $this->people_model->getPersonByHashkey($hashkey);
 			$netid = $person['pk_netid'];
 
-			//ensure ishired is 0 (probably not necessary)
-			$this->people_model->update($netid, 'fld_ishired', 0);
+			//make ishired 2, indicating they have been denied (probably not necessary)
+			$this->people_model->update($netid, 'fld_ishired', 2);
 
 			//update people fld_notes
 			$this->people_model->update($netid, 'fld_notes', $newval);

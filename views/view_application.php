@@ -103,11 +103,17 @@ $applications = $data['applications'];
 								<td>".$application['fld_firstname']."</td>
 								<td>".$application['fld_lastname']."</td>
 								<td>".$application['fld_submissiondate']."</td>
-								<td>".$application['fld_graddate']."</td>
-								<td><a id=\"".$application['fld_hashkey']."\" class=\"btnHire\" href=\"#\">Hire</a> | <a id=\"".$application['fld_hashkey']."\" class=\"btnDeny\" href=\"#\">Deny</a></td>
-						</tr>";
-				echo $html;
+								<td>".$application['fld_graddate']."</td>";
 
+				if($application['fld_ishired'] == 2){
+					$html = $html."<td style='color:red;'>DENIED</td>
+					</tr>";
+				}
+				else{
+					$html = $html."<td><a id=\"".$application['fld_hashkey']."\" class=\"btnHire\" href=\"#\">Hire</a> | <a id=\"".$application['fld_hashkey']."\" class=\"btnDeny\" href=\"#\">Deny</a></td>
+					</tr>";
+				}
+				echo $html;
 			}
 			?>
 		</tbody>
