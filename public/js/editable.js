@@ -105,7 +105,7 @@
          id        : 'elementid',
          loadurl   : siteURL + 'people/getAvailableQuizzes/'+quizID,
          height    : 75 + '%',
-         width     : 75 + 'px',
+         width     : 55 + 'px',
          name      : 'newval',
          tooltip   : 'click to add quiz',
          submit    : 'add quiz',

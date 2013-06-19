@@ -39,15 +39,31 @@ th{
 	background-color: red !important;
 }
 .editDD select{
-   background: black;
+   background: white;
    width: 75px;
    margin-right: 25px;
-   color:white;
+   color:black;
 }
 .editDD button{
 	height:25px;
 	margin-bottom: 10px;
 }
+.editQuiz{
+
+}
+.editQuiz select{
+	width: 150px;
+	margin-right:25px;
+}
+.editQuiz button{
+	height:25px;
+	margin-bottom:10px;
+}
+#btnQuizPopout{
+	float:left;
+	margin-right:10px;
+}
+
 #lnk_dashboard{
 	float:right;
 }
@@ -57,4 +73,7 @@ th{
 }
 #denyForm{
 	display: none;
+}
+#quizCompleted{
+	cursor:pointer;
 }
