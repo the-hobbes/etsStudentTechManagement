@@ -4,7 +4,13 @@ class payroll_model extends Model{
 
 	//getAll(): get all rows
 	function getAll(){
-		$query = "SELECT * FROM tbl_payroll";
+		// $query = "SELECT * FROM tbl_payroll";
+		// retrieve only the payroll data for those who have been hired. 
+		$query = 
+			"SELECT * FROM tbl_payroll pr
+			JOIN tbl_people p on pr.fk_netid = p.pk_netid
+			WHERE p.fld_ishired = 1";
+
 		$results = $this->db->query($query);
 
 		return $results;
