@@ -64,7 +64,9 @@
 			if(tab == "general"){
 				$('#tabs_container li:eq(0) a').tab('show');	
 			}
+
 		}); // end document ready
+
 
 	    function remove_quiz(){
 	        // function to remove quizzes from the database
@@ -291,7 +293,39 @@
 					<td>Quizes Done</td>
 					<!-- one td to display the current quizzes -->
 					<td class="">						
-						<form id="quizForm">
+						
+
+					
+						<a href="#quizPopout" id="btnQuizPopout" role="button" class="btn" data-toggle="modal">View Completed Quizzes</a>
+						<div id="quizPopout" class="modal hide fade">
+						  <div class="modal-header">
+						    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						    <h3><?php echo $person['pk_netid'] ?>&apos;s Completed Quizzes</h3>
+						  </div>
+						  <div class="modal-body">
+						  	<table>
+						  		<tr>
+						  			<th>Quiz Name</th>
+						  		</tr>
+						  <?php
+						  	foreach($quizzes as $quiz){
+						  		echo "<tr>
+						  				<td>".$quiz['fk_quiz']."</td>
+						  			  </tr>
+						  		";	
+						  	}
+						  ?>		
+							</table>
+						  </div>
+						  <div class="modal-footer">
+						    <a href="#" data-dismiss="modal" class="btn">Close</a>
+						  </div>
+						</div>
+					
+						<?php echo "<span id=\"".$person['fld_hashkey']."\"  style=\"display: inline\" class=\"editQuiz\">Add Quiz</span>"; ?>
+
+						
+						<!--<form id="quizForm">
 							<?php 
 								// retrieve and display all quizzes
 								echo "<select id='quizzes' name='quizzes'>";
@@ -307,7 +341,7 @@
 							<br>
 							<input type="button" onclick="remove_quiz()" value="Remove">
 							<input type="button" onclick="add_quiz()" value="Add">
-						</form>
+						</form>-->
 					</td>
 					<!-- one td to add a quiz -->
 					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
