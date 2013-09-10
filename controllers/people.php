@@ -9,7 +9,9 @@ class People extends Controller{
 			$data['tabEmployees'] = "active";
 			//Get the list of employees from tbl_people and send it to the view
 			$data['people'] = $this->people_model->getEmployees();
+
 			$this->view->render("view_people", $data);	
+
 		}else{
 			$this->view->render("notauthorized","",false);
 		}
