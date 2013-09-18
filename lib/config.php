@@ -22,7 +22,8 @@ $config['models'] = array(
 	'application_model',
 	'payroll_model',
 	'quiz_model',
-	'dbinit_model'
+	'dbinit_model',
+	'notes_model'
 
 	);
 ?>

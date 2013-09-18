@@ -228,7 +228,7 @@ function sendToDatabase(){
 		$date = $year."-".$month."-".$day;
 
 		$db->execute("INSERT INTO tbl_people VALUES('".$netID."', '".$firstName."', '".$lastName."', '".$middleInitial."', '".$streetAddress."', '".$zipcode."',
-					'".$email."', '".$major."', '".$graduationDate."', '000-000-0000', 'XXX', '".$hashkey."', '0', '')");
+					'".$email."', '".$major."', '".$graduationDate."', '000-000-0000', 'XXX', '".$hashkey."', '0')");
 
 		$db->execute("INSERT INTO tbl_application VALUES(null,'".$netID."', '".$date."', '".$previouslyWorked."', '".$usEligible."', '".$undergradStudent."','".$gradStudent."' ,'".$creditNumber."',
 					'".$workStudyAmount."', '".$employerName."', '".$employerAddress."', '".$employerPhone."', '".$payRate."', '".$hoursWorked."',

@@ -76,7 +76,6 @@ class dbinit_model extends Model{
 			fld_schedulecode     VARCHAR( 100 ),
 			fld_hashkey		     VARCHAR(70),
 			fld_ishired			 BOOL,
-			fld_notes			 VARCHAR( 100 ),
 			CONSTRAINT pk_tbl_people PRIMARY KEY ( pk_netid ));",
 
 			'quizzes'=>"CREATE TABLE if not exists tbl_quizzes (
@@ -86,7 +85,15 @@ class dbinit_model extends Model{
 			'peoplequiz'=>"CREATE TABLE if not exists tbl_peoplequiz (
 					fk_netid VARCHAR( 100 ) NOT NULL,
 					fk_quiz VARCHAR( 100 ) NOT NULL,
-					CONSTRAINT pk_tbl_quizzes PRIMARY KEY ( fk_netid, fk_quiz ));"
+					CONSTRAINT pk_tbl_quizzes PRIMARY KEY ( fk_netid, fk_quiz ));",
+
+			'peoplenotes'=>"CREATE TABLE if not exists tbl_peoplenotes (
+					fk_netid VARCHAR( 100 ) NOT NULL,
+					pk_noteid int( 100 ) NOT NULL auto_increment,
+					fld_title VARCHAR (100 ) NOT NULL,
+					fld_content varchar(300) NOT NULL,
+					fld_datecreated DATETIME,
+					CONSTRAINT pk_tbl_peoplenotes PRIMARY KEY (pk_noteid));"
 		);//end tables
 
 		foreach($this->tables as $table){
@@ -97,19 +104,19 @@ class dbinit_model extends Model{
 	function createData(){
 		//tbl_people data
 		$this->db->execute("INSERT INTO tbl_people VALUES('mftoth', 'Michael', 'Toth', 'F', '163 North Union St.', 
-			'08530', 'mftoth@uvm.edu', 'BSCS', 'Spring 2014', '609-468-2946', 'MFT', '".$this->people_model->hash2fields('mftoth','mftoth@uvm.edu')."','1','')");
+			'08530', 'mftoth@uvm.edu', 'BSCS', 'Spring 2014', '609-468-2946', 'MFT', '".$this->people_model->hash2fields('mftoth','mftoth@uvm.edu')."','1')");
 
 		$this->db->execute("INSERT INTO tbl_people VALUES('ccaldwell', 'Carol', 'Caldwell', 'C', '123 fake st.', 
-			'05401', 'ccaldwel@uvm.edu', 'BSCS', 'Spring 2000', '555-555-5555', 'CCE', '".$this->people_model->hash2fields('ccaldwell','ccaldwel@uvm.edu')."','1','')");
+			'05401', 'ccaldwel@uvm.edu', 'BSCS', 'Spring 2000', '555-555-5555', 'CCE', '".$this->people_model->hash2fields('ccaldwell','ccaldwel@uvm.edu')."','1')");
 
 		$this->db->execute("INSERT INTO tbl_people VALUES('jman', 'Joe', 'Man', 'D', '132 Evergreen Terrace', 
-			'97475', 'jman@uvm.edu', 'English', 'Spring 2013', '541-267-1313', 'JDM', '".$this->people_model->hash2fields('jman','jman@uvm.edu')."','1','')");
+			'97475', 'jman@uvm.edu', 'English', 'Spring 2013', '541-267-1313', 'JDM', '".$this->people_model->hash2fields('jman','jman@uvm.edu')."','1')");
 
 		$this->db->execute("INSERT INTO tbl_people VALUES('mkeyes', 'Mauro', 'Keyes', 'A', '21 Main street', 
-			'08559', 'mkeyes@uvm.edu', 'Business', 'Spring 2013', '609-111-1111', 'MAK','".$this->people_model->hash2fields('mkeyes','mkeyes@uvm.edu')."','1','')");
+			'08559', 'mkeyes@uvm.edu', 'Business', 'Spring 2013', '609-111-1111', 'MAK','".$this->people_model->hash2fields('mkeyes','mkeyes@uvm.edu')."','1')");
 
 		$this->db->execute("INSERT INTO tbl_people VALUES('ldavinc', 'Leonardo', 'Davinci', 'A', '1000 industrial ave', 
-			'10001', 'ldavinc@uvm.edu', 'Art', 'Spring 2015', '217-223-3132', 'LAD', 	'".$this->people_model->hash2fields('ldavinc','ldavinc@uvm.edu')."','0','')");
+			'10001', 'ldavinc@uvm.edu', 'Art', 'Spring 2015', '217-223-3132', 'LAD', 	'".$this->people_model->hash2fields('ldavinc','ldavinc@uvm.edu')."','0')");
 
 		//tbl_application data
 		$this->db->execute("INSERT INTO tbl_application
@@ -191,10 +198,16 @@ class dbinit_model extends Model{
 		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('mftoth', 'cdc_quiz1')");
 		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('ccaldwell', 'cdc_quiz1')");
 		$this->db->execute("INSERT INTO tbl_peoplequiz VALUES('jman', 'ets_quiz2')");
+
+		//insert notes\
+		$date=date("Y-m-d H:i:s");         
+		$this->db->execute("insert into tbl_peoplenotes values('mftoth', '', 'Late', 'Michael was late on 9/16/2013 to his helpline shift. 3rd time this semester', '".$date."')");
+		$this->db->execute("insert into tbl_peoplenotes values('mftoth', '', 'Excellent Ticket', 'Michael did a fabulous job with ticket #6578.', '2013-09-17 10:30:11')");
+
 	}
 	
 	function deleteTables(){
-		$this->db->execute("DROP TABLE tbl_payroll, tbl_application, tbl_people, tbl_authorizedusers, tbl_quizzes, tbl_peoplequiz");
+		$this->db->execute("DROP TABLE tbl_payroll, tbl_application, tbl_people, tbl_authorizedusers, tbl_quizzes, tbl_peoplequiz, tbl_peoplenotes");
 	}
 
 }

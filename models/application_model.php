@@ -18,6 +18,7 @@ class application_model extends Model{
 	}
 
 	function update($netid, $fld, $newval){
+		$newval = mysql_real_escape_string($newval);
 		$query = "UPDATE tbl_application SET ".$fld."='".$newval."' WHERE fk_netid = '".$netid."'";
 		$this->db->execute($query);
 	}

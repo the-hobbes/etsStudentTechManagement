@@ -3,6 +3,7 @@
 	$application = $data['application'];
 	$payroll = $data['payroll'];
 	$quizzes = $data['quizzes'];
+	$notes = $data['notes'];
 
 	$hashkkey = $person['fld_hashkey']; 
 
@@ -10,12 +11,14 @@
 ?>	
 	<script type="text/javascript">
 		$(document).ready(function() {
-		  	
+		  	siteURL = $("#siteURL").attr('value');
+
 			tab = document.URL.split("#");
 			tab = tab[1];
 
 			// Handle tab clicks
 			$('.tab').click(function () {
+
 				// Remove the 'active' class from the active tab.
 				$('#tabs_container > .nav-tabs > li.active').removeClass('active');
 
@@ -31,7 +34,7 @@
 
 
 				// this prevents the click from being followed and thus jumping to the top of the page because of '#'
-				return false;
+				//return false;
 			});
 
 			//updates the tab when it gets switch programatically
@@ -50,20 +53,60 @@
 
 
 				// this prevents the click from being followed and thus jumping to the top of the page because of '#'
-				return false;
+				//return false;
 
 			});
 
 			//switch tab based on url;
 			if(tab == "payroll"){
-				$('#tabs_container li:eq(1) a').tab('show');
+				$('#tabPayroll a').tab('show');
 			}
 			if(tab == "application"){
-				$('#tabs_container li:eq(2) a').tab('show');	
+				$('#tabApplication a').tab('show');	
 			}
 			if(tab == "general"){
-				$('#tabs_container li:eq(0) a').tab('show');	
+				$('#tabGeneral a').tab('show');	
 			}
+			if(tab == "notes"){
+				$('#tabNotes a').tab('show');	
+			}
+
+
+
+			$("#AddNote").modal({
+				show:false
+			});
+
+			$("#btnAddNoteSubmitted").click(function(){
+
+				txtNoteTitle = $("#txtNoteTitle").val();
+				txtNoteContent = $("#txtNoteContent").val();
+				netid = $("#txtNetId").val();
+
+				if(txtNoteTitle != "" && txtNoteContent != ""){
+
+				  // make ajax post to server to add note
+			        var request = $.ajax({
+				        url: siteURL + "people/AddNote",
+				        type: 'POST',
+						data: {
+							netid: netid,
+							txtNoteTitle: txtNoteTitle,
+							txtNoteContent: txtNoteContent
+						},
+						dataType: 'text'
+				    });
+			        // success callback
+				    request.done(function (response, textStatus, jqXHR){
+				        // update the form
+				      	location.reload();
+			
+				    });
+
+				}
+
+			});
+		
 
 		}); // end document ready
 
@@ -138,13 +181,15 @@
 	
 	<div id="tabs_container" class="span11">
 		<ul class="nav nav-tabs">
-			<li class="active tab" rel="#tab_1_contents"><a href="#general"><h3>General</h3></a></li> 
+			<li id="tabGeneral" class="active tab" rel="#tab_1_contents"><a href="#general"><h3>General</h3></a></li> 
 
 			<?php if($person['fld_ishired']==1){ //only show payroll tab if person is hired ?>
-			<li class="tab" rel="#tab_2_contents"><a href="#payroll"><h3>Payroll</h3></a></li>
+			<li id="tabPayroll" class="tab" rel="#tab_2_contents"><a href="#payroll"><h3>Payroll</h3></a></li>
 			<?php } ?>
 
-			<li class="tab" rel="#tab_3_contents"><a href="#application"><h3>Application</h3></a></li> 
+			<li id="tabApplication" class="tab" rel="#tab_3_contents"><a href="#application"><h3>Application</h3></a></li> 
+
+			<li id="tabNotes" class="tab" rel="#tab_4_contents"><a href="#notes"><h3>Notes</h3></a></li> 
 			<div class="clear"></div>
 		</ul> <!-- nav tabs -->
 
@@ -200,10 +245,7 @@
 					<td>Employee Status</td>
 					<td><?php if($person['fld_ishired']==1){echo "Hired"; }else{echo "Not Hired";} ?></td>
 				</tr>
-				<tr>
-					<td>Employee Notes</td>
-					<td id="<?php echo $person['fld_hashkey'].".fld_notes.tbl_people" ?>" class="edit"><?php echo $person['fld_notes'] ?></td>
-				</tr>
+		
 			</table>
 			<!-- end general tab -->
         </div> <!-- end tab 1 contents -->
@@ -428,4 +470,38 @@
 			</table>
 			<!-- end application tab -->
 		</div> <!-- end tab 3 contents -->
+
+	   	<div id="tab_4_contents" class="tab_contents">
+			
+			<a id="btnAddNote" href="#AddNote" role="button" class="btn" data-toggle="modal">Add Note</a>
+			<!-- Modal -->
+			<div id="AddNote" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			    <h3 id="myModalLabel">Add Note for <?php echo $person['pk_netid'] ?></h3>
+			  </div>
+			  <div class="modal-body">
+			  	<label for="txtNoteTitle">Note Title</label>
+			    <input id="txtNoteTitle" type="text" name="txtNoteTitle" /> <br />
+			    <input type="hidden" id="txtNetId" value="<?php echo $person['pk_netid'] ?>" />
+
+			    <label for="txtNoteContent">Note Content</label>
+			    <textarea style="width:80%; height:5em" id="txtNoteContent" name="txtNoteContent"></textarea>
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+			    <button id="btnAddNoteSubmitted" class="btn btn-primary">Add</button>
+			  </div>
+			</div>
+
+			<?php foreach($notes as $note){
+
+				echo "<p class=\"note_title\">".$note['fld_title']."</p>";
+				echo "<p class=\"note_content\">".$note['fld_content']."</p>";
+				echo "<p class=\"note_date\">Submitted ".$note['fld_datecreated']."</p>";
+				echo "<hr />";
+			}
+
+			?>
+	   	</div><!--end tab 4 contents -->
 	</div> <!-- tabs_container -->

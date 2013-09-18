@@ -43,6 +43,7 @@ class payroll_model extends Model{
 	}
 
 	function update($netid, $fld, $newval){
+		$newval = mysql_real_escape_string($newval);
 		$query = "UPDATE tbl_payroll SET ".$fld."='".$newval."' WHERE fk_netid = '".$netid."'";
 		$this->db->execute($query);
 	}

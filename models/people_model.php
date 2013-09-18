@@ -32,6 +32,7 @@ class people_model extends Model{
 
 	//update(): updates the specified fld with a new value for the row given by the netid.
 	function update($netid, $fld, $newval){
+		$newval = mysql_real_escape_string($newval);
 		$query = "UPDATE tbl_people SET ".$fld."='".$newval."' WHERE pk_netid = '".$netid."'";
 		$this->db->execute($query);
 	}

@@ -77,3 +77,16 @@ th{
 #quizCompleted{
 	cursor:pointer;
 }
+
+.note_title{
+	font-weight:bold;
+}
+.note_content{
+
+}
+.note_date{
+	font-style:italic;
+}
+#btnAddNote{
+	margin-bottom:1em;
+}

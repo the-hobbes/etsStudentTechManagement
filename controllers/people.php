@@ -27,6 +27,7 @@ class People extends Controller{
 				$data['application'] = $this->application_model->getApplicationByNetid($netid);
 				$data['payroll'] = $this->payroll_model->getPayrollByNetId($netid);
 				$data['quizzes'] = $this->quiz_model->getQuizzesByNetid($netid);
+				$data['notes'] = $this->notes_model->getNotes($netid);
 				$this->view->render("view_profile", $data);
 			}
 			else{
@@ -109,6 +110,14 @@ class People extends Controller{
 		$netid = $person['pk_netid'];
 
 		$this->quiz_model->addQuizToEmployee($netid, $newval);
+	}
+
+	function AddNote(){
+		$netid=$_POST['netid'];
+		$txtNoteTitle=$_POST['txtNoteTitle'];
+		$txtNoteContent=$_POST['txtNoteContent'];
+
+		$this->notes_model->addNote($netid, $txtNoteTitle, $txtNoteContent);
 	}
 
 	//return quizzes this person has yet to take
