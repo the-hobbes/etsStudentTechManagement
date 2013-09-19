@@ -90,3 +90,7 @@ th{
 #btnAddNote{
 	margin-bottom:1em;
 }
+.deleteQuiz{ /*The delete quiz link on people/profile/netid#quizzes page*/
+	color:red;
+	cursor:pointer;
+}

@@ -9,6 +9,7 @@
 	$hashkkey = $person['fld_hashkey']; 
 
 	echo "<h4>".$data['person']['fld_firstname']." ".$data['person']['fld_lastname']." - ".$person['pk_netid']."</h4>";
+	echo "<input type=\"hidden\" id=\"txtNetId\" value=\"".$person['pk_netid']."\" />";
 ?>	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -77,7 +78,7 @@
 
 
 
-
+			//Add a note 
 			$("#AddNote").modal({
 				show:false
 			});
@@ -111,7 +112,39 @@
 				}
 
 			});
+			//end note add
+
+			//Remove quiz 
+			$(".deleteQuiz").click(function(){
+
+				siteURL = $("#siteURL").attr('value');
+				quiz = $(this).attr("id");
+				netid = $("#txtNetId").val();
+				option = confirm("Are you sure you want remove quiz \'" + quiz + "\' from user " + netid +"?");
+
+
+				if(option){
+		  			var request = $.ajax({
+				        url: siteURL + "people/removeQuiz",
+				        type: 'POST',
+						data: {
+							netid:netid,
+							quiz:quiz
+						},
+						dataType: 'text'
+				    });
+			        // success callback
+				    request.done(function (response, textStatus, jqXHR){
+				        // update the form
+				        console.log(response);
+				        
+				        location.reload();
+				    });
+				}//if option e
+
 		
+			});
+			//end removal of quiz
 
 		}); // end document ready
 
@@ -429,7 +462,7 @@
 			  <div class="modal-body">
 			  	<label for="txtNoteTitle">Note Title</label>
 			    <input id="txtNoteTitle" type="text" name="txtNoteTitle" /> <br />
-			    <input type="hidden" id="txtNetId" value="<?php echo $person['pk_netid'] ?>" />
+			    
 
 			    <label for="txtNoteContent">Note Content</label>
 			    <textarea style="width:80%; height:5em" id="txtNoteContent" name="txtNoteContent"></textarea>
@@ -457,17 +490,13 @@
 				<?php 
 
 					if(sizeof($avail_quizzes)<>0){
-						// retrieve and display all quizzes
+					
+						// retrieve and display all incomplete quizzes
 						echo "<select id='selectQuiz' name='selectQuiz'>";
-						foreach($avail_quizzes as $quiz){
-							print_r($quiz);			
+						foreach($avail_quizzes as $quiz){		
 							echo "<option value=". $quiz .">". $quiz."</option>";
-
-
 						}
 						echo "</select>";
-						// echo " <span id=\"".$person['fld_hashkey']."\" class=\"editQuiz\"></span>";
-			
 						
 						echo "<br />";
 						echo "<input type=\"hidden\" value=\"".$person['pk_netid']."\" name=\"netid\" />";
@@ -483,11 +512,13 @@
 			<table class="table table-striped">
 		  		<tr>
 		  			<th>Completed Quizzes</th>
+		  			<th></th>
 		  		</tr>
 				  <?php
 				  	foreach($quizzes as $quiz){
 				  		echo "<tr>
 				  				<td>".$quiz['fk_quiz']."</td>
+				  				<td><a class=\"deleteQuiz\" id=\"".$quiz['fk_quiz']."\">remove quiz</a></td>
 				  			  </tr>
 				  		";	
 				  	}
