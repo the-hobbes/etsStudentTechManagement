@@ -3,6 +3,7 @@
 	$application = $data['application'];
 	$payroll = $data['payroll'];
 	$quizzes = $data['quizzes'];
+	$avail_quizzes = $data['avail_quizzes']; //The available quizzes that the user hasnt taken
 	$notes = $data['notes'];
 
 	$hashkkey = $person['fld_hashkey']; 
@@ -70,6 +71,10 @@
 			if(tab == "notes"){
 				$('#tabNotes a').tab('show');	
 			}
+			if(tab == "quizzes"){
+				$('#tabQuizzes a').tab('show');	
+			}
+
 
 
 
@@ -190,6 +195,7 @@
 			<li id="tabApplication" class="tab" rel="#tab_3_contents"><a href="#application"><h3>Application</h3></a></li> 
 
 			<li id="tabNotes" class="tab" rel="#tab_4_contents"><a href="#notes"><h3>Notes</h3></a></li> 
+			<li id="tabQuizzes" class="tab" rel="#tab_5_contents"><a href="#quizzes"><h3>Quizzes</h3></a></li> 
 			<div class="clear"></div>
 		</ul> <!-- nav tabs -->
 
@@ -330,66 +336,6 @@
 					<td id="<?php echo $person['fld_hashkey'].".fld_confagreement.tbl_payroll" ?>" name= "derp" class="editDD"><?php echo $payroll['fld_confagreement'] ?></td>
 				</tr>
 
-				
-				<tr>
-					<td>Quizes Done</td>
-					<!-- one td to display the current quizzes -->
-					<td class="">						
-						
-
-					
-						<a href="#quizPopout" id="btnQuizPopout" role="button" class="btn" data-toggle="modal">View Completed Quizzes</a>
-						<div id="quizPopout" class="modal hide fade">
-						  <div class="modal-header">
-						    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						    <h3><?php echo $person['pk_netid'] ?>&apos;s Completed Quizzes</h3>
-						  </div>
-						  <div class="modal-body">
-						  	<table>
-						  		<tr>
-						  			<th>Quiz Name</th>
-						  		</tr>
-						  <?php
-						  	foreach($quizzes as $quiz){
-						  		echo "<tr>
-						  				<td>".$quiz['fk_quiz']."</td>
-						  			  </tr>
-						  		";	
-						  	}
-						  ?>		
-							</table>
-						  </div>
-						  <div class="modal-footer">
-						    <a href="#" data-dismiss="modal" class="btn">Close</a>
-						  </div>
-						</div>
-					
-						<?php echo "<span id=\"".$person['fld_hashkey']."\"  style=\"display: inline\" class=\"editQuiz\">Add Quiz</span>"; ?>
-
-						
-						<!--<form id="quizForm">
-							<?php 
-								// retrieve and display all quizzes
-								echo "<select id='quizzes' name='quizzes'>";
-								$i=0;
-								foreach($quizzes as $quiz){			
-									echo "<option value=". $quiz['fk_quiz'] .">". $quiz['fk_quiz'] ."</option>";
-								}
-								echo "</select>";
-								// echo " <span id=\"".$person['fld_hashkey']."\" class=\"editQuiz\"></span>";
-							?>
-							<br>
-							<input type="text" id="newQuizName" name="newQuizName">
-							<br>
-							<input type="button" onclick="remove_quiz()" value="Remove">
-							<input type="button" onclick="add_quiz()" value="Add">
-						</form>-->
-					</td>
-					<!-- one td to add a quiz -->
-					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
-					<!-- one td to remove a quiz -->
-					<!-- <td id="<?php echo $person['fld_hashkey'].".fld_quizzesdone.tbl_payroll" ?>" class="edit"><?php echo $payroll['fld_quizzesdone'] ?></td> -->
-				</tr>
 			
 			</table>
 			<!-- end payroll tab -->
@@ -504,4 +450,49 @@
 
 			?>
 	   	</div><!--end tab 4 contents -->
+
+   		<div id="tab_5_contents" class="tab_contents">
+			<p>Select a quiz from the dropdown, then click &quot;Add Quiz&quot; to mark quiz as completed.</p>
+			<form id="frmAddQuiz" action="<?php echo siteURL("people/addQuiz") ?>" method="post">
+				<?php 
+
+					if(sizeof($avail_quizzes)<>0){
+						// retrieve and display all quizzes
+						echo "<select id='selectQuiz' name='selectQuiz'>";
+						foreach($avail_quizzes as $quiz){
+							print_r($quiz);			
+							echo "<option value=". $quiz .">". $quiz."</option>";
+
+
+						}
+						echo "</select>";
+						// echo " <span id=\"".$person['fld_hashkey']."\" class=\"editQuiz\"></span>";
+			
+						
+						echo "<br />";
+						echo "<input type=\"hidden\" value=\"".$person['pk_netid']."\" name=\"netid\" />";
+						echo "<input type=\"submit\"  value=\"Add Quiz\">";
+					}else{
+						echo "<p style=\"font-style:italic\">No available quizzes to add</p>";
+					}
+
+
+					?>
+			</form>
+
+			<table class="table table-striped">
+		  		<tr>
+		  			<th>Completed Quizzes</th>
+		  		</tr>
+				  <?php
+				  	foreach($quizzes as $quiz){
+				  		echo "<tr>
+				  				<td>".$quiz['fk_quiz']."</td>
+				  			  </tr>
+				  		";	
+				  	}
+				  ?>		
+			</table>
+		
+   		</div><!--end tab quizzes -->
 	</div> <!-- tabs_container -->

@@ -27,6 +27,7 @@ class People extends Controller{
 				$data['application'] = $this->application_model->getApplicationByNetid($netid);
 				$data['payroll'] = $this->payroll_model->getPayrollByNetId($netid);
 				$data['quizzes'] = $this->quiz_model->getQuizzesByNetid($netid);
+				$data['avail_quizzes'] = $this->quiz_model->getRemainingQuizzes($netid);
 				$data['notes'] = $this->notes_model->getNotes($netid);
 				$this->view->render("view_profile", $data);
 			}
@@ -102,14 +103,14 @@ class People extends Controller{
 
 	//add a quiz that the employee has taken
 	function addQuiz(){
+		print_r($post);
 		// echo "got to server side add quiz";
-		$hashkey = $_POST['elementid'];
-		$newval = $_POST['newval'];
+		$quiz = $_POST['selectQuiz'];
+		$netid = $_POST['netid'];
 
-		$person = $this->people_model->getPersonByHashkey($hashkey);
-		$netid = $person['pk_netid'];
+		$this->quiz_model->addQuizToEmployee($netid, $quiz);
 
-		$this->quiz_model->addQuizToEmployee($netid, $newval);
+		header('Location:'.siteURL("people/profile/".$netid."#quizzes"));
 	}
 
 	function AddNote(){
