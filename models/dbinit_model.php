@@ -203,6 +203,8 @@ class dbinit_model extends Model{
 		$date=date("Y-m-d H:i:s");         
 		$this->db->execute("insert into tbl_peoplenotes values('mftoth', '', 'Late', 'Michael was late on 9/16/2013 to his helpline shift. 3rd time this semester', '".$date."')");
 		$this->db->execute("insert into tbl_peoplenotes values('mftoth', '', 'Excellent Ticket', 'Michael did a fabulous job with ticket #6578.', '2013-09-17 10:30:11')");
+		$this->db->execute("insert into tbl_peoplenotes values('ccaldwell', '', 'Custom Application', 'Working with us to build a  custom web application', '2013-09-16 10:30:11')");
+		$this->db->execute("insert into tbl_peoplenotes values('ccaldwell', '', 'WOOH', 'Just awesome', '2013-09-17 10:30:11')");
 
 	}
 	

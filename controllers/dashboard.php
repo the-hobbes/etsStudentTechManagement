@@ -11,6 +11,8 @@ class dashboard extends Controller{
 	function addquiz(){
 		$newquiz=$_POST['txtQuiz'];
 		$this->db->execute("INSERT INTO tbl_quizzes VALUES('".$newquiz."')");
+
+		header('Location: '. siteURL('dashboard#quizzes'));
 	}
 
 }
